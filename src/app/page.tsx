@@ -8,14 +8,29 @@ export default function Home() {
         <div className="hero-content text-center w-full flex flex-col items-center px-4">
           <div className="w-full max-w-xs sm:max-w-md md:max-w-xl">
             <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold break-words">
-              🚀 Automatiza tus procesos o sigue perdiendo $5,000+ mensuales
+              <span
+                style={{
+                  display: "inline-block",
+                  animation: "shake 1.2s infinite ease-in-out",
+                  transformOrigin: "60% 60%",
+                }}
+              >
+                🚀
+              </span>{" "}
+              Automatiza tus procesos o sigue perdiendo{" "}
+              <span className="text-amber-400 font-extrabold">$5,000+</span>{" "}
+              mensuales
             </h1>
             <h2 className="py-4 md:py-6 text-base sm:text-lg md:text-2xl break-words">
-              Soluciones de IA que reducen 70% tus tareas operativas y software
-              a medida para escalar sin límites.
+              <span className="text-amber-400 font-bold">Soluciones de IA</span>{" "}
+              que reducen <span className="text-green-400 font-bold">70%</span>{" "}
+              tus tareas operativas y software a medida para escalar sin
+              límites.
             </h2>
             <p className="py-4 md:py-6 text-sm sm:text-base md:text-lg break-words">
-              ¡Diagnóstico GRATIS de automatización!
+              ¡Diagnóstico{" "}
+              <span className="text-green-400 font-bold">GRATIS</span> de
+              automatización!
             </p>
             <button className="btn btn-primary w-full md:w-auto">
               Get Started

@@ -35,7 +35,7 @@ export default function Nav() {
         {/* Logo centrado en móviles */}
         <a className="btn btn-ghost text-l absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
           <Image
-            src="/guayoyoSvg.svg"
+            src="/guayoyoSvgGold.svg"
             width={100}
             height={100}
             alt="Menu Icon"
