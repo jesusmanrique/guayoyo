@@ -8,7 +8,7 @@ export default function Beneficios() {
     >
       {/* Contenedor para el título alineado a la izquierda */}
       <div className="w-full md:w-1/3 flex flex-col justify-start mb-6 md:mb-0">
-        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold break-words text-left">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold break-words text-left text-amber-400">
           Beneficios
         </h2>
         <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-left mt-2 ">
@@ -16,7 +16,7 @@ export default function Beneficios() {
         </h3>
         <p className="text-sm sm:text-base md:text-lg text-left mt-2">
           {" "}
-          <span className="text-amber-400 font-bold">
+          <span className="text-green-400 font-bold">
             Reduce los costes operativos y elimina tareas repetitivas
           </span>{" "}
           con soluciones inteligentes que mejoran la eficiencia y la precisión
