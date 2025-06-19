@@ -1,23 +1,16 @@
+import Image from "next/image";
 export default function Nav() {
   return (
     <div className="navbar bg-base-100 shadow-sm fixed top-0 left-0 w-full max-w-full z-50 flex justify-between items-center">
       <div className="navbar-start flex-1">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+            <Image
+              src="/guayoyoSvg.svg"
+              width={100}
+              height={100}
+              alt="Menu Icon"
+            />
           </div>
           <ul
             tabIndex={0}
@@ -44,7 +37,12 @@ export default function Nav() {
         </div>
         {/* Logo centrado en móviles */}
         <a className="btn btn-ghost text-l absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
-          daisyUI
+          <Image
+            src="/guayoyoSvg.svg"
+            width={100}
+            height={100}
+            alt="Menu Icon"
+          />
         </a>
       </div>
       <div className="navbar-center hidden lg:flex flex-1 justify-center">
