@@ -1,16 +1,13 @@
 import Image from "next/image";
+import { GiHamburgerMenu } from "react-icons/gi";
+
 export default function Nav() {
   return (
     <div className="navbar bg-base-100 shadow-sm fixed top-0 left-0 w-full max-w-full z-50 flex justify-between items-center">
       <div className="navbar-start flex-1">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <Image
-              src="/guayoyoSvg.svg"
-              width={100}
-              height={100}
-              alt="Menu Icon"
-            />
+            <GiHamburgerMenu />
           </div>
           <ul
             tabIndex={0}
