@@ -1,5 +1,19 @@
 import ChatbotWidget from "@/components/ChatbotWidget";
 import Nav from "@/components/Nav";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Servicios de Automatización | Guayoyo",
+  description:
+    "Descubre nuestras soluciones de IA para optimizar procesos empresariales",
+  alternates: {
+    canonical: "https://wwww.guayoyoa.tech",
+  },
+  openGraph: {
+    title: "Servicios de Automatización | Guayoyo",
+    description: "Soluciones avanzadas de IA para tu negocio",
+  },
+};
 
 export default function Home() {
   return (
