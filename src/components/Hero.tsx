@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <div
@@ -31,16 +33,16 @@ export default function Hero() {
             <span className="text-green-400 font-bold">GRATIS</span> de
             automatización!
           </p>
-          <a
+          <Link
             className="btn btn-primary w-full sm:w-[220px] px-6 py-2 flex items-center justify-center text-base md:text-lg mx-auto"
             style={{
               animation: "shake 1.2s infinite ease-in-out",
               transformOrigin: "60% 60%",
             }}
-            href="#Servicios"
+            href="/contacto"
           >
             Quiero Automatizar
-          </a>
+          </Link>
         </div>
       </div>
     </div>

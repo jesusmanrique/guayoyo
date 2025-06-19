@@ -78,7 +78,7 @@ export default function Nav() {
                 <Link href="/blog">Blog</Link>
               </li>
               <li>
-                <Link href="/demo">Quienes somos</Link>
+                <Link href="/quienes-somos">Quienes somos</Link>
               </li>
             </>
           )}

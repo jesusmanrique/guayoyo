@@ -41,7 +41,7 @@ export default function Footer() {
           Blog
         </Link>
         <Link
-          href="/demo"
+          href="/quienes-somos"
           className="hover:text-amber-400 transition text-base"
         >
           Quienes Somos
