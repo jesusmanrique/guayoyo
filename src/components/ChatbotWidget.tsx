@@ -44,13 +44,15 @@ const ChatbotWidget = () => {
             "titleAvatarSrc": "https://www.svgrepo.com/show/339963/chat-bot.svg",
             "welcomeMessage": "Hola! 👋 Soy Sofia, tu asistente de IA en GUAYOYO.TECH",
             "backgroundColor": "#fefdfc",
-            "height": 400,
+            "height": 450,
             "width": 400,
             "fontSize": 16,
             "starterPrompts": [
-              "Quiero Atuomatizar!!!"
+              "Quiero Atuomatizar!!!",
+              "¿Cómo puedo ahorrar dinero con IA?",
+              "¿Qué es GUAYOYO.TECH?",
             ],
-            "starterPromptFontSize": 15,
+            "starterPromptFontSize": 12,
             "renderHTML": false,
             "clearChatOnReload": false,
             "botMessage": {
@@ -99,7 +101,7 @@ const ChatbotWidget = () => {
     };
   }, []);
 
-  return null; // This component doesn't render anything visible
+  return null;
 };
 
 export default ChatbotWidget;
