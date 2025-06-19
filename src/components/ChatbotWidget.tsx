@@ -24,7 +24,7 @@ const ChatbotWidget = () => {
             "customIconBorderRadius": 4,
             "autoWindowOpen": {
               "autoOpen": false,
-              "openDelay": 2
+              "openDelay": 1
             },
             "borderRadius": "circle"
           },
@@ -43,33 +43,27 @@ const ChatbotWidget = () => {
             "title": "Habla con Sofia",
             "titleAvatarSrc": "https://www.svgrepo.com/show/339963/chat-bot.svg",
             "welcomeMessage": "Hola! 👋 Soy Sofia, tu asistente de IA en GUAYOYO.TECH",
-            "backgroundColor": "#fefdfc",
+            "backgroundColor": "#d3d2d1",
             "height": 450,
             "width": 400,
             "fontSize": 16,
-            "starterPrompts": [
-              "Quiero Atuomatizar!!!",
-              "¿Cómo puedo ahorrar dinero con IA?",
-              "¿Qué es GUAYOYO.TECH?",
-            ],
-            "starterPromptFontSize": 12,
             "renderHTML": false,
             "clearChatOnReload": false,
             "botMessage": {
               "backgroundColor": "#005078",
-              "textColor": "#ffffff",
+              "textColor": "#fefdfc",
               "showAvatar": true,
-              "avatarSrc": "https://www.svgrepo.com/show/334455/bot.svg"
+              "avatarSrc": "https://www.svgrepo.com/show/339963/chat-bot.svg"
             },
             "userMessage": {
               "backgroundColor": "#3abdf7",
               "textColor": "#050505",
               "showAvatar": true,
-              "avatarSrc": "https://www.svgrepo.com/show/532363/user-alt-1.svg"
+              "avatarSrc": "https://www.svgrepo.com/show/526700/user-circle.svg"
             },
             "textInput": {
-              "placeholder": "Type your query",
-              "backgroundColor": "#ffffff",
+              "placeholder": "Escribe un mensaje...",
+              "backgroundColor": "#fefdfc",
               "textColor": "#1e1e1f",
               "sendButtonColor": "#3abdf7",
               "maxChars": 50,

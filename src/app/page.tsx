@@ -42,7 +42,7 @@ export default function Home() {
                 transformOrigin: "60% 60%",
               }}
             >
-              Get Started
+              Quiero Automatizar
             </button>
           </div>
         </div>
