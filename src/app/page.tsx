@@ -17,9 +17,10 @@ export default function Home() {
               >
                 🚀
               </span>{" "}
-              Automatiza tus procesos o sigue perdiendo{" "}
-              <span className="text-amber-400 font-extrabold">$5,000+</span>{" "}
-              mensuales
+              Automatiza tus procesos o sigue perdiendo
+              <span className="text-amber-400 font-extrabold">
+                $5,000+ mensuales
+              </span>
             </h1>
             <h2 className="py-4 md:py-6 text-base sm:text-lg md:text-2xl break-words">
               <span className="text-amber-400 font-bold">Soluciones de IA</span>{" "}
@@ -32,7 +33,14 @@ export default function Home() {
               <span className="text-green-400 font-bold">GRATIS</span> de
               automatización!
             </p>
-            <button className="btn btn-primary w-full md:w-auto">
+            <button
+              className="btn btn-primary w-full md:w-auto"
+              style={{
+                display: "inline-block",
+                animation: "shake 1.2s infinite ease-in-out",
+                transformOrigin: "60% 60%",
+              }}
+            >
               Get Started
             </button>
           </div>
