@@ -2,15 +2,15 @@ import Image from "next/image";
 import { ReactNode } from "react";
 
 type CardProps = {
-  image: string;
-  title: string;
-  text: ReactNode;
-  button: string;
+  readonly image: string;
+  readonly title: string;
+  readonly text: ReactNode;
+  readonly button: string;
 };
 
 export default function Card({ image, title, text, button }: CardProps) {
   return (
-    <div className="card bg-base-300 w-96 h-[500px] flex flex-col shadow-sm">
+    <div className="card bg-base-300 w-96 h-[500px] flex flex-col shadow-sm transition-transform duration-300 hover:-rotate-3">
       <figure>
         <Image src={image} alt={title} width={200} height={200} />
       </figure>

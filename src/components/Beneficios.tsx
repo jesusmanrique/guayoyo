@@ -4,7 +4,7 @@ export default function Beneficios() {
   return (
     <section
       id="beneficios"
-      className="flex flex-col md:flex-row gap-6 justify-center items-center py-6 mx-10"
+      className="flex flex-col md:flex-row gap-6 justify-center items-center py-5 mx-10 "
     >
       {/* Contenedor para el título alineado a la izquierda */}
       <div className="w-full md:w-1/3 flex flex-col justify-start mb-6 md:mb-0">

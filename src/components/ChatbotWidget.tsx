@@ -10,7 +10,7 @@ const ChatbotWidget = () => {
     script.innerHTML = `
       import Chatbot from "https://cdn.n8nchatui.com/v1/embed.js";
       Chatbot.init({
-        "n8nChatUrl": "https://jsmo94.app.n8n.cloud/webhook/28235335-26d7-4986-8c84-7d87278f97ed/chat",
+        "n8nChatUrl": "https://guayoyo-n8n.wwpige.easypanel.host/webhook/28235335-26d7-4986-8c84-7d87278f97ed/chat",
         "metadata": {},
         "theme": {
           "button": {
@@ -66,14 +66,14 @@ const ChatbotWidget = () => {
               "backgroundColor": "#fefdfc",
               "textColor": "#1e1e1f",
               "sendButtonColor": "#3abdf7",
-              "maxChars": 50,
+              "maxChars": 255,
               "maxCharsWarningMessage": ".",
-              "autoFocus": false,
+              "autoFocus": true,
               "borderRadius": 6,
               "sendButtonBorderRadius": 50
             },
             "voiceInputConfig": {
-              "enabled": true,
+              "enabled": false,
               "maxRecordingTime": 15,
               "recordingNotSupportedMessage": "To record audio, use modern browsers like Chrome or Firefox that support audio recording"
             }

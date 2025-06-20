@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-base-300 py-6 mt-10 flex flex-col items-center">
+    <footer className="w-full bg-base-300 py-6 mt-8 flex flex-col items-center">
       <div className="flex gap-6 mb-2">
         <a
           href="https://instagram.com/guayoyoagencia"
