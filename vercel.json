@@ -5,10 +5,10 @@
       "has": [
         {
           "type": "host",
-          "value": "guayoyo-jesusmanriques-projects.vercel.app" // Reemplaza [proyecto]
+          "value": "guayoyo-jesusmanriques-projects.vercel.app"
         }
       ],
-      "destination": "https://guayoyo.tech/:path*", // Tu dominio real
+      "destination": "https://guayoyo.tech",
       "permanent": true
     }
   ]
