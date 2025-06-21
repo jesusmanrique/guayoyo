@@ -1,6 +1,6 @@
 export default function page() {
   return (
-    <main className="max-w-3xl mx-auto px-4 py-10">
+    <main className="max-w-3xl pt-20 mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold mb-6">Política de Privacidad</h1>
       <p className="mb-4">
         En Guayoyo, valoramos y respetamos tu privacidad. Esta Política de
