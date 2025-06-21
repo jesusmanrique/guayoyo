@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "guayoyo-jesusmanriques-projects.vercel.app" // Reemplaza [proyecto]
+        }
+      ],
+      "destination": "https://guayoyo.tech/:path*", // Tu dominio real
+      "permanent": true
+    }
+  ]
+}
