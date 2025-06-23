@@ -18,6 +18,6 @@ export async function generateStaticParams(
   return { props: { token: code ?? null } };
 }
 
-export default function Page({ token }: { token: string | null }) {
+export default function Page({ token }: { readonly token: string }) {
   return <div>Página de redirección...{token}</div>;
 }
