@@ -1,23 +1,9 @@
-interface GenerateStaticParamsContext {
-  query: {
-    code?: string;
-    [key: string]: unknown;
-  };
-}
+"use client";
+import { useSearchParams } from "next/navigation";
 
-interface GenerateStaticParamsResult {
-  props: {
-    token: string | null;
-  };
-}
+export default function Page() {
+  const searchParams = useSearchParams();
+  const token = searchParams.get("code");
 
-export async function generateStaticParams(
-  context: GenerateStaticParamsContext
-): Promise<GenerateStaticParamsResult> {
-  const { code } = context.query;
-  return { props: { token: code ?? null } };
-}
-
-export default function Page({ token }: { readonly token: string }) {
   return <div>Página de redirección...{token}</div>;
 }
