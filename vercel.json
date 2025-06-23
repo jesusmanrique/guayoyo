@@ -6,6 +6,10 @@
         {
           "type": "host",
           "value": "guayoyo-jesusmanriques-projects.vercel.app"
+        },
+        {
+          "type": "host",
+          "value": "guayoyo-git-master-jesusmanriques-projects.vercel.app"
         }
       ],
       "destination": "https://guayoyo.tech",

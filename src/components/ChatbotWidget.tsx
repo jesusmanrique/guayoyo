@@ -3,7 +3,6 @@ import { useEffect } from "react";
 
 const ChatbotWidget = () => {
   useEffect(() => {
-    // Dynamically load the chatbot script
     const script = document.createElement("script");
     script.type = "module";
     script.defer = true;
