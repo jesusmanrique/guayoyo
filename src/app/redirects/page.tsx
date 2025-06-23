@@ -1,18 +1,23 @@
-"use client";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+interface GenerateStaticParamsContext {
+  query: {
+    code?: string;
+    [key: string]: unknown;
+  };
+}
 
-export default function Page() {
-  const router = useRouter();
-  useEffect(() => {
-    // Esto se ejecuta cuando el query está listo
-    if (router.isReady) {
-      const { code } = router.query;
-      // code = el valor de tu token
-      console.log("Token:", code);
-      // Puedes usar "code" aquí como token
-    }
-  }, [router.isReady, router.query]);
+interface GenerateStaticParamsResult {
+  props: {
+    token: string | null;
+  };
+}
 
-  return <div>Página de redirección...</div>;
+export async function generateStaticParams(
+  context: GenerateStaticParamsContext
+): Promise<GenerateStaticParamsResult> {
+  const { code } = context.query;
+  return { props: { token: code ?? null } };
+}
+
+export default function Page({ token }: { token: string | null }) {
+  return <div>Página de redirección...{token}</div>;
 }
