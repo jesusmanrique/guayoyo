@@ -1,5 +1,8 @@
 import Link from "next/link";
-import { SignedOut, SignUpButton } from "@clerk/nextjs";
+import { SignedOut } from "@clerk/nextjs";
+{
+  /* , SignUpButton  */
+}
 import {
   FaUserPlus,
   FaUserEdit,
@@ -195,11 +198,10 @@ export default function Proceso() {
             ¡Da el primer paso y automatiza tu negocio hoy!
           </p>
           <SignedOut>
-            <SignUpButton mode="modal">
-              <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition">
-                Regístrate gratis
-              </button>
-            </SignUpButton>
+            <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition">
+              Regístrate gratis
+            </button>
+            {/** <SignUpButton mode="modal"></SignUpButton>*/}
           </SignedOut>
           <Link
             href="#contacto"
