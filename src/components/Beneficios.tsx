@@ -35,7 +35,7 @@ export default function Beneficios() {
       </div>
       <div className="w-full md:w-2/3 flex flex-col md:flex-row gap-3 justify-center items-center z-10 px-5">
         <Card
-          image="/guayoyoSvgGold.svg"
+          image="/ahorra-tiempo-y-dinero.png"
           title="Ahorra Tiempo y Dinero"
           text={
             <>
@@ -48,10 +48,9 @@ export default function Beneficios() {
               que tu empresa trabaje de forma más inteligente, no más dura.
             </>
           }
-          button="Elimina costos ocultos"
         />
         <Card
-          image="/guayoyoSvgGold.svg"
+          image="/productividad.png"
           title="Productividad sin Límites"
           text={
             <>
@@ -65,10 +64,9 @@ export default function Beneficios() {
               confiable.
             </>
           }
-          button="Aceleración operativa 10x"
         />
         <Card
-          image="/guayoyoSvgGold.svg"
+          image="/tec-a-medida.png"
           title="Tecnología a tu Medida"
           text={
             <>
@@ -77,12 +75,9 @@ export default function Beneficios() {
               </span>{" "}
               En Guayoyo.tech creamos y configuramos herramientas personalizadas
               para que todo funcione según tu forma de trabajar. Transformamos
-              tus procesos en ventajas competitivas, con soporte experto y
-              acompañamiento total. Empieza hoy y experimenta el cambio real en
-              tu empresa.
+              tus procesos en ventajas competitivas, con soporte experto.
             </>
           }
-          button="Reduce errores en un 99%"
         />
       </div>
     </section>

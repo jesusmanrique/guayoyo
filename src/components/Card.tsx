@@ -1,25 +1,27 @@
-import Image from "next/image";
 import { ReactNode } from "react";
 
 type CardProps = {
   readonly image: string;
   readonly title: string;
   readonly text: ReactNode;
-  readonly button: string;
 };
 
-export default function Card({ image, title, text, button }: CardProps) {
+export default function Card({ image, title, text }: CardProps) {
   return (
-    <div className="card bg-base-200 w-96 h-[500px] flex flex-col shadow-sm transition-transform duration-300 hover:-rotate-3">
-      <figure>
-        <Image src={image} alt={title} width={200} height={200} />
-      </figure>
-      <div className="card-body flex flex-col flex-1">
-        <h2 className="card-title">{title}</h2>
+    <div className="card bg-base-200 w-96 h-[500px] flex flex-col shadow-sm overflow-hidden">
+      <div
+        className="w-full h-48 bg-center bg-cover rounded-t-xl"
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          width: "100%",
+          height: "100%",
+        }}
+      />
+      <div className="flex flex-col flex-1 p-6">
+        <h2 className="card-title mb-2">{title}</h2>
         <p className="flex-1">{text}</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">{button}</button>
-        </div>
       </div>
     </div>
   );

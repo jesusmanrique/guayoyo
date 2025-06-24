@@ -59,45 +59,96 @@ export default function Servicios() {
 
           <div className="space-y-8">
             <div className="bg-base-200 rounded-xl p-6 shadow hover:shadow-lg transition">
-              <h3 className="text-2xl font-semibold mb-2 text-primary">
-                Atención y Categorización Automatizada de Clientes
-              </h3>
-              <p className="text-base-content">
-                <span className="font-semibold text-success">
-                  WhatsApp e Instagram:
-                </span>{" "}
-                Automatiza respuestas, canaliza consultas y segmenta clientes de
-                forma inteligente para una atención rápida y profesional en
-                todas tus conversaciones.
-              </p>
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div
+                  className="hidden md:block h-56 rounded-xl bg-center bg-cover flex-shrink-0"
+                  style={{
+                    backgroundImage: "url('/atencion.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    width: "35%",
+                    paddingRight: "1.5rem",
+                    margin: "-1.5rem",
+                  }}
+                />
+                {/* Texto a la derecha */}
+                <div className="flex-1  ml-4">
+                  <h3 className="text-2xl font-semibold mb-2 text-primary">
+                    Atención y Categorización Automatizada de Clientes
+                  </h3>
+                  <p className="text-base-content">
+                    <span className="font-semibold text-success">
+                      WhatsApp e Instagram:
+                    </span>{" "}
+                    Automatiza respuestas, canaliza consultas y segmenta
+                    clientes de forma inteligente para una atención rápida y
+                    profesional en todas tus conversaciones.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="bg-base-200 rounded-xl p-6 shadow hover:shadow-lg transition">
-              <h3 className="text-2xl font-semibold mb-2 text-primary">
-                Chatbots Inteligentes
-              </h3>
-              <p className="text-base-content">
-                <span className="font-semibold text-success">
-                  Telegram y Chat Embebidos:{" "}
-                </span>{" "}
-                Instala asistentes virtuales en tus canales favoritos para
-                responder consultas, capturar contactos y ofrecer soporte 24/7,
-                sin complicaciones técnicas.
-              </p>
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                {/* Texto a la izquierda */}
+                <div className="flex-1 md:mr-4">
+                  <h3 className="text-2xl font-semibold mb-2 text-primary">
+                    Chatbots Inteligentes
+                  </h3>
+                  <p className="text-base-content">
+                    <span className="font-semibold text-success">
+                      Telegram y Chat Embebidos:
+                    </span>{" "}
+                    Instala asistentes virtuales en tus canales favoritos para
+                    responder consultas, capturar contactos y ofrecer soporte
+                    24/7, sin complicaciones técnicas.
+                  </p>
+                </div>
+                {/* Imagen a la derecha en desktop, ocupa 35% del ancho, toca el borde derecho */}
+                <div
+                  className="hidden md:block h-56 rounded-xl bg-center bg-cover flex-shrink-0"
+                  style={{
+                    backgroundImage: "url('/chatbot.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    width: "35%",
+                    paddingLeft: "1.5rem",
+                    marginRight: "-1.5rem",
+                  }}
+                />
+              </div>
             </div>
 
             <div className="bg-base-200 rounded-xl p-6 shadow hover:shadow-lg transition">
-              <h3 className="text-2xl font-semibold mb-2 text-primary">
-                Integraciones de Gestión Empresarial
-              </h3>
-              <p className="text-base-content">
-                <span className="font-semibold text-success">
-                  Notion y Jira:{" "}
-                </span>{" "}
-                Sincroniza tareas, proyectos y flujos de trabajo mediante
-                automatizaciones directas con estas plataformas líderes. Reduce
-                errores, ahorra tiempo y ordena tu operación como nunca antes.
-              </p>
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                {/* Imagen a la izquierda en desktop, ocupa 35% del ancho, toca el borde izquierdo */}
+                <div
+                  className="hidden md:block h-56 rounded-xl bg-center bg-cover flex-shrink-0"
+                  style={{
+                    backgroundImage: "url('/gestion.png')", // Cambia el nombre si tu imagen es diferente
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    width: "35%",
+                    paddingRight: "1.5rem",
+                    margin: "-1.5rem",
+                  }}
+                />
+                {/* Texto a la derecha */}
+                <div className="flex-1 ml-4">
+                  <h3 className="text-2xl font-semibold mb-2 text-primary">
+                    Integraciones de Gestión Empresarial
+                  </h3>
+                  <p className="text-base-content">
+                    <span className="font-semibold text-success">
+                      Notion y Jira:
+                    </span>{" "}
+                    Sincroniza tareas, proyectos y flujos de trabajo mediante
+                    automatizaciones directas con estas plataformas líderes.
+                    Reduce errores, ahorra tiempo y ordena tu operación como
+                    nunca antes.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -200,20 +251,37 @@ export default function Servicios() {
           </p>
 
           <div className="bg-base-200 rounded-xl p-6 shadow hover:shadow-lg transition mb-8">
-            <h3 className="text-2xl font-semibold mb-2 text-primary">
-              Automatiza lo que imagines
-            </h3>
-            <p className="text-base-content">
-              Desde integraciones avanzadas con tus plataformas existentes,
-              hasta bots inteligentes, reportes automáticos, manejo de datos,
-              seguimiento de clientes y cualquier otro proceso que desees
-              optimizar:{" "}
-              <span className="font-semibold text-success">
-                podemos implementar prácticamente cualquier automatización para
-                los flujos de tu empresa
-              </span>{" "}
-              .
-            </p>
+            <div className="flex flex-col md:flex-row items-center gap-6">
+              {/* Texto a la izquierda */}
+              <div className="flex-1 md:mr-4">
+                <h3 className="text-2xl font-semibold mb-2 text-primary">
+                  Automatiza lo que imagines
+                </h3>
+                <p className="text-base-content">
+                  Desde integraciones avanzadas con tus plataformas existentes,
+                  hasta bots inteligentes, reportes automáticos, manejo de
+                  datos, seguimiento de clientes y cualquier otro proceso que
+                  desees optimizar:{" "}
+                  <span className="font-semibold text-success">
+                    podemos implementar prácticamente cualquier automatización
+                    para los flujos de tu empresa
+                  </span>
+                  .
+                </p>
+              </div>
+              {/* Imagen a la derecha en desktop, ocupa 35% del ancho, toca el borde derecho */}
+              <div
+                className="hidden md:block h-100 rounded-xl bg-center bg-cover flex-shrink-0"
+                style={{
+                  backgroundImage: "url('/automatiza.png')", // Cambia el nombre si tu imagen es diferente
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  width: "35%",
+                  paddingLeft: "1.5rem",
+                  margin: "-1.5rem",
+                }}
+              />
+            </div>
           </div>
 
           <ul className="list-disc list-inside text-base-content mb-12 space-y-2">
@@ -256,31 +324,48 @@ export default function Servicios() {
         className="max-w-5xl mx-auto w-full px-4 bg-base-300 rounded-xl shadow-md p-8 z-10 relative"
       >
         <div className="bg-base-200 rounded-xl p-6 shadow hover:shadow-lg transition mb-8">
-          <h2 className="text-2xl font-semibold mb-2 text-primary">
-            Consultoría en Inteligencia Artificial
-          </h2>
-          <p className="text-base-content mb-4">
-            <span className="text-info font-semibold">
-              Da el salto hacia el futuro con nuestra consultoría experta en IA.
-            </span>
-            En Guayoyo.tech, no solo analizamos y optimizamos tus procesos:
-            diseñamos contigo una estrategia robusta de automatización que
-            realmente impacta tus resultados. Identificamos oportunidades
-            reales, implementamos soluciones a medida y te acompañamos en cada
-            etapa del cambio.{" "}
-            <span className="block mt-2 font-semibold text-success">
-              {" "}
-              Asegura la competitividad y la innovación de tu empresa desde hoy.
-              Permítenos ser tus aliados estratégicos y juntos llevaremos tu
-              negocio al siguiente nivel.
-            </span>
-          </p>
-          <Link
-            href="/contacto"
-            className="inline-block px-6 py-2 bg-primary text-white font-semibold rounded-lg shadow hover:bg-primary/80 transition"
-          >
-            Agenda tu consultoría ahora
-          </Link>
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            {/* Imagen a la izquierda en desktop, ocupa 35% del ancho, toca el borde izquierdo */}
+            <div
+              className="hidden md:block h-100 rounded-xl bg-center bg-cover flex-shrink-0"
+              style={{
+                backgroundImage: "url('/consultoria.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                width: "35%",
+                paddingRight: "1.5rem",
+                margin: "-1.5rem",
+              }}
+            />
+            {/* Texto a la derecha */}
+            <div className="flex-1 ml-4">
+              <h2 className="text-2xl font-semibold mb-2 text-primary">
+                Consultoría en Inteligencia Artificial
+              </h2>
+              <p className="text-base-content mb-4">
+                <span className="text-info font-semibold">
+                  Da el salto hacia el futuro con nuestra consultoría experta en
+                  IA.
+                </span>
+                En Guayoyo.tech, no solo analizamos y optimizamos tus procesos:
+                diseñamos contigo una estrategia robusta de automatización que
+                realmente impacta tus resultados. Identificamos oportunidades
+                reales, implementamos soluciones a medida y te acompañamos en
+                cada etapa del cambio.
+                <span className="block mt-2 font-semibold text-success">
+                  Asegura la competitividad y la innovación de tu empresa desde
+                  hoy. Permítenos ser tus aliados estratégicos y juntos
+                  llevaremos tu negocio al siguiente nivel.
+                </span>
+              </p>
+              <Link
+                href="/contacto"
+                className="inline-block px-6 py-2 bg-primary text-white font-semibold rounded-lg shadow hover:bg-primary/80 transition"
+              >
+                Agenda tu consultoría ahora
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>
