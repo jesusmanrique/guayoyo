@@ -61,7 +61,7 @@ export default function Servicios() {
             <div className="bg-base-200 rounded-xl p-6 shadow hover:shadow-lg transition">
               <div className="flex flex-col md:flex-row items-center gap-6">
                 <div
-                  className="hidden md:block h-56 rounded-xl bg-center bg-cover flex-shrink-0"
+                  className="hidden md:block h-100 rounded-xl bg-center bg-cover flex-shrink-0"
                   style={{
                     backgroundImage: "url('/atencion.png')",
                     backgroundSize: "cover",
@@ -106,7 +106,7 @@ export default function Servicios() {
                 </div>
                 {/* Imagen a la derecha en desktop, ocupa 35% del ancho, toca el borde derecho */}
                 <div
-                  className="hidden md:block h-56 rounded-xl bg-center bg-cover flex-shrink-0"
+                  className="hidden md:block h-100 rounded-xl bg-center bg-cover flex-shrink-0"
                   style={{
                     backgroundImage: "url('/chatbot.png')",
                     backgroundSize: "cover",
@@ -123,7 +123,7 @@ export default function Servicios() {
               <div className="flex flex-col md:flex-row items-center gap-6">
                 {/* Imagen a la izquierda en desktop, ocupa 35% del ancho, toca el borde izquierdo */}
                 <div
-                  className="hidden md:block h-56 rounded-xl bg-center bg-cover flex-shrink-0"
+                  className="hidden md:block h-100 rounded-xl bg-center bg-cover flex-shrink-0"
                   style={{
                     backgroundImage: "url('/gestion.png')", // Cambia el nombre si tu imagen es diferente
                     backgroundSize: "cover",

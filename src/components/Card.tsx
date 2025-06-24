@@ -8,9 +8,9 @@ type CardProps = {
 
 export default function Card({ image, title, text }: CardProps) {
   return (
-    <div className="card bg-base-200 w-96 h-[500px] flex flex-col shadow-sm overflow-hidden">
+    <div className="card bg-base-200 w-96 h-[600px] hover:h-[610px] flex flex-col shadow-sm overflow-hidden transition-all duration-300">
       <div
-        className="w-full h-48 bg-center bg-cover rounded-t-xl"
+        className="w-full h-100 bg-center bg-cover rounded-t-xl"
         style={{
           backgroundImage: `url(${image})`,
           backgroundSize: "cover",
