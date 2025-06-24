@@ -113,7 +113,7 @@ export default function Servicios() {
                     backgroundPosition: "center",
                     width: "35%",
                     paddingLeft: "1.5rem",
-                    marginRight: "-1.5rem",
+                    margin: "-1.5rem",
                   }}
                 />
               </div>
