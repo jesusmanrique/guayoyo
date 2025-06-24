@@ -19,58 +19,67 @@ export default function Beneficios() {
           Beneficios
         </h2>
         <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-left mt-2 ">
-          Optimiza, Acelera y Automatiza
+          Crece sin límites: Simplifica, Ahorra, y Gana Más
         </h3>
         <p className="text-sm sm:text-base md:text-lg text-left mt-2">
           {" "}
           <span className="text-info font-bold">
-            Reduce los costes operativos y elimina tareas repetitivas
+            Optimiza tu negocio sin complicaciones:
           </span>{" "}
-          con soluciones inteligentes que mejoran la eficiencia y la precisión
-          en cada proceso.
+          con Guayoyo.tech automatizas tareas, reduces costos y aumentas tu
+          productividad desde el primer día. Somos tu aliado experto en
+          soluciones inteligentes y personalizadas, para que te enfoques en
+          crecer mientras nosotros nos encargamos del resto. ¡Empieza hoy y
+          lleva tu empresa al siguiente nivel!
         </p>
       </div>
       <div className="w-full md:w-2/3 flex flex-col md:flex-row gap-3 justify-center items-center z-10 px-5">
         <Card
           image="/guayoyoSvgGold.svg"
-          title="Transforma gastos operativos en ganancias"
+          title="Ahorra Tiempo y Dinero"
           text={
             <>
               <span className="text-info font-bold">
-                Automatiza procesos manuales con IA
+                Reduce automáticamente tareas repetitivas y operativas que
+                consumen recursos y energía.
               </span>{" "}
-              Desde gestión documental hasta atención al cliente, nuestro
-              sistema ejecuta lo rutinario mientras tu equipo se enfoca en
-              crecimiento estratégico.
+              Con Guayoyo.tech, inviertes menos en procesos y más en
+              crecimiento, logrando resultados visibles desde el primer mes. Haz
+              que tu empresa trabaje de forma más inteligente, no más dura.
             </>
           }
           button="Elimina costos ocultos"
         />
         <Card
           image="/guayoyoSvgGold.svg"
-          title="Velocidad operativa extrema"
+          title="Productividad sin Límites"
           text={
             <>
               <span className="text-info font-bold">
-                respuestas inmediatas, decisiones en tiempo real.
+                Descubre el verdadero potencial de tu negocio liberando a tu
+                equipo de tareas manuales.
               </span>{" "}
-              Nuestra IA elimina atascos en ventas, inventario y soporte con
-              automatización 24/7.
+              Nuestras soluciones inteligentes se adaptan a lo que necesitas,
+              permitiéndote dedicarte a lo que de verdad importa: vender,
+              innovar y crecer. Da el salto hacia una gestión eficiente y
+              confiable.
             </>
           }
           button="Aceleración operativa 10x"
         />
         <Card
           image="/guayoyoSvgGold.svg"
-          title="Menos Errores Humanos"
+          title="Tecnología a tu Medida"
           text={
             <>
               <span className="text-info font-bold">
-                Precisión quirúrgica en tus operaciones.
+                Olvídate de los softwares genéricos y complicados.
               </span>{" "}
-              Sistemas automatizados que procesan datos, decisiones y documentos
-              con exactitud absoluta, eliminando el riesgo de errores humanos
-              para siempre.
+              En Guayoyo.tech creamos y configuramos herramientas personalizadas
+              para que todo funcione según tu forma de trabajar. Transformamos
+              tus procesos en ventajas competitivas, con soporte experto y
+              acompañamiento total. Empieza hoy y experimenta el cambio real en
+              tu empresa.
             </>
           }
           button="Reduce errores en un 99%"

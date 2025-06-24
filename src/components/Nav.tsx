@@ -178,7 +178,7 @@ export default function Nav() {
                 </Link>
               </li>
               <li>
-                <UserButton />
+                <UserButton showName />
               </li>
             </SignedIn>
             {pathname === "/" ? (

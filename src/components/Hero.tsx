@@ -19,23 +19,14 @@ export default function Hero() {
       <div className="hero-content text-center w-full flex flex-col items-center px-4 relative z-10">
         <div className="w-full max-w-xs sm:max-w-md md:max-w-xl">
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold break-words">
-            <span
-              style={{
-                display: "inline-block",
-                animation: "shake 1.2s infinite ease-in-out",
-                transformOrigin: "60% 60%",
-              }}
-            >
-              🚀
-            </span>{" "}
-            Convierte pérdidas en ganancias: automatiza tus procesos y ahorra
-            más de{" "}
+            🚀 El futuro de tu negocio es simple, ágil y rentable{" "}
             <span className="text-info font-extrabold">$5,000+ mensuales</span>
           </h1>
           <h2 className="py-4 md:py-6 text-base sm:text-lg md:text-2xl break-words">
-            <span className="text-info font-bold">Soluciones de IA</span> que
-            reducen <span className="text-success font-bold">70%</span> tus
-            tareas operativas y software a medida para escalar sin límites.
+            <span className="text-info font-bold">
+              Transforma tareas complicadas en resultados automáticos.{" "}
+            </span>
+            Somos tu socio tecnológico para que tú solo pienses en crecer.
           </h2>
           <p className="py-4 md:py-6 text-sm sm:text-base md:text-lg break-words">
             ¡Diagnóstico <span className="text-success font-bold">GRATIS</span>{" "}
@@ -43,10 +34,6 @@ export default function Hero() {
           </p>
           <Link
             className="btn btn-primary w-full sm:w-[220px] px-6 py-2 flex items-center justify-center text-base md:text-lg mx-auto"
-            style={{
-              animation: "shake 1.2s infinite ease-in-out",
-              transformOrigin: "60% 60%",
-            }}
             href="/contacto"
           >
             Quiero Automatizar
