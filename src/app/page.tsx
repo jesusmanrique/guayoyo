@@ -1,7 +1,9 @@
 import ChatbotWidget from "@/components/ChatbotWidget";
 import Hero from "@/components/Hero";
+import Servicios from "@/components/Servicios";
 import type { Metadata } from "next";
 import Beneficios from "@/components/Beneficios";
+import Proceso from "@/components/Proceso";
 
 export const metadata: Metadata = {
   title: "Servicios de Automatización | Guayoyo",
@@ -21,6 +23,8 @@ export default function Home() {
     <>
       <Hero />
       <Beneficios />
+      <Servicios />
+      <Proceso />
       <ChatbotWidget />
     </>
   );

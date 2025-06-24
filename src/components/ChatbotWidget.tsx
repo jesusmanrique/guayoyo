@@ -13,11 +13,11 @@ const ChatbotWidget = () => {
         "metadata": {},
         "theme": {
           "button": {
-            "backgroundColor": "#ffba00",
+            "backgroundColor": "oklch(75% 0.14 254)",
             "right": 20,
             "bottom": 20,
             "size": 50,
-            "iconColor": "#343437",
+            "iconColor": "oklch(16% 0 0)",
             "customIconSrc": "https://www.svgrepo.com/show/339963/chat-bot.svg",
             "customIconSize": 66,
             "customIconBorderRadius": 4,
@@ -30,8 +30,8 @@ const ChatbotWidget = () => {
           "tooltip": {
             "showTooltip": false,
             "tooltipMessage": "",
-            "tooltipBackgroundColor": "#fff9f6",
-            "tooltipTextColor": "#1c1c1c",
+            "tooltipBackgroundColor": "oklch(75% 0.14 254)",
+            "tooltipTextColor": "oklch(16% 0 0)",
             "tooltipFontSize": 15
           },
           "chatWindow": {
@@ -42,29 +42,29 @@ const ChatbotWidget = () => {
             "title": "Habla con Sofia",
             "titleAvatarSrc": "https://www.svgrepo.com/show/339963/chat-bot.svg",
             "welcomeMessage": "Hola! 👋 Soy Sofia, tu asistente de IA en GUAYOYO.TECH",
-            "backgroundColor": "#d3d2d1",
-            "height": 450,
+            "backgroundColor": "oklch(24.1% 0.008 285.82)",
+            "height": 350,
             "width": 400,
             "fontSize": 16,
             "renderHTML": false,
             "clearChatOnReload": false,
             "botMessage": {
-              "backgroundColor": "#005078",
-              "textColor": "#fefdfc",
+              "backgroundColor": "oklch(85% 0.01 285.82)",
+              "textColor": "oklch(17% 0.019 260)",
               "showAvatar": true,
               "avatarSrc": "https://www.svgrepo.com/show/339963/chat-bot.svg"
             },
             "userMessage": {
-              "backgroundColor": "#3abdf7",
-              "textColor": "#050505",
+              "backgroundColor": "oklch(75% 0.14 254)",
+              "textColor": "oklch(16% 0 0)",
               "showAvatar": true,
               "avatarSrc": "https://www.svgrepo.com/show/526700/user-circle.svg"
             },
             "textInput": {
               "placeholder": "Escribe un mensaje...",
-              "backgroundColor": "#fefdfc",
-              "textColor": "#1e1e1f",
-              "sendButtonColor": "#3abdf7",
+              "backgroundColor": "oklch(85% 0.01 285.82)",
+              "textColor": "oklch(16% 0 0)",
+              "sendButtonColor": "oklch(72% 0.19 50)",
               "maxChars": 255,
               "maxCharsWarningMessage": ".",
               "autoFocus": true,
