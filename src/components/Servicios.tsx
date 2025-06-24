@@ -1,4 +1,7 @@
-import { SignedIn, SignedOut, SignUpButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
+{
+  /* , SignUpButton */
+}
 import Link from "next/link";
 
 export default function Servicios() {
@@ -163,11 +166,10 @@ export default function Servicios() {
               esfuerzo manual.
             </p>
             <SignedOut>
-              <SignUpButton mode="modal">
-                <button className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition">
-                  ¡Registrate y comienza hoy!
-                </button>
-              </SignUpButton>
+              <button className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition">
+                ¡Registrate y comienza hoy!
+              </button>
+              {/*<SignUpButton mode="modal"></SignUpButton>*/}
             </SignedOut>
             <SignedIn>
               <Link
