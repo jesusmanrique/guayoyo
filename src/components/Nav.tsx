@@ -120,7 +120,8 @@ export default function Nav() {
                   Procesos
                 </a>
               </li>
-              <li>
+              {/** 
+               * <li>
                 <SignUpButton mode="modal">
                   <button className="btn btn-secondary ml-5">Registro</button>
                 </SignUpButton>
@@ -130,6 +131,7 @@ export default function Nav() {
                   <button className="btn btn-neutral ml-2">Login</button>
                 </SignInButton>
               </li>
+              */}
             </SignedOut>
           ) : (
             <SignedOut>
@@ -246,7 +248,8 @@ export default function Nav() {
                   </a>
                 </li>
                 <li className="flex flex-col gap-2 px-4">
-                  <SignUpButton mode="modal">
+                  {/* SignUpButton and SignInButton components are used to handle user registration and 
+                                    <SignUpButton mode="modal">
                     <button
                       className="btn btn-secondary w-full"
                       onClick={() => setMenuOpen(false)}
@@ -262,6 +265,8 @@ export default function Nav() {
                       Login
                     </button>
                   </SignInButton>
+                  
+                  */}
                 </li>
               </SignedOut>
             ) : (
@@ -290,6 +295,7 @@ export default function Nav() {
                   </Link>
                 </li>
                 <li className="flex flex-col gap-2 px-4">
+                  {/* SignUpButton and SignInButton components are used to handle user registration 
                   <SignUpButton mode="modal">
                     <button
                       className="btn btn-secondary w-full"
@@ -306,6 +312,8 @@ export default function Nav() {
                       Login
                     </button>
                   </SignInButton>
+                  
+                  and*/}
                 </li>
               </SignedOut>
             )}

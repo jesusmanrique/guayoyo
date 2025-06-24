@@ -8,7 +8,7 @@ type CardProps = {
 
 export default function Card({ image, title, text }: CardProps) {
   return (
-    <div className="card bg-base-200 w-96 h-[600px] hover:h-[610px] flex flex-col shadow-sm overflow-hidden transition-all duration-300">
+    <div className="card bg-base-200 w-96 h-[600px] flex flex-col shadow-sm overflow-hidden">
       <div
         className="w-full h-100 bg-center bg-cover rounded-t-xl"
         style={{
