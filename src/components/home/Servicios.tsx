@@ -47,7 +47,7 @@ export default function Servicios() {
               llevamos la automatización al siguiente nivel integrando
               inteligencia artificial en cada proceso.
             </span>{" "}
-            Ofrecemos soluciones plug and play listas para usar, desarrollos
+            Ofrecemos soluciones listas para usar, desarrollos
             personalizados que se adaptan a los retos específicos de tu empresa
             y consultoría experta para una transformación digital efectiva.
             Moderniza tu negocio, maximiza la eficiencia y libérate de tareas
@@ -164,7 +164,7 @@ export default function Servicios() {
               ¡Implementación en 24 horas!
             </div>
             <p className="text-base-content text-center mb-6">
-              Conecta cualquiera de estas soluciones plug and play, empieza a
+              Conecta cualquiera de estas soluciones listas para usar, empieza a
               disfrutar de la automatización desde el primer día y deja en manos
               de la inteligencia artificial lo que antes requería horas de
               esfuerzo manual.

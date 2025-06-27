@@ -26,24 +26,6 @@ export default function StepUsuario({ data, setData, onValidationChange, clerkFu
     if (e.target.value) setCargoError("");
   }
 
-  function validateForm(): boolean {
-    let valid = true;
-    const documentoMayus = data.documento.toUpperCase();
-    if (!validateDocumento(documentoMayus)) {
-      setDocError("Debe iniciar por V, E o P seguido de 2 a 9 números. Ej: V123");
-      valid = false;
-    } else {
-      setDocError("");
-    }
-    if (!data.cargo) {
-      setCargoError("Debes seleccionar un cargo.");
-      valid = false;
-    } else {
-      setCargoError("");
-    }
-    return valid;
-  }
-
   const isFormValid = Boolean(data.documento && data.cargo && !docError && !cargoError);
 
   useEffect(() => {

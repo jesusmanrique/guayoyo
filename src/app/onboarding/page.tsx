@@ -6,21 +6,10 @@ import StepPago from "@/components/onboarding/StepPago";
 import StepPlanes from "@/components/onboarding/StepPlanes";
 import { useUser } from "@clerk/nextjs";
 
-const ALL_INSTANCIAS = [
-  { label: "WhatsApp", value: "whatsapp" },
-  { label: "Instagram", value: "instagram" },
-  { label: "Telegram", value: "telegram" },
-  { label: "Notion", value: "notion" },
-  { label: "Jira", value: "jira" },
-  { label: "Chatbot Web", value: "chatbot" },
-];
-
-const steps = [
-  { label: "Datos Usuario" },
-  { label: "Datos Empresa" },
-  { label: "Seleccionar Plan" },
-  { label: "Pago" },
-];
+// Definir los tipos de datos para cada parte del estado
+interface UsuarioData { documento: string; cargo: string; }
+interface EmpresaData { nombre: string; rif: string; sector: string; tamano: string; direccion: string; }
+interface PagoData { nombre: string; tarjeta: string; vencimiento: string; cvc: string; }
 
 export default function Onboarding() {
   const { user } = useUser();
@@ -41,10 +30,10 @@ export default function Onboarding() {
   const allValid = validSteps.every(Boolean);
 
   // Handlers para actualizar cada parte del estado
-  const setUsuario = (data: any) => setOnboardingData((prev) => ({ ...prev, usuario: data }));
-  const setEmpresa = (data: any) => setOnboardingData((prev) => ({ ...prev, empresa: data }));
+  const setUsuario = (data: UsuarioData) => setOnboardingData((prev) => ({ ...prev, usuario: data }));
+  const setEmpresa = (data: EmpresaData) => setOnboardingData((prev) => ({ ...prev, empresa: data }));
   const setPlan = (plan: string) => setOnboardingData((prev) => ({ ...prev, plan }));
-  const setPago = (data: any) => setOnboardingData((prev) => ({ ...prev, pago: data }));
+  const setPago = (data: PagoData) => setOnboardingData((prev) => ({ ...prev, pago: data }));
 
   return (
     <div className="min-h-screen bg-base-100/10 pt-20 pb-4 flex flex-col items-center">
@@ -117,7 +106,15 @@ export default function Onboarding() {
 }
 
 // Componente AccordionPanel
-function AccordionPanel({ open, onClick, label, valid, children }: any) {
+type AccordionPanelProps = {
+  open: boolean;
+  onClick: () => void;
+  label: string;
+  valid: boolean;
+  children: React.ReactNode;
+};
+
+function AccordionPanel({ open, onClick, label, valid, children }: AccordionPanelProps) {
   return (
     <div className="border border-white/20 rounded-xl bg-white/5 shadow-md">
       <button

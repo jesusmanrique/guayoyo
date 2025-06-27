@@ -1,7 +1,8 @@
-import { StepPagoProps } from "@/interfaces/stepProps.interface";
+import type { StepBaseProps } from "@/interfaces/stepProps.interface";
+import type { PagoStepData } from "@/interfaces/stepProps.interface";
 import { useEffect } from "react";
 
-export default function StepPago({ data, setData, onValidationChange }: Readonly<StepPagoProps>) {
+export default function StepPago({ data, setData, onValidationChange }: Readonly<StepBaseProps<PagoStepData>>) {
   const isFormValid = Boolean(
     data.nombre && data.tarjeta && data.vencimiento && data.cvc
   );

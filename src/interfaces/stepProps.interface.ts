@@ -43,17 +43,9 @@ export interface StepUsuarioProps extends StepBaseProps<UsuarioStepData> {
   clerkFullName: string;
 }
 
-export interface StepEmpresaProps extends StepBaseProps<EmpresaStepData> {}
-
-export interface StepInstanciasProps extends StepBaseProps<InstanciasStepData> {}
-
 export interface StepCredencialesProps extends StepBaseProps<CredencialesStepData> {
   instancias: { label: string; value: string }[];
 }
-
-export interface StepPagoProps extends StepBaseProps<PagoStepData> {}
-
-export interface StepPlanesProps extends StepBaseProps<string> {}
 
 export interface StepProps {
   readonly onNext: () => void;

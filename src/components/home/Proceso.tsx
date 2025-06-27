@@ -5,16 +5,13 @@ import {
   FaUserPlus,
   FaUserEdit,
   FaBuilding,
-  FaCogs,
-  FaKey,
   FaCreditCard,
   FaCheckCircle,
   FaRegClock,
-  FaCalendarAlt,
   FaFileInvoiceDollar,
   FaMoneyCheckAlt,
   FaWpforms,
-  FaBrain,
+  FaBrain
 } from "react-icons/fa";
 
 const listasParaUsarSteps = [

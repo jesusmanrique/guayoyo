@@ -1,4 +1,4 @@
-import { StepPlanesProps } from "@/interfaces/stepProps.interface";
+import type { StepBaseProps } from "@/interfaces/stepProps.interface";
 import { useEffect } from "react";
 
 const PLANES = [
@@ -7,7 +7,7 @@ const PLANES = [
   { label: "Premium", value: "premium", descripcion: "Todo incluido, máxima personalización y soporte prioritario." },
 ];
 
-export default function StepPlanes({ data, setData, onValidationChange }: Readonly<StepPlanesProps>) {
+export default function StepPlanes({ data, setData, onValidationChange }: Readonly<StepBaseProps<string>>) {
   const isFormValid = Boolean(data);
 
   useEffect(() => {

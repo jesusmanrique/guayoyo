@@ -1,7 +1,8 @@
-import { StepEmpresaProps } from "@/interfaces/stepProps.interface";
+import type { StepBaseProps } from "@/interfaces/stepProps.interface";
+import type { EmpresaStepData } from "@/interfaces/stepProps.interface";
 import { useEffect } from "react";
 
-export default function StepEmpresa({ data, setData, onValidationChange }: Readonly<StepEmpresaProps>) {
+export default function StepEmpresa({ data, setData, onValidationChange }: Readonly<StepBaseProps<EmpresaStepData>>) {
   const isFormValid = Boolean(
     data.nombre && data.rif && data.sector && data.tamano && data.direccion
   );
