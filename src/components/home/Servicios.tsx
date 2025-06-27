@@ -31,8 +31,11 @@ export default function Servicios() {
       <div className="max-w-5xl mx-auto py-16 w-full px-4 flex flex-col gap-12 z-20 relative">
         {/* Título y descripción */}
         <div className="mb-8 text-center animate-slide-in-up">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-info glow-text">
-            Soluciones Inteligentes en Automatización
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-info">
+            Nuestros{" "}
+            <span className="text-success">
+              Servicios
+            </span>
           </h1>
           <p className="text-xl md:text-2xl font-bold mb-2 animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
             Tecnología Plug & Play, Automatizaciones Personalizadas y
@@ -40,7 +43,7 @@ export default function Servicios() {
           </p>
           <p className="text-base md:text-lg text-base-content/80 animate-slide-in-up" style={{ animationDelay: '0.4s' }}>
             En Guayoyo.tech,{" "}
-            <span className="text-success glow-text">
+            <span className="text-success">
               llevamos la automatización al siguiente nivel integrando
               inteligencia artificial en cada proceso.
             </span>{" "}
@@ -53,8 +56,8 @@ export default function Servicios() {
         </div>
         {/* Plug & Play */}
         <div id="outOfTheBox" className=" rounded-xl py-32 animate-slide-in-up" style={{ animationDelay: '0.6s' }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-info glow-text">
-            Soluciones Plug and Play
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-info">
+            Listas para Usar
           </h2>
           <p className="text-lg md:text-xl mb-10 text-base-content">
             Automatiza, conecta y crece de inmediato. Descubre nuestras
@@ -157,8 +160,8 @@ export default function Servicios() {
           </div>
 
           <div className="mt-12 flex flex-col items-center animate-slide-in-up" style={{ animationDelay: '1.4s' }}>
-            <div className="text-center text-xl font-medium mb-4 text-success glow-text">
-              ¿Listo para transformar tu negocio?
+            <div className="text-center text-xl font-medium mb-4 text-success">
+              ¡Implementación en 24 horas!
             </div>
             <p className="text-base-content text-center mb-6">
               Conecta cualquiera de estas soluciones plug and play, empieza a
@@ -185,7 +188,7 @@ export default function Servicios() {
         </div>
         {/* Métricas destacadas */}
         <div className="rounded-xl flex flex-col animate-slide-in-up" style={{ animationDelay: '1.6s' }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-info glow-text">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-info">
             Métricas Avanzadas
           </h2>
           <div className="flex flex-col md:flex-row justify-between items-stretch gap-8">
@@ -243,14 +246,14 @@ export default function Servicios() {
         </div>
         {/* Customizadas */}
         <div id="custom" className=" rounded-xl py-32 animate-slide-in-up" style={{ animationDelay: '2.4s' }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary glow-text">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
             Servicios de Automatización Personalizada
           </h2>
           <p className="text-lg md:text-xl mb-8 text-base-content">
             ¿Tu empresa tiene procesos únicos o retos específicos? En{" "}
-            <span className="font-semibold text-info glow-text">Guayoyo.tech</span>{" "}
+            <span className="font-semibold text-info">Guayoyo.tech</span>{" "}
             diseñamos e implementamos automatizaciones{" "}
-            <span className="font-bold glow-text">a medida</span>, adaptándonos por
+            <span className="font-bold">a medida</span>, adaptándonos por
             completo a tus flujos, sistemas y objetivos.
           </p>
 
@@ -289,8 +292,8 @@ export default function Servicios() {
           </div>
 
           <div className="mt-8 flex flex-col items-center animate-slide-in-up" style={{ animationDelay: '2.8s' }}>
-            <div className="text-center text-xl font-medium mb-4 text-success glow-text">
-              ¿Listo para innovar en tus operaciones?
+            <div className="text-center text-xl font-medium mb-4 text-success">
+              ¡Transforma tu negocio con expertos!
             </div>
             <p className="text-base-content text-center mb-6 ">
               Cuéntanos tu reto o tu idea: desarrollamos la solución perfecta a

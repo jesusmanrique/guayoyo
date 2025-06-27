@@ -17,7 +17,7 @@ import {
   FaBrain,
 } from "react-icons/fa";
 
-const plugAndPlaySteps = [
+const listasParaUsarSteps = [
   {
     icon: <FaUserPlus className="text-2xl text-primary" />,
     title: "Regístrate:",
@@ -36,16 +36,10 @@ const plugAndPlaySteps = [
       "Agrega la información clave para adaptar nuestras soluciones a tu negocio.",
   },
   {
-    icon: <FaCogs className="text-2xl text-success" />,
-    title: "Selecciona las instancias que usarás:",
+    icon: <FaFileInvoiceDollar className="text-2xl text-warning" />,
+    title: "Selecciona tu plan:",
     description:
-      "Elige fácilmente los módulos y servicios que tu empresa necesita. ¡todo bajo control!",
-  },
-  {
-    icon: <FaKey className="text-2xl text-warning" />,
-    title: "Configura las credenciales correspondientes:",
-    description:
-      "Asegura tus conexiones y servicios ingresando las credenciales requeridas de manera segura.",
+      "Elige el plan que mejor se adapte a tus necesidades y presupuesto.",
   },
   {
     icon: <FaCreditCard className="text-2xl text-error" />,
@@ -55,55 +49,48 @@ const plugAndPlaySteps = [
   },
   {
     icon: <FaCheckCircle className="text-2xl text-success" />,
-    title: "Al procesarse el pago, estás ¡Listo!: ",
+    title: "¡Listo! Accede al dashboard:",
     description:
-      "¡Disfruta del poder de la tecnología Guayoyo.tech desde el primer momento!",
+      "Desde el dashboard podrás crear instancias y configurar credenciales según tus necesidades.",
   },
 ];
 
 const personalizadasSteps = [
   {
     icon: <FaWpforms className="text-2xl text-primary" />,
-    title: "Completa el formulario con tus datos:",
+    title: "Completa el formulario de contacto:",
     description:
-      "Facilítanos tu información de contacto y resumen de lo que deseas automatizar.",
+      "Déjanos tus datos y una breve descripción de lo que deseas automatizar.",
   },
   {
     icon: <FaBrain className="text-2xl text-info" />,
-    title: "Describe tus procesos:",
+    title: "Diagnóstico personalizado:",
     description:
-      "Cuéntanos detalladamente qué proceso(s) deseas optimizar o digitalizar.",
-  },
-  {
-    icon: <FaRegClock className="text-2xl text-info" />,
-    title:
-      "Espera a ser contactado por nuestro equipo en un lapso no mayor a 24h:",
-    description:
-      "Uno de nuestros expertos te llamará rápidamente para avanzar en tu solicitud.",
-  },
-  {
-    icon: <FaCalendarAlt className="text-2xl text-accent" />,
-    title: "Agenda una reunión donde haremos drill down de la solicitud:",
-    description:
-      "Nos reunimos contigo para entender cada detalle y asegurarnos de captar exactamente lo que necesitas.",
+      "Nuestro equipo te contactará y agendará una reunión para entender a fondo tus necesidades.",
   },
   {
     icon: <FaFileInvoiceDollar className="text-2xl text-warning" />,
-    title: "Recibe y aprueba el presupuesto:",
+    title: "Recibe y aprueba la propuesta:",
     description:
-      "Obtén nuestra propuesta personalizada y transaparente, lista para tu aprobación.",
+      "Te enviaremos una propuesta y presupuesto detallado para tu solución a medida.",
   },
   {
     icon: <FaMoneyCheckAlt className="text-2xl text-success" />,
-    title: "Cancela el 50% al iniciar tu proyecto:",
+    title: "Realiza el pago inicial:",
     description:
-      "Realiza el primer pago para comenzar a desarrollar tu automatización a medida.",
+      "Cancela el 50% para iniciar el desarrollo de tu automatización personalizada.",
+  },
+  {
+    icon: <FaRegClock className="text-2xl text-info" />,
+    title: "Desarrollo y validación:",
+    description:
+      "Trabajamos en tu solución y te mantenemos informado hasta la entrega y validación final.",
   },
   {
     icon: <FaCheckCircle className="text-2xl text-success" />,
-    title: "¡Tu automatización personalizada está en marcha!",
+    title: "¡Automatización lista!",
     description:
-      "Cuando tengas tu solución final entregada y validada, realizas el segundo pago con total confianza.",
+      "Recibe tu solución, realiza el pago final y comienza a disfrutar de los beneficios de la automatización.",
   },
 ];
 
@@ -126,7 +113,7 @@ export default function Proceso() {
         }}
       />
       <div className="relative z-20 w-full max-w-6xl mx-auto flex flex-col items-center  px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-info glow-text animate-slide-in-up">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-info animate-slide-in-up">
           ¡Descubre cómo Guayoyo.tech impulsa el futuro digital de tu empresa!
         </h2>
         <h3 className="text-2xl md:text-3xl font-bold text-center mb-2 animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
@@ -138,13 +125,13 @@ export default function Proceso() {
           al siguiente nivel:
         </p>
         <div className="grid md:grid-cols-2 gap-12 w-full">
-          {/* Plug and Play */}
+          {/* Listas para Usar */}
           <div className=" rounded-xl flex flex-col items-center animate-slide-in-left" style={{ animationDelay: '0.6s' }}>
-            <h3 className="text-2xl font-bold text-accent mb-6 glow-text">
-              Plug & Play!
+            <h3 className="text-2xl font-bold text-accent mb-6">
+              Listas para Usar!
             </h3>
             <ol className="flex flex-col gap-6 w-full">
-              {plugAndPlaySteps.map((step, i) => (
+              {listasParaUsarSteps.map((step, i) => (
                 <li
                   key={step.title}
                   className="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-4 shadow-lg group transition hover:scale-105 hover:shadow-xl hover-scale animate-fade-in-scale"
@@ -167,7 +154,7 @@ export default function Proceso() {
           </div>
           {/* Automatizaciones Personalizadas */}
           <div className=" flex flex-col items-center animate-slide-in-right" style={{ animationDelay: '0.6s' }}>
-            <h3 className="text-2xl font-bold text-accent mb-6 glow-text">
+            <h3 className="text-2xl font-bold text-accent mb-6">
               Automatizaciones Personalizadas
             </h3>
             <ol className="flex flex-col gap-6 w-full">
@@ -194,7 +181,7 @@ export default function Proceso() {
           </div>
         </div>
         <div className="mt-8 flex flex-col items-center gap-4 animate-slide-in-up" style={{ animationDelay: '1.2s' }}>
-          <p className="text-xl font-semibold text-center text-success glow-text">
+          <p className="text-xl font-semibold text-center text-success">
             ¡Da el primer paso y automatiza tu negocio hoy!
           </p>
           <SignedOut>

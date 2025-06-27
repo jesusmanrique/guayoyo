@@ -1,5 +1,6 @@
 import PrivacyPolicy from "@/components/privacy-policy/PrivacyPolicy";
 import React, { Suspense } from "react";
+import { FaShieldAlt } from "react-icons/fa";
 
 function Skeleton() {
   return (
@@ -15,7 +16,20 @@ function Skeleton() {
 }
 
 function PrivacyPolicyContent() {
-  return <PrivacyPolicy />;
+  return (
+    <section className="max-w-3xl mx-auto px-4 py-10 mt-24 mb-16 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl flex flex-col items-center animate-fade-in-up">
+      <div className="flex flex-col items-center mb-8">
+        <span className="bg-primary/20 p-4 rounded-full mb-4 shadow-lg animate-float">
+          <FaShieldAlt className="text-4xl text-primary" />
+        </span>
+        <h1 className="text-3xl md:text-4xl font-bold text-info mb-2 text-center">Política de Privacidad</h1>
+        <p className="text-base-content/80 text-center max-w-xl mb-2">Tu privacidad y la seguridad de tus datos son nuestra prioridad. Lee cómo protegemos y gestionamos tu información en Guayoyo.</p>
+      </div>
+      <div className="w-full">
+        <PrivacyPolicy />
+      </div>
+    </section>
+  );
 }
 
 export default function Page() {

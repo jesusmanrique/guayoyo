@@ -8,15 +8,18 @@ export default function Beneficios() {
     >
       <div className="max-w-6xl mx-auto w-full px-4 flex flex-col md:flex-row gap-6 justify-center items-center">
         <div className="w-full md:w-1/3 flex flex-col justify-start mb-6 md:mb-0 z-20 px-5 animate-slide-in-left">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold break-words text-left text-info glow-text">
-            Beneficios
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold break-words text-left text-info">
+            Beneficios de{" "}
+            <span className="text-info font-bold">
+              Guayoyo.tech
+            </span>
           </h2>
           <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-left mt-2 animate-slide-in-left" style={{ animationDelay: '0.2s' }}>
             Crece sin límites: Simplifica, Ahorra, y Gana Más
           </h3>
           <p className="text-sm sm:text-base md:text-lg text-left mt-2 animate-slide-in-left" style={{ animationDelay: '0.4s' }}>
             {" "}
-            <span className="text-info font-bold glow-text">
+            <span className="text-info font-bold">
               Optimiza tu negocio sin complicaciones:
             </span>{" "}
             con Guayoyo.tech automatizas tareas, reduces costos y aumentas tu

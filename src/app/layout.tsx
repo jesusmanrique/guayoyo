@@ -77,6 +77,28 @@ export default function RootLayout({
     <ClerkProvider
       appearance={{
         baseTheme: dark,
+        elements: {
+          card: "bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl p-4",
+          formButtonPrimary: "btn btn-primary font-bold hover-glow w-full mt-4",
+          headerTitle: "text-info font-bold text-2xl mb-2",
+          headerSubtitle: "text-base-content/80 mb-4",
+          socialButtonsBlockButton: "btn btn-secondary font-bold w-full mb-2",
+          footerAction: "text-base-content/60 mt-4",
+          formFieldInput: "input input-bordered bg-base-200/40 text-white w-full",
+          formFieldLabel: "text-info font-semibold mb-1",
+          formFieldErrorText: "text-error text-sm mt-1",
+          dividerText: "text-base-content/60 text-xs",
+          identityPreview: "bg-base-200/40 border border-white/20 rounded-lg p-2",
+          userButtonPopoverCard: "bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl p-4",
+          userButtonPopoverFooter: "mt-10",
+        },
+        variables: {
+          colorPrimary: "#6c63ff",
+          colorBackground: "rgba(30,30,40,0.7)",
+          colorText: "#fff",
+          borderRadius: "1rem",
+          fontSize: "1rem",
+        },
       }}
       localization={esES}
     >

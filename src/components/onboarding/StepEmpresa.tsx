@@ -1,46 +1,85 @@
-import { StepProps } from "@/interfaces/stepProps.interface";
-import { useState } from "react";
+import { StepEmpresaProps } from "@/interfaces/stepProps.interface";
+import { useEffect } from "react";
 
-export default function StepEmpresa(stepProps: Readonly<StepProps>) {
-  const [form, setForm] = useState({
-    nombre: "",
-    rif: "",
-    sector: "",
-    tamano: "",
-    direccion: "",
-  });
+export default function StepEmpresa({ data, setData, onValidationChange }: Readonly<StepEmpresaProps>) {
+  const isFormValid = Boolean(
+    data.nombre && data.rif && data.sector && data.tamano && data.direccion
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    stepProps.onNext();
-  };
+  useEffect(() => {
+    onValidationChange?.(isFormValid);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFormValid]);
 
   return (
-    <div className="text-center w-full flex flex-col items-center px-4 relative z-10">
-      <h1 className="text-l sm:text-xl md:text-l font-bold break-words mb-2">
-        Continuamos!!{" "}
-        <span className="text-primary">
-          {stepProps.userData?.full_name?.split(" ")[0] ?? ""}
-        </span>
-      </h1>
-      <p className="mb-4">Por favor completa la información asociada a tu empresa.</p>
-      <form className="w-full max-w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow flex flex-col gap-4" onSubmit={handleSubmit}>
-        <input name="nombre" value={form.nombre} onChange={handleChange} className="input input-bordered w-full" placeholder="Nombre de la empresa" required />
-        <input name="rif" value={form.rif} onChange={handleChange} className="input input-bordered w-full" placeholder="RIF" required />
-        <input name="sector" value={form.sector} onChange={handleChange} className="input input-bordered w-full" placeholder="Sector" required />
-        <select name="tamano" value={form.tamano} onChange={handleChange} className="input input-bordered w-full" required>
+    <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 md:p-6 shadow-2xl">
+      <div className="text-center mb-4">
+        <h1 className="text-lg sm:text-xl font-bold text-info mb-2">Continuamos</h1>
+        <p className="text-white/80 text-sm">Por favor completa la información asociada a tu empresa.</p>
+      </div>
+
+      <form className="flex flex-col gap-3">
+        <input 
+          name="nombre" 
+          value={data.nombre} 
+          onChange={handleChange} 
+          className="input input-bordered input-sm w-full" 
+          placeholder="Nombre de la empresa" 
+          required 
+        />
+        <input 
+          name="rif" 
+          value={data.rif} 
+          onChange={handleChange} 
+          className="input input-bordered input-sm w-full" 
+          placeholder="RIF" 
+          required 
+        />
+        <input 
+          name="sector" 
+          value={data.sector} 
+          onChange={handleChange} 
+          className="input input-bordered input-sm w-full" 
+          placeholder="Sector" 
+          required 
+        />
+        <select 
+          name="tamano" 
+          value={data.tamano} 
+          onChange={handleChange} 
+          className="select select-bordered select-sm w-full" 
+          required
+        >
           <option value="">Tamaño de la empresa</option>
           <option value="micro">Micro</option>
           <option value="pequeña">Pequeña</option>
           <option value="mediana">Mediana</option>
           <option value="grande">Grande</option>
         </select>
-        <input name="direccion" value={form.direccion} onChange={handleChange} className="input input-bordered w-full" placeholder="Dirección" required />
-        <button type="submit" className="btn btn-primary font-bold mt-2">Siguiente</button>
+        <input 
+          name="direccion" 
+          value={data.direccion} 
+          onChange={handleChange} 
+          className="input input-bordered input-sm w-full" 
+          placeholder="Dirección" 
+          required 
+        />
+
+        {/* Indicador de validación */}
+        <div className="flex items-center justify-center mt-2">
+          <div className={`w-3 h-3 rounded-full ${
+            isFormValid ? "bg-success" : "bg-base-300"
+          }`}></div>
+          <span className={`text-xs ml-2 ${
+            isFormValid ? "text-success" : "text-base-content/60"
+          }`}>
+            {isFormValid ? "Formulario válido" : "Completa todos los campos"}
+          </span>
+        </div>
       </form>
     </div>
   );

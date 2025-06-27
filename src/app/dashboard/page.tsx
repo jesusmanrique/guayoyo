@@ -28,14 +28,35 @@ function DashboardSkeleton() {
 
 function Resumen() {
   return (
-    <div>
+    <div className="w-full">
       <h2 className="text-2xl font-bold mb-4 text-info">Resumen</h2>
-      <p className="text-white/90 mb-2">Bienvenido a tu panel de control. Aquí puedes ver un resumen de tu actividad, automatizaciones activas y métricas clave.</p>
-      <ul className="list-disc list-inside text-white/80">
-        <li>Automatizaciones activas: 3</li>
-        <li>Usuarios registrados: 5</li>
-        <li>Última actividad: hace 2 horas</li>
-      </ul>
+      <p className="text-white/90 mb-6">Bienvenido a tu panel de control. Aquí puedes ver un resumen de tu actividad, automatizaciones activas y métricas clave.</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Tarjeta 1 */}
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6 flex flex-col items-center">
+          <h3 className="text-lg font-bold text-info mb-2">Actividad Reciente</h3>
+          <div className="w-full h-32 bg-base-200/40 rounded-xl mb-2 flex items-center justify-center text-base-content/60">
+            {/* Aquí irá el gráfico de actividad */}
+            <span className="text-sm">[Gráfico de actividad]</span>
+          </div>
+        </div>
+        {/* Tarjeta 2 */}
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6 flex flex-col items-center">
+          <h3 className="text-lg font-bold text-info mb-2">Automatizaciones por Canal</h3>
+          <div className="w-full h-32 bg-base-200/40 rounded-xl mb-2 flex items-center justify-center text-base-content/60">
+            {/* Aquí irá el gráfico de automatizaciones */}
+            <span className="text-sm">[Gráfico de canales]</span>
+          </div>
+        </div>
+        {/* Tarjeta 3 */}
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6 flex flex-col items-center">
+          <h3 className="text-lg font-bold text-info mb-2">Usuarios Registrados</h3>
+          <div className="w-full h-32 bg-base-200/40 rounded-xl mb-2 flex items-center justify-center text-base-content/60">
+            {/* Aquí irá el gráfico de usuarios */}
+            <span className="text-sm">[Gráfico de usuarios]</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

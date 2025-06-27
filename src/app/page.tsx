@@ -37,11 +37,11 @@ function HomeContent() {
       {showButton && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 left-6 z-50 bg-primary text-white rounded-full shadow-lg p-3 hover:bg-primary/80 transition-all"
+          className="fixed bottom-6 left-6 z-50 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full shadow-md p-2 opacity-80 hover:bg-white/20 hover:scale-105 transition-all glow-primary/30"
           aria-label="Volver al inicio"
         >
           <span className="inline-block animate-bounce-slow">
-            <FaArrowUp size={24} />
+            <FaArrowUp size={20} />
           </span>
         </button>
       )}

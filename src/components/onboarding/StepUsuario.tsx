@@ -1,13 +1,10 @@
 "use client";
-import { StepProps } from "@/interfaces/stepProps.interface";
-import { useState } from "react";
+import { StepUsuarioProps } from "@/interfaces/stepProps.interface";
+import { useEffect, useState } from "react";
 
-export default function StepUsuario(stepProps: Readonly<StepProps>) {
-  const [cargo, setCargo] = useState("");
-  const [documento, setDocumento] = useState("");
+export default function StepUsuario({ data, setData, onValidationChange, clerkFullName }: Readonly<StepUsuarioProps>) {
   const [docError, setDocError] = useState("");
   const [cargoError, setCargoError] = useState("");
-  const [supabaseError, setSupabaseError] = useState("");
 
   function validateDocumento(value: string) {
     const regex = /^[vepVEP]\d{2,9}$/;
@@ -16,168 +13,91 @@ export default function StepUsuario(stepProps: Readonly<StepProps>) {
 
   function handleDocumentoChange(e: React.ChangeEvent<HTMLInputElement>) {
     const value = e.target.value.toUpperCase();
-    setDocumento(value);
+    setData({ ...data, documento: value });
     if (value === "" || validateDocumento(value)) {
       setDocError("");
     } else {
-      setDocError(
-        "Debe iniciar por V, E o P seguido de 2 a 9 números. Ej: V123"
-      );
+      setDocError("Debe iniciar por V, E o P seguido de 2 a 9 números. Ej: V123");
     }
   }
 
-  function validateForm(documento: string, cargo: string): boolean {
-    let valid = true;
-    const documentoMayus = documento.toUpperCase();
+  function handleCargoChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    setData({ ...data, cargo: e.target.value });
+    if (e.target.value) setCargoError("");
+  }
 
+  function validateForm(): boolean {
+    let valid = true;
+    const documentoMayus = data.documento.toUpperCase();
     if (!validateDocumento(documentoMayus)) {
-      setDocError(
-        "Debe iniciar por V, E o P seguido de 2 a 9 números. Ej: V123"
-      );
+      setDocError("Debe iniciar por V, E o P seguido de 2 a 9 números. Ej: V123");
       valid = false;
     } else {
       setDocError("");
     }
-
-    if (!cargo) {
+    if (!data.cargo) {
       setCargoError("Debes seleccionar un cargo.");
       valid = false;
     } else {
       setCargoError("");
     }
-
     return valid;
   }
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  const isFormValid = Boolean(data.documento && data.cargo && !docError && !cargoError);
 
-    const documentoMayus = documento.toUpperCase();
-
-    const isValid = validateForm(documento, cargo);
-
-    if (!isValid) return;
-
-    setSupabaseError("");
-
-    const userData = {
-      full_name: stepProps.clerkFullName ?? "",
-      document: documentoMayus,
-      position: cargo,
-      email: stepProps.clerkEmail ?? "",
-    };
-
-    try {
-      const res = await fetch("/api/user", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userData),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok || !data.success) {
-        if (data.error == "23505") {
-          setSupabaseError("Cédula ya existe en nuestros registros.");
-        } else {
-          setSupabaseError(
-            "Ocurrió un error al guardar los datos. Intenta nuevamente."
-          );
-        }
-        return;
-      }
-
-      stepProps.onNext();
-    } catch (error) {
-      console.error("Error al guardar los datos:", error);
-      setSupabaseError(
-        "Ocurrió un error al guardar los datos. Intenta nuevamente."
-      );
-    }
-  }
+  useEffect(() => {
+    onValidationChange?.(isFormValid);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFormValid]);
 
   return (
-    <div className="text-center w-full flex flex-col items-center px-4 relative z-10">
-      <div className="w-full max-w-xs sm:max-w-md md:max-w-xl"></div>
-      <h1 className="text-l sm:text-xl md:text-l font-bold break-words mb-2">
-        Bienvenido!!{" "}
-        <span className="text-primary">
-          {stepProps.userData?.full_name ?? ""}
-        </span>
-      </h1>
-      <p>Por favor completa la infromacion asociada a tu usuario.</p>
-      <form
-        className="w-full max-w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow flex flex-col gap-6 mx-auto"
-        autoComplete="off"
-        noValidate
-        onSubmit={handleSubmit}
-      >
+    <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 md:p-6 shadow-2xl">
+      <div className="text-center mb-4">
+        <h1 className="text-lg sm:text-xl font-bold text-info mb-2">
+          Bienvenido{" "}
+          <span className="text-primary">{clerkFullName || "Usuario"}</span>
+        </h1>
+        <p className="text-white/80 text-sm">Por favor completa la información asociada a tu usuario.</p>
+      </div>
+      <form className="flex flex-col gap-4" autoComplete="off" noValidate>
         <div className="flex flex-col items-start">
-          <label htmlFor="documento" className="font-semibold mb-1">
-            Documento de Identidad
-          </label>
+          <label htmlFor="documento" className="font-semibold mb-1 text-white text-sm">Documento de Identidad</label>
           <input
             id="documento"
             name="documento"
             type="text"
-            className={`input input-bordered w-full ${
-              docError ? "input-error" : ""
-            }`}
+            className={`input input-bordered input-sm w-full ${docError ? "input-error" : ""}`}
             placeholder="Ej: V123456789"
-            value={documento}
+            value={data.documento}
             onChange={handleDocumentoChange}
             maxLength={10}
             autoComplete="off"
           />
-          {docError && (
-            <span className="text-xs text-error mt-1">{docError}</span>
-          )}
+          {docError && <span className="text-xs text-error mt-1">{docError}</span>}
         </div>
         <div className="flex flex-col items-start">
-          <label htmlFor="cargo" className="font-semibold mb-1">
-            Cargo en la empresa
-          </label>
+          <label htmlFor="cargo" className="font-semibold mb-1 text-white text-sm">Cargo en la empresa</label>
           <select
             id="cargo"
             name="cargo"
-            className="select select-bordered w-full"
-            value={cargo}
-            onChange={(e) => setCargo(e.target.value)}
+            className={`select select-bordered select-sm w-full ${cargoError ? "select-error" : ""}`}
+            value={data.cargo}
+            onChange={handleCargoChange}
           >
-            <option value="" disabled>
-              Selecciona tu cargo
-            </option>
+            <option value="" disabled>Selecciona tu cargo</option>
             <option value="OWNER">Dueño</option>
             <option value="IN CHARGE">Encargado</option>
             <option value="COMMUNITY MNGR">Community Manager</option>
             <option value="SALES">Vendedor</option>
           </select>
-          {cargoError && (
-            <span className="text-xs text-error mt-1">{cargoError}</span>
-          )}
+          {cargoError && <span className="text-xs text-error mt-1">{cargoError}</span>}
         </div>
-        {supabaseError && (
-          <div className="text-error text-sm font-semibold text-center mb-2">
-            {supabaseError}
-          </div>
-        )}
-        <div className="flex gap-2 mt-4">
-          {!stepProps.isFirst && (
-            <button
-              type="button"
-              className="btn btn-outline flex-1"
-              onClick={stepProps.onBack}
-            >
-              Atrás
-            </button>
-          )}
-          <button
-            type="submit"
-            className="btn btn-primary flex-1 font-bold"
-            disabled={!!docError || !!cargoError || !documento || !cargo}
-          >
-            {stepProps.isLast ? "Finalizar" : "Guardar y continuar"}
-          </button>
+        <div className="flex items-center justify-center mt-2">
+          <div className={`w-3 h-3 rounded-full ${isFormValid ? "bg-success" : "bg-base-300"}`}></div>
+          <span className={`text-xs ml-2 ${isFormValid ? "text-success" : "text-base-content/60"}`}>
+            {isFormValid ? "Formulario válido" : "Completa todos los campos"}
+          </span>
         </div>
       </form>
     </div>

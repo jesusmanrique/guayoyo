@@ -26,6 +26,8 @@ export default function Nav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const [serviciosOpen, setServiciosOpen] = useState(false);
+  const serviciosRef = useRef<HTMLLIElement>(null);
 
   // Cierra el menú al hacer click fuera
   useEffect(() => {
@@ -39,9 +41,21 @@ export default function Nav() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [menuOpen]);
 
+  // Cierra el menú de servicios al hacer click fuera
+  useEffect(() => {
+    if (!serviciosOpen) return;
+    function handleClickOutside(event: MouseEvent) {
+      if (serviciosRef.current && !serviciosRef.current.contains(event.target as Node)) {
+        setServiciosOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [serviciosOpen]);
+
   return (
     <div className="navbar bg-transparent backdrop-blur-md shadow-sm fixed top-0 left-0 w-full z-50 glow-primary">
-      <div className="flex-1">
+      <div className="flex-1 flex items-center">
         <Link className="btn btn-ghost text-xl hover-scale" href="/">
           <Image
             src="/guayoyoSvgGold.svg"
@@ -50,93 +64,55 @@ export default function Nav() {
             alt="Menu Icon"
           />
         </Link>
-      </div>
-      {/* Hamburger menu for mobile */}
-      <div className="lg:hidden flex-none">
-        <button
-          className="btn btn-square btn-ghost hover-glow"
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-label="Abrir menú"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </div>
-      {/* Desktop menu */}
-      <div className="hidden lg:flex flex-none">
-        <ul className="menu menu-horizontal px-1">
-          <SignedIn>
+        {pathname === "/" ? (
+          <ul className="menu menu-horizontal px-1 ml-2 flex items-center gap-2">
+            <li>
+              <a href="#beneficios" onClick={handleNavClick} className="hover-glow">
+                Beneficios
+              </a>
+            </li>
+            <li ref={serviciosRef} className="relative">
+              <button
+                className="hover-glow flex items-center gap-1"
+                onClick={() => setServiciosOpen((open) => !open)}
+                type="button"
+              >
+                Servicios
+                <svg className={`w-4 h-4 transition-transform ${serviciosOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              {serviciosOpen && (
+                <ul className="absolute left-0 mt-8 w-48 bg-base-200/80 backdrop-blur-xl border border-white/30 rounded-xl shadow-2xl p-2 z-50 animate-fade-in-scale">
+                  <li>
+                    <a href="#outOfTheBox" onClick={(e) => { handleNavClick(e); setServiciosOpen(false); }} className="hover-glow rounded-lg px-3 py-2 transition-colors hover:bg-primary/20">Listas para Usar</a>
+                  </li>
+                  <li>
+                    <a href="#custom" onClick={(e) => { handleNavClick(e); setServiciosOpen(false); }} className="hover-glow rounded-lg px-3 py-2 transition-colors hover:bg-primary/20">Personalizado</a>
+                  </li>
+                  <li>
+                    <a href="#consultoria" onClick={(e) => { handleNavClick(e); setServiciosOpen(false); }} className="hover-glow rounded-lg px-3 py-2 transition-colors hover:bg-primary/20">Consultoría</a>
+                  </li>
+                </ul>
+              )}
+            </li>
+            <li>
+              <a href="#procesos" onClick={handleNavClick} className="hover-glow">
+                Procesos
+              </a>
+            </li>
+          </ul>
+        ) : (
+          <ul className="menu menu-horizontal px-1 ml-2 flex items-center gap-2">
             <li>
               <Link href="/" className="hover-glow">Inicio</Link>
             </li>
-            <li>
-              <Link href="/dashboard" className="hover-glow">dashboard</Link>
-            </li>
-            <UserButton />
-          </SignedIn>
-          {pathname === "/" ? (
-            <SignedOut>
-              <li>
-                <a href="#beneficios" onClick={handleNavClick} className="hover-glow">
-                  Beneficios
-                </a>
-              </li>
-              <li>
-                <details>
-                  <summary className="hover-glow">Servicios</summary>
-                  <ul className="bg-base-100 rounded-t-none p-2 glow-secondary">
-                    <li>
-                      <a href="#outOfTheBox" onClick={handleNavClick} className="hover-glow">
-                        plug & play
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#custom" onClick={handleNavClick} className="hover-glow">
-                        Customizadas
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#consultoria" onClick={handleNavClick} className="hover-glow">
-                        Consultoria
-                      </a>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-              <li>
-                <a href="#procesos" onClick={handleNavClick} className="hover-glow">
-                  Procesos
-                </a>
-              </li>
-
-              <li>
-                <SignUpButton mode="modal">
-                  <button className="btn btn-secondary ml-5 hover-glow glow-secondary">Registro</button>
-                </SignUpButton>
-              </li>
-              <li>
-                <SignInButton mode="modal">
-                  <button className="btn btn-neutral ml-2 hover-glow">Login</button>
-                </SignInButton>
-              </li>
-            </SignedOut>
-          ) : (
-            <SignedOut>
-              <li>
-                <Link href="/" className="hover-glow">Inicio</Link>
-              </li>
+          </ul>
+        )}
+      </div>
+      {/* Enlaces a la derecha */}
+      <div className="hidden lg:flex flex-none">
+        <ul className="menu menu-horizontal px-1 items-center">
+          {pathname !== "/" && (
+            <>
               <li>
                 <Link href="/contacto" className="hover-glow">Contacto</Link>
               </li>
@@ -144,20 +120,30 @@ export default function Nav() {
                 <Link href="/blog" className="hover-glow">Blog</Link>
               </li>
               <li>
-                <Link href="/quienes-somos" className="hover-glow">Quienes somos</Link>
+                <Link href="/quienes-somos" className="hover-glow">Quienes Somos</Link>
               </li>
-              <li>
-                <SignUpButton mode="modal">
-                  <button className="btn btn-secondary ml-5 hover-glow glow-secondary">Registro</button>
-                </SignUpButton>
-              </li>
-              <li>
-                <SignInButton mode="modal">
-                  <button className="btn btn-neutral ml-2 hover-glow">Login</button>
-                </SignInButton>
-              </li>
-            </SignedOut>
+            </>
           )}
+          <SignedIn>
+            <li>
+              <Link href="/dashboard" className="btn btn-primary font-bold hover-glow ml-2">Dashboard</Link>
+            </li>
+            <li>
+              <UserButton />
+            </li>
+          </SignedIn>
+          <SignedOut>
+            <li>
+              <SignUpButton mode="modal">
+                <button className="btn btn-secondary ml-5 hover-glow glow-secondary">Registro</button>
+              </SignUpButton>
+            </li>
+            <li>
+              <SignInButton mode="modal">
+                <button className="btn btn-neutral ml-2 hover-glow">Login</button>
+              </SignInButton>
+            </li>
+          </SignedOut>
         </ul>
       </div>
       {/* Mobile dropdown menu */}
@@ -167,23 +153,13 @@ export default function Nav() {
           className="absolute top-full left-0 w-full bg-base-100 shadow-lg z-50 flex flex-col items-center lg:hidden glow-secondary animate-slide-in-up"
         >
           <ul className="menu menu-vertical w-full px-1">
-            <SignedIn>
-              <li>
-                <Link href="/" onClick={() => setMenuOpen(false)} className="hover-glow">
-                  Inicio
-                </Link>
-              </li>
-              <li>
-                <Link href="/dashboard" onClick={() => setMenuOpen(false)} className="hover-glow">
-                  dashboard
-                </Link>
-              </li>
-              <li>
-                <UserButton showName />
-              </li>
-            </SignedIn>
-            {pathname === "/" ? (
-              <SignedOut>
+            <li>
+              <Link href="/" onClick={() => setMenuOpen(false)} className="hover-glow">
+                Inicio
+              </Link>
+            </li>
+            {pathname === "/" && (
+              <>
                 <li>
                   <a
                     href="#beneficios"
@@ -197,47 +173,45 @@ export default function Nav() {
                   </a>
                 </li>
                 <li>
-                  <details>
-                    <summary className="hover-glow">Servicios</summary>
-                    <ul className="bg-base-100 rounded-t-none p-2 glow-secondary">
+                  <button
+                    className="hover-glow flex items-center gap-1 w-full text-left"
+                    onClick={() => setServiciosOpen((open) => !open)}
+                    type="button"
+                  >
+                    Servicios
+                    <svg className={`w-4 h-4 transition-transform ${serviciosOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                  </button>
+                  {serviciosOpen && (
+                    <ul className="ml-4 mt-8 w-44 bg-base-200/80 backdrop-blur-xl border border-white/30 rounded-xl shadow-2xl p-2 z-50 animate-fade-in-scale">
                       <li>
                         <a
                           href="#outOfTheBox"
-                          onClick={(e) => {
-                            handleNavClick(e);
-                            setMenuOpen(false);
-                          }}
-                          className="hover-glow"
+                          onClick={(e) => { handleNavClick(e); setServiciosOpen(false); setMenuOpen(false); }}
+                          className="hover-glow rounded-lg px-3 py-2 transition-colors hover:bg-primary/20"
                         >
-                          plug & play
+                          Listas para Usar
                         </a>
                       </li>
                       <li>
                         <a
                           href="#custom"
-                          onClick={(e) => {
-                            handleNavClick(e);
-                            setMenuOpen(false);
-                          }}
-                          className="hover-glow"
+                          onClick={(e) => { handleNavClick(e); setServiciosOpen(false); setMenuOpen(false); }}
+                          className="hover-glow rounded-lg px-3 py-2 transition-colors hover:bg-primary/20"
                         >
-                          Customizadas
+                          Personalizado
                         </a>
                       </li>
                       <li>
                         <a
                           href="#consultoria"
-                          onClick={(e) => {
-                            handleNavClick(e);
-                            setMenuOpen(false);
-                          }}
-                          className="hover-glow"
+                          onClick={(e) => { handleNavClick(e); setServiciosOpen(false); setMenuOpen(false); }}
+                          className="hover-glow rounded-lg px-3 py-2 transition-colors hover:bg-primary/20"
                         >
-                          Consultoria
+                          Consultoría
                         </a>
                       </li>
                     </ul>
-                  </details>
+                  )}
                 </li>
                 <li>
                   <a
@@ -251,75 +225,30 @@ export default function Nav() {
                     Procesos
                   </a>
                 </li>
-                <li>
-                  <SignUpButton mode="modal">
-                    <button
-                      className="btn btn-secondary w-full hover-glow glow-secondary"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Registro
-                    </button>
-                  </SignUpButton>
-                </li>
-                <li>
-                  <SignInButton mode="modal">
-                    <button
-                      className="btn btn-neutral w-full hover-glow"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Login
-                    </button>
-                  </SignInButton>
-                </li>
-              </SignedOut>
-            ) : (
-              <SignedOut>
-                <li>
-                  <Link href="/" onClick={() => setMenuOpen(false)} className="hover-glow">
-                    Inicio
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contacto" onClick={() => setMenuOpen(false)} className="hover-glow">
-                    Contacto
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog" onClick={() => setMenuOpen(false)} className="hover-glow">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/quienes-somos"
-                    onClick={() => setMenuOpen(false)}
-                    className="hover-glow"
-                  >
-                    Quienes somos
-                  </Link>
-                </li>
-                <li>
-                  <SignUpButton mode="modal">
-                    <button
-                      className="btn btn-secondary w-full hover-glow glow-secondary"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Registro
-                    </button>
-                  </SignUpButton>
-                </li>
-                <li>
-                  <SignInButton mode="modal">
-                    <button
-                      className="btn btn-neutral w-full hover-glow"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Login
-                    </button>
-                  </SignInButton>
-                </li>
-              </SignedOut>
+              </>
             )}
+            <SignedIn>
+              <li>
+                <Link href="/dashboard" onClick={() => setMenuOpen(false)} className="btn btn-primary font-bold hover-glow ml-2">
+                  Dashboard
+                </Link>
+              </li>
+              <li>
+                <UserButton showName />
+              </li>
+            </SignedIn>
+            <SignedOut>
+              <li>
+                <SignUpButton mode="modal">
+                  <button className="btn btn-secondary ml-5 hover-glow glow-secondary">Registro</button>
+                </SignUpButton>
+              </li>
+              <li>
+                <SignInButton mode="modal">
+                  <button className="btn btn-neutral ml-2 hover-glow">Login</button>
+                </SignInButton>
+              </li>
+            </SignedOut>
           </ul>
         </div>
       )}

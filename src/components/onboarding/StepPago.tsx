@@ -1,32 +1,70 @@
-import { StepProps } from "@/interfaces/stepProps.interface";
-import { useState } from "react";
+import { StepPagoProps } from "@/interfaces/stepProps.interface";
+import { useEffect } from "react";
 
-export default function StepPago(stepProps: Readonly<StepProps>) {
-  const [form, setForm] = useState({
-    nombre: "",
-    tarjeta: "",
-    vencimiento: "",
-    cvc: "",
-  });
+export default function StepPago({ data, setData, onValidationChange }: Readonly<StepPagoProps>) {
+  const isFormValid = Boolean(
+    data.nombre && data.tarjeta && data.vencimiento && data.cvc
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    stepProps.onNext();
-  };
+  useEffect(() => {
+    onValidationChange?.(isFormValid);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFormValid]);
 
   return (
-    <div className="text-center w-full flex flex-col items-center px-4 relative z-10">
-      <h1 className="text-l sm:text-xl md:text-l font-bold break-words mb-2">Datos de Pago</h1>
-      <form className="w-full max-w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow flex flex-col gap-4" onSubmit={handleSubmit}>
-        <input name="nombre" value={form.nombre} onChange={handleChange} className="input input-bordered w-full" placeholder="Nombre del titular" required />
-        <input name="tarjeta" value={form.tarjeta} onChange={handleChange} className="input input-bordered w-full" placeholder="Número de tarjeta" required maxLength={19} />
-        <input name="vencimiento" value={form.vencimiento} onChange={handleChange} className="input input-bordered w-full" placeholder="MM/AA" required maxLength={5} />
-        <input name="cvc" value={form.cvc} onChange={handleChange} className="input input-bordered w-full" placeholder="CVC" required maxLength={4} />
-        <button type="submit" className="btn btn-primary font-bold mt-2">Finalizar</button>
+    <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 md:p-6 shadow-2xl">
+      <div className="text-center mb-4">
+        <h1 className="text-lg sm:text-xl font-bold text-info mb-2">Datos de Pago</h1>
+        <p className="text-white/80 text-sm">Completa la información de tu método de pago para activar tu cuenta.</p>
+      </div>
+      <form className="flex flex-col gap-3">
+        <input
+          name="nombre"
+          value={data.nombre}
+          onChange={handleChange}
+          className="input input-bordered input-sm w-full"
+          placeholder="Nombre del titular"
+          required
+        />
+        <input
+          name="tarjeta"
+          value={data.tarjeta}
+          onChange={handleChange}
+          className="input input-bordered input-sm w-full"
+          placeholder="Número de tarjeta"
+          required
+          maxLength={19}
+        />
+        <div className="grid grid-cols-2 gap-3">
+          <input
+            name="vencimiento"
+            value={data.vencimiento}
+            onChange={handleChange}
+            className="input input-bordered input-sm w-full"
+            placeholder="MM/AA"
+            required
+            maxLength={5}
+          />
+          <input
+            name="cvc"
+            value={data.cvc}
+            onChange={handleChange}
+            className="input input-bordered input-sm w-full"
+            placeholder="CVC"
+            required
+            maxLength={4}
+          />
+        </div>
+        <div className="flex items-center justify-center mt-2">
+          <div className={`w-3 h-3 rounded-full ${isFormValid ? "bg-success" : "bg-base-300"}`}></div>
+          <span className={`text-xs ml-2 ${isFormValid ? "text-success" : "text-base-content/60"}`}>
+            {isFormValid ? "Datos de pago completos" : "Completa todos los campos"}
+          </span>
+        </div>
       </form>
     </div>
   );

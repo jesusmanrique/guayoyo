@@ -60,6 +60,12 @@ export default function Footer() {
         >
           Quienes Somos
         </Link>
+        <Link
+          href="/privacy-policy"
+          className="hover:text-info transition text-base hover-glow"
+        >
+          Política de Privacidad
+        </Link>
       </div>
       <div className="text-sm text-gray-500 glow-text">
         © {new Date().getFullYear()} Guayoyo. Todos los derechos reservados.
