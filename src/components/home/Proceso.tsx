@@ -1,101 +1,13 @@
 import Link from "next/link";
 import { SignedOut, SignUpButton } from "@clerk/nextjs";
 
-import {
-  FaUserPlus,
-  FaUserEdit,
-  FaBuilding,
-  FaCreditCard,
-  FaCheckCircle,
-  FaRegClock,
-  FaFileInvoiceDollar,
-  FaMoneyCheckAlt,
-  FaWpforms,
-  FaBrain
-} from "react-icons/fa";
-
-const listasParaUsarSteps = [
-  {
-    icon: <FaUserPlus className="text-2xl text-primary" />,
-    title: "Regístrate:",
-    description:
-      "Crea tu cuenta en solo segundos y accede al panel de control de Guayoyo.tech.",
-  },
-  {
-    icon: <FaUserEdit className="text-2xl text-info" />,
-    title: "Completa los datos de tu usuario:",
-    description: "Cuéntanos un poco sobre ti para personalizar tu experiencia.",
-  },
-  {
-    icon: <FaBuilding className="text-2xl text-accent" />,
-    title: "Crea el perfil de tu empresa",
-    description:
-      "Agrega la información clave para adaptar nuestras soluciones a tu negocio.",
-  },
-  {
-    icon: <FaFileInvoiceDollar className="text-2xl text-warning" />,
-    title: "Selecciona tu plan:",
-    description:
-      "Elige el plan que mejor se adapte a tus necesidades y presupuesto.",
-  },
-  {
-    icon: <FaCreditCard className="text-2xl text-error" />,
-    title: "Suministra un medio de pago:",
-    description:
-      "Agrega tu método de pago preferido para activar tus servicios sin demoras.",
-  },
-  {
-    icon: <FaCheckCircle className="text-2xl text-success" />,
-    title: "¡Listo! Accede al dashboard:",
-    description:
-      "Desde el dashboard podrás crear instancias y configurar credenciales según tus necesidades.",
-  },
-];
-
-const personalizadasSteps = [
-  {
-    icon: <FaWpforms className="text-2xl text-primary" />,
-    title: "Completa el formulario de contacto:",
-    description:
-      "Déjanos tus datos y una breve descripción de lo que deseas automatizar.",
-  },
-  {
-    icon: <FaBrain className="text-2xl text-info" />,
-    title: "Diagnóstico personalizado:",
-    description:
-      "Nuestro equipo te contactará y agendará una reunión para entender a fondo tus necesidades.",
-  },
-  {
-    icon: <FaFileInvoiceDollar className="text-2xl text-warning" />,
-    title: "Recibe y aprueba la propuesta:",
-    description:
-      "Te enviaremos una propuesta y presupuesto detallado para tu solución a medida.",
-  },
-  {
-    icon: <FaMoneyCheckAlt className="text-2xl text-success" />,
-    title: "Realiza el pago inicial:",
-    description:
-      "Cancela el 50% para iniciar el desarrollo de tu automatización personalizada.",
-  },
-  {
-    icon: <FaRegClock className="text-2xl text-info" />,
-    title: "Desarrollo y validación:",
-    description:
-      "Trabajamos en tu solución y te mantenemos informado hasta la entrega y validación final.",
-  },
-  {
-    icon: <FaCheckCircle className="text-2xl text-success" />,
-    title: "¡Automatización lista!",
-    description:
-      "Recibe tu solución, realiza el pago final y comienza a disfrutar de los beneficios de la automatización.",
-  },
-];
+import { FaUserPlus, FaBuilding, FaFileInvoiceDollar, FaCheckCircle } from "react-icons/fa";
 
 export default function Proceso() {
   return (
     <section
       id="procesos"
-      className="relative w-screen max-w-none left-1/2 -translate-x-1/2 py-32 px-0 flex flex-col items-center gap-16 overflow-hidden"
+      className="relative w-screen max-w-none left-1/2 -translate-x-1/2 py-16 px-0 flex flex-col items-center gap-8 overflow-hidden"
       style={{ position: "relative" }}
     >
       {/* Fondo base muy sutil */}
@@ -109,88 +21,53 @@ export default function Proceso() {
             "linear-gradient(to bottom, oklch(47% 0.145 313 / 0.25) 0%, oklch(47% 0.145 313 / 0.10) 35%, oklch(47% 0.145 313 / 0.05) 60%, transparent 80%)",
         }}
       />
-      <div className="relative z-20 w-full max-w-6xl mx-auto flex flex-col items-center  px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-white animate-slide-in-up">
-          ¡Descubre cómo Guayoyo.tech impulsa el futuro digital de tu empresa!
+      <div className="relative z-20 w-full max-w-5xl mx-auto flex flex-col items-center px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-white animate-slide-in-up mb-8">
+          ¿Cómo funciona Guayoyo.tech?
         </h2>
-        <h3 className="text-2xl md:text-3xl font-bold text-center mb-2 text-white animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
-          ¿Listo para dar el siguiente paso hacia la eficiencia?
-        </h3>
-        <p className="text-lg text-white text-center max-w-2xl mb-8 animate-slide-in-up" style={{ animationDelay: '0.4s' }}>
-          En Guayoyo.tech hemos hecho que la transformación digital sea tan
-          simple como un par de clics. Elige tu flujo ideal y lleva tu negocio
-          al siguiente nivel:
-        </p>
-        <div className="grid md:grid-cols-2 gap-12 w-full">
-          {/* Listas para Usar */}
-          <div className=" rounded-xl flex flex-col items-center animate-slide-in-left" style={{ animationDelay: '0.6s' }}>
-            <h3 className="text-2xl font-bold text-white mb-6">
-              Listas para Usar!
-            </h3>
-            <ol className="flex flex-col gap-6 w-full">
-              {listasParaUsarSteps.map((step, i) => (
-                <li
-                  key={step.title}
-                  className="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-4 shadow-lg group transition hover:scale-105 hover:shadow-xl hover-scale animate-fade-in-scale"
-                  style={{
-                    animationDelay: `${i * 0.12 + 0.8}s`,
-                  }}
-                >
-                  <span className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 group-hover:bg-primary/20 transition glow-primary">
-                    {step.icon}
-                  </span>
-                  <div>
-                    <div className="font-semibold text-base text-white">{step.title}</div>
-                    <div className="text-sm text-white/90">
-                      {step.description}
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ol>
+        {/* Pasos visuales */}
+        <div className="w-full flex flex-col md:flex-row gap-8 justify-center items-center">
+          {/* Paso 1 */}
+          <div className="flex-1 flex flex-col items-center bg-white/20 backdrop-blur-lg border border-white/20 rounded-2xl shadow-xl p-8 min-w-[220px] max-w-xs hover-glow animate-fade-in-scale">
+            <span className="bg-primary/20 p-4 rounded-full mb-4 shadow-lg animate-float">
+              <FaUserPlus className="text-4xl text-primary" />
+            </span>
+            <div className="text-xl font-bold text-white mb-2 text-center">Regístrate</div>
           </div>
-          {/* Automatizaciones Personalizadas */}
-          <div className=" flex flex-col items-center animate-slide-in-right" style={{ animationDelay: '0.6s' }}>
-            <h3 className="text-2xl font-bold text-white mb-6">
-              Automatizaciones Personalizadas
-            </h3>
-            <ol className="flex flex-col gap-6 w-full">
-              {personalizadasSteps.map((step, i) => (
-                <li
-                  key={step.title}
-                  className="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-4 shadow-lg group transition hover:scale-105 hover:shadow-xl hover-scale animate-fade-in-scale"
-                  style={{
-                    animationDelay: `${i * 0.12 + 0.8}s`,
-                  }}
-                >
-                  <span className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 group-hover:bg-accent/20 transition glow-secondary">
-                    {step.icon}
-                  </span>
-                  <div>
-                    <div className="font-semibold text-base text-white">{step.title}</div>
-                    <div className="text-sm text-white/90">
-                      {step.description}
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ol>
+          {/* Paso 2 */}
+          <div className="flex-1 flex flex-col items-center bg-white/20 backdrop-blur-lg border border-white/20 rounded-2xl shadow-xl p-8 min-w-[220px] max-w-xs hover-glow animate-fade-in-scale">
+            <span className="bg-info/20 p-4 rounded-full mb-4 shadow-lg animate-float">
+              <FaBuilding className="text-4xl text-info" />
+            </span>
+            <div className="text-xl font-bold text-white mb-2 text-center">rellena tu perfil</div>
+          </div>
+          {/* Paso 3 */}
+          <div className="flex-1 flex flex-col items-center bg-white/20 backdrop-blur-lg border border-white/20 rounded-2xl shadow-xl p-8 min-w-[220px] max-w-xs hover-glow animate-fade-in-scale">
+            <span className="bg-accent/20 p-4 rounded-full mb-4 shadow-lg animate-float">
+              <FaFileInvoiceDollar className="text-4xl text-accent" />
+            </span>
+            <div className="text-xl font-bold text-white mb-2 text-center">Elige tu plan</div>
+          </div>
+          {/* Paso 4 */}
+          <div className="flex-1 flex flex-col items-center bg-white/20 backdrop-blur-lg border border-white/20 rounded-2xl shadow-xl p-8 min-w-[220px] max-w-xs hover-glow animate-fade-in-scale">
+            <span className="bg-success/20 p-4 rounded-full mb-4 shadow-lg animate-float">
+              <FaCheckCircle className="text-4xl text-success" />
+            </span>
+            <div className="text-xl font-bold text-white mb-2 text-center">¡Automatiza!</div>
           </div>
         </div>
-        <div className="mt-8 flex flex-col items-center gap-4 animate-slide-in-up" style={{ animationDelay: '1.2s' }}>
-          <p className="text-xl font-semibold text-center text-white">
-            ¡Da el primer paso y automatiza tu negocio hoy!
-          </p>
+        {/* CTAs visuales */}
+        <div className="mt-12 flex flex-col md:flex-row gap-6 w-full justify-center items-center animate-fade-in-up">
           <SignedOut>
             <SignUpButton mode="modal">
-              <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition hover-glow animate-pulse-glow">
+              <button className="px-10 py-4 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition hover-glow text-xl animate-pulse-glow w-full md:w-auto">
                 Regístrate gratis
               </button>
             </SignUpButton>
           </SignedOut>
           <Link
             href="#contacto"
-            className="px-8 py-3 bg-secondary font-bold rounded-lg shadow hover:bg-base-200 transition"
+            className="px-10 py-4 bg-info text-white font-bold rounded-lg shadow hover:bg-info/80 transition hover-glow text-xl w-full md:w-auto animate-pulse-glow"
           >
             ¿Prefieres que te contactemos?
           </Link>

@@ -1,4 +1,5 @@
 import { SignIn } from "@clerk/nextjs";
+import { clerkAppearance } from "@/lib/clerkAppearance";
 
 export default function page() {
   return (
@@ -12,7 +13,7 @@ export default function page() {
           IA y descubre cómo podemos transformar tu negocio.
         </p>
         <div className="w-full card-actions justify-center mb-8">
-          <SignIn />
+          <SignIn appearance={clerkAppearance} />
         </div>
       </div>
     </div>

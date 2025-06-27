@@ -42,7 +42,7 @@ function Resumen() {
         </div>
         {/* Tarjeta 2 */}
         <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6 flex flex-col items-center">
-          <h3 className="text-lg font-bold text-white mb-2">Automatizaciones por Canal</h3>
+          <h3 className="text-lg font-bold text-white mb-2">Estadisticas Mensuales</h3>
           <div className="w-full h-32 bg-base-200/40 rounded-xl mb-2 flex items-center justify-center text-white">
             {/* Aquí irá el gráfico de automatizaciones */}
             <span className="text-sm">[Gráfico de canales]</span>
