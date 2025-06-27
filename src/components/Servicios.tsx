@@ -1,7 +1,5 @@
-import { SignedIn, SignedOut } from "@clerk/nextjs";
-{
-  /* , SignUpButton */
-}
+import { SignedIn, SignedOut, SignUpButton } from "@clerk/nextjs";
+
 import Link from "next/link";
 
 export default function Servicios() {
@@ -26,8 +24,7 @@ export default function Servicios() {
           height: "100%",
         }}
       />
-      {/* Contenido centrado */}
-      <div className="max-w-5xl mx-auto w-full px-4 flex flex-col gap-12 z-10 relative">
+      <div className="max-w-5xl mx-auto py-16 w-full px-4 flex flex-col gap-12 z-10 relative">
         {/* Título y descripción */}
         <div className="mb-8 text-center">
           <h1 className="text-3xl md:text-4xl font-bold mb-2 text-info">
@@ -51,7 +48,7 @@ export default function Servicios() {
           </p>
         </div>
         {/* Plug & Play */}
-        <div id="outOfTheBox" className="bg-base-300 rounded-xl shadow-md p-8">
+        <div id="outOfTheBox" className=" rounded-xl py-32">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-info">
             Soluciones Plug and Play
           </h2>
@@ -166,10 +163,11 @@ export default function Servicios() {
               esfuerzo manual.
             </p>
             <SignedOut>
-              <button className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition">
-                ¡Registrate y comienza hoy!
-              </button>
-              {/*<SignUpButton mode="modal"></SignUpButton>*/}
+              <SignUpButton mode="modal">
+                <button className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition">
+                  ¡Registrate y comienza hoy!
+                </button>
+              </SignUpButton>
             </SignedOut>
             <SignedIn>
               <Link
@@ -182,14 +180,14 @@ export default function Servicios() {
           </div>
         </div>
         {/* Métricas destacadas */}
-        <div className="bg-base-300 rounded-xl shadow-md p-8 flex flex-col gap-8">
+        <div className="rounded-xl flex flex-col ">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-info">
             Métricas Avanzadas
           </h2>
           <div className="flex flex-col md:flex-row justify-between items-stretch gap-8">
             {/* Tarjetas de métricas (70% en md+) */}
             <div className="flex flex-1 md:basis-7/10 gap-8">
-              <div className="flex-1 text-center bg-base-100 p-5 card flex flex-col justify-center">
+              <div className="flex-1 text-center bg-base-200 p-5 card flex flex-col justify-center">
                 <div className="text-4xl md:text-5xl font-extrabold text-success mb-2">
                   +70%
                 </div>
@@ -197,7 +195,7 @@ export default function Servicios() {
                   Aumento en eficiencia operativa
                 </div>
               </div>
-              <div className="flex-1 text-center bg-base-100 p-5 card flex flex-col justify-center">
+              <div className="flex-1 text-center bg-base-200 p-5 card flex flex-col justify-center">
                 <div className="text-4xl md:text-5xl font-extrabold text-error mb-2">
                   -45%
                 </div>
@@ -205,7 +203,7 @@ export default function Servicios() {
                   Reducción de errores humanos
                 </div>
               </div>
-              <div className="flex-1 text-center bg-base-100 p-8 card flex flex-col justify-center">
+              <div className="flex-1 text-center bg-base-200 p-8 card flex flex-col justify-center">
                 <div className="text-4xl md:text-5xl font-extrabold text-success mb-2">
                   24/7
                 </div>
@@ -240,7 +238,7 @@ export default function Servicios() {
           </p>
         </div>
         {/* Customizadas */}
-        <div id="custom" className="bg-base-300 rounded-xl shadow-md p-8">
+        <div id="custom" className=" rounded-xl py-32">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
             Servicios de Automatización Personalizada
           </h2>
@@ -268,7 +266,7 @@ export default function Servicios() {
                     podemos implementar prácticamente cualquier automatización
                     para los flujos de tu empresa
                   </span>
-                  .
+                  {""}.
                 </p>
               </div>
               {/* Imagen a la derecha en desktop, ocupa 35% del ancho, toca el borde derecho */}
@@ -285,23 +283,6 @@ export default function Servicios() {
               />
             </div>
           </div>
-
-          <ul className="list-disc list-inside text-base-content mb-12 space-y-2">
-            <li>
-              Integraciones a la medida con herramientas y APIs de tu
-              ecosistema.
-            </li>
-            <li>
-              Automatización de tareas repetitivas, reportes y notificaciones.
-            </li>
-            <li>
-              Personalización total según tus necesidades y procesos internos.
-            </li>
-            <li>
-              Desarrollo de bots y asistentes virtuales para cualquier canal.
-            </li>
-            <li>Automatizaciones basadas en inteligencia artificial.</li>
-          </ul>
 
           <div className="mt-8 flex flex-col items-center">
             <div className="text-center text-xl font-medium mb-4 text-success">
@@ -323,7 +304,7 @@ export default function Servicios() {
       {/* Consultoría fuera del div de customizadas */}
       <div
         id="consultoria"
-        className="max-w-5xl mx-auto w-full px-4 bg-base-300 rounded-xl shadow-md p-8 z-10 relative"
+        className="max-w-5xl mx-auto w-full px-4 rounded-xl  z-10 relative"
       >
         <div className="bg-base-200 rounded-xl p-6 shadow hover:shadow-lg transition mb-8">
           <div className="flex flex-col md:flex-row items-center gap-6">
@@ -348,7 +329,7 @@ export default function Servicios() {
                 <span className="text-info font-semibold">
                   Da el salto hacia el futuro con nuestra consultoría experta en
                   IA.
-                </span>
+                </span>{" "}
                 En Guayoyo.tech, no solo analizamos y optimizamos tus procesos:
                 diseñamos contigo una estrategia robusta de automatización que
                 realmente impacta tus resultados. Identificamos oportunidades

@@ -20,12 +20,15 @@ export default function Hero() {
         <div className="w-full max-w-xs sm:max-w-md md:max-w-xl">
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold break-words">
             🚀 El futuro de tu negocio es simple, ágil y rentable{" "}
-            <span className="text-info font-extrabold">$5,000+ mensuales</span>
+            <span className="text-info font-semibold">
+              Ahorra $5,000+ mensuales
+            </span>
           </h1>
           <h2 className="py-4 md:py-6 text-base sm:text-lg md:text-2xl break-words">
             <span className="text-info font-bold">
               Transforma tareas complicadas en resultados automáticos.{" "}
             </span>
+            {""}
             Somos tu socio tecnológico para que tú solo pienses en crecer.
           </h2>
           <p className="py-4 md:py-6 text-sm sm:text-base md:text-lg break-words">

@@ -1,8 +1,6 @@
 import Link from "next/link";
-import { SignedOut } from "@clerk/nextjs";
-{
-  /* , SignUpButton  */
-}
+import { SignedOut, SignUpButton } from "@clerk/nextjs";
+
 import {
   FaUserPlus,
   FaUserEdit,
@@ -113,7 +111,7 @@ export default function Proceso() {
   return (
     <section
       id="procesos"
-      className="relative bg-base-200 w-screen max-w-none left-1/2 -translate-x-1/2 py-16 px-0 flex flex-col items-center gap-16 overflow-hidden"
+      className="relative bg-base-200 w-screen max-w-none left-1/2 -translate-x-1/2 py-32 px-0 flex flex-col items-center gap-16 overflow-hidden"
       style={{ position: "relative" }}
     >
       <div
@@ -137,15 +135,15 @@ export default function Proceso() {
         </p>
         <div className="grid md:grid-cols-2 gap-12 w-full">
           {/* Plug and Play */}
-          <div className="bg-base-300 rounded-xl shadow-lg p-8 flex flex-col items-center animate-slide-up">
-            <h3 className="text-2xl font-bold text-primary mb-6">
+          <div className=" rounded-xl flex flex-col items-center animate-slide-up">
+            <h3 className="text-2xl font-bold text-accent mb-6">
               Plug & Play!
             </h3>
             <ol className="flex flex-col gap-6 w-full">
               {plugAndPlaySteps.map((step, i) => (
                 <li
                   key={step.title}
-                  className="flex items-center gap-4 bg-base-100 rounded-lg p-4 shadow group transition hover:scale-105 hover:shadow-xl"
+                  className="flex items-center gap-4 bg-base-200 rounded-lg p-4 shadow group transition hover:scale-105 hover:shadow-xl"
                   style={{
                     animation: `fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) both`,
                     animationDelay: `${i * 0.12 + 0.1}s`,
@@ -165,7 +163,7 @@ export default function Proceso() {
             </ol>
           </div>
           {/* Automatizaciones Personalizadas */}
-          <div className="bg-base-300 rounded-xl shadow-lg p-8 flex flex-col items-center animate-slide-up">
+          <div className=" flex flex-col items-center animate-slide-up">
             <h3 className="text-2xl font-bold text-accent mb-6">
               Automatizaciones Personalizadas
             </h3>
@@ -173,7 +171,7 @@ export default function Proceso() {
               {personalizadasSteps.map((step, i) => (
                 <li
                   key={step.title}
-                  className="flex items-center gap-4 bg-base-100 rounded-lg p-4 shadow group transition hover:scale-105 hover:shadow-xl"
+                  className="flex items-center gap-4 bg-base-200 rounded-lg p-4 shadow group transition hover:scale-105 hover:shadow-xl"
                   style={{
                     animation: `fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) both`,
                     animationDelay: `${i * 0.12 + 0.1}s`,
@@ -198,14 +196,15 @@ export default function Proceso() {
             ¡Da el primer paso y automatiza tu negocio hoy!
           </p>
           <SignedOut>
-            <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition">
-              Regístrate gratis
-            </button>
-            {/** <SignUpButton mode="modal"></SignUpButton>*/}
+            <SignUpButton mode="modal">
+              <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition">
+                Regístrate gratis
+              </button>
+            </SignUpButton>
           </SignedOut>
           <Link
             href="#contacto"
-            className="px-8 py-3 bg-base-300 text-primary font-bold rounded-lg shadow hover:bg-base-200 transition"
+            className="px-8 py-3 bg-secondary font-bold rounded-lg shadow hover:bg-base-200 transition"
           >
             ¿Prefieres que te contactemos?
           </Link>

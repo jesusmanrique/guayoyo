@@ -7,6 +7,7 @@ import { Suspense } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
+import { esES } from "@clerk/localizations";
 import { dark } from "@clerk/themes";
 
 const geistSans = Geist({
@@ -76,6 +77,7 @@ export default function RootLayout({
       appearance={{
         baseTheme: dark,
       }}
+      localization={esES}
     >
       <html lang="es" className={roboto.className} data-theme="dark">
         <body
