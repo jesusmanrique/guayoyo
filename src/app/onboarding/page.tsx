@@ -1,39 +1,80 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StepUsuario from "@/components/onboarding/StepUsuario";
 import StepEmpresa from "@/components/onboarding/StepEmpresa";
 import StepPago from "@/components/onboarding/StepPago";
 import StepPlanes from "@/components/onboarding/StepPlanes";
+import StripeProvider from "@/components/providers/StripeProvider";
 import { useUser } from "@clerk/nextjs";
 
 // Definir los tipos de datos para cada parte del estado
 interface UsuarioData { documento: string; cargo: string; }
 interface EmpresaData { nombre: string; rif: string; sector: string; tamano: string; direccion: string; }
-interface PagoData { nombre: string; tarjeta: string; vencimiento: string; cvc: string; }
+
+const PLANES = [
+  { value: "basico", precio: 29.99 },
+  { value: "pro", precio: 49.99 },
+  { value: "premium", precio: 99.99 },
+];
 
 export default function Onboarding() {
   const { user } = useUser();
   const [openPanel, setOpenPanel] = useState(0);
+  const [clientSecret, setClientSecret] = useState<string>("");
+  const [loadingPayment, setLoadingPayment] = useState(false);
   const [onboardingData, setOnboardingData] = useState({
     usuario: { documento: "", cargo: "" },
     empresa: { nombre: "", rif: "", sector: "", tamano: "", direccion: "" },
     plan: "",
-    pago: { nombre: "", tarjeta: "", vencimiento: "", cvc: "" },
   });
 
   // Validaciones de cada step
   const validUsuario = Boolean(onboardingData.usuario.documento && onboardingData.usuario.cargo);
   const validEmpresa = Boolean(onboardingData.empresa.nombre && onboardingData.empresa.rif && onboardingData.empresa.sector && onboardingData.empresa.tamano && onboardingData.empresa.direccion);
   const validPlan = Boolean(onboardingData.plan);
-  const validPago = Boolean(onboardingData.pago.nombre && onboardingData.pago.tarjeta && onboardingData.pago.vencimiento && onboardingData.pago.cvc);
+  const validPago = Boolean(clientSecret); // Cambiado para usar clientSecret de Stripe
   const validSteps = [validUsuario, validEmpresa, validPlan, validPago];
   const allValid = validSteps.every(Boolean);
 
   // Handlers para actualizar cada parte del estado
   const setUsuario = (data: UsuarioData) => setOnboardingData((prev) => ({ ...prev, usuario: data }));
   const setEmpresa = (data: EmpresaData) => setOnboardingData((prev) => ({ ...prev, empresa: data }));
-  const setPlan = (plan: string) => setOnboardingData((prev) => ({ ...prev, plan }));
-  const setPago = (data: PagoData) => setOnboardingData((prev) => ({ ...prev, pago: data }));
+  const setPlan = (plan: string) => {
+    setOnboardingData((prev) => ({ ...prev, plan }));
+    setClientSecret(""); // Reiniciar el clientSecret al cambiar de plan
+  };
+
+  // Obtener el clientSecret de Stripe cuando el usuario llegue al paso de pago y haya seleccionado un plan
+  useEffect(() => {
+    if (openPanel === 3 && onboardingData.plan) {
+      setLoadingPayment(true);
+      const planSeleccionado = PLANES.find(p => p.value === onboardingData.plan);
+      if (!planSeleccionado) {
+        setLoadingPayment(false);
+        return;
+      }
+      fetch("/api/create-payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: planSeleccionado.precio,
+          currency: "usd",
+          metadata: {
+            plan: onboardingData.plan,
+            userEmail: user?.primaryEmailAddress?.emailAddress || "user@example.com",
+          },
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setClientSecret(data.clientSecret);
+        })
+        .finally(() => setLoadingPayment(false));
+    } else {
+      setClientSecret("");
+      setLoadingPayment(false);
+    }
+  }, [openPanel, onboardingData.plan, user]);
 
   return (
     <div className="min-h-screen bg-base-100/10 pt-20 pb-4 flex flex-col items-center">
@@ -85,10 +126,22 @@ export default function Onboarding() {
             label={"Pago"}
             valid={validPago}
           >
-            <StepPago
-              data={onboardingData.pago}
-              setData={setPago}
-            />
+            {loadingPayment || !clientSecret ? (
+              <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 md:p-6 shadow-2xl text-center">
+                <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
+                <p className="text-white">Inicializando sistema de pago...</p>
+              </div>
+            ) : (
+              <StripeProvider clientSecret={clientSecret}>
+                <StepPago
+                  precio={PLANES.find(p => p.value === onboardingData.plan)?.precio}
+                  onValidationChange={(isValid) => {
+                    // Aquí podrías manejar la validación del pago
+                    console.log('Pago validation changed:', isValid);
+                  }}
+                />
+              </StripeProvider>
+            )}
           </AccordionPanel>
         </div>
         <div className="flex justify-end mt-8">

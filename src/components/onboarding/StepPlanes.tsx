@@ -2,9 +2,9 @@ import type { StepBaseProps } from "@/interfaces/stepProps.interface";
 import { useEffect } from "react";
 
 const PLANES = [
-  { label: "Básico", value: "basico", descripcion: "Ideal para comenzar. Incluye funciones esenciales." },
-  { label: "Pro", value: "pro", descripcion: "Para empresas en crecimiento. Más integraciones y soporte." },
-  { label: "Premium", value: "premium", descripcion: "Todo incluido, máxima personalización y soporte prioritario." },
+  { label: "Básico", value: "basico", descripcion: "Ideal para comenzar. Incluye funciones esenciales.", precio: 29.99 },
+  { label: "Pro", value: "pro", descripcion: "Para empresas en crecimiento. Más integraciones y soporte.", precio: 49.99 },
+  { label: "Premium", value: "premium", descripcion: "Todo incluido, máxima personalización y soporte prioritario.", precio: 99.99 },
 ];
 
 export default function StepPlanes({ data, setData, onValidationChange }: Readonly<StepBaseProps<string>>) {
@@ -21,30 +21,33 @@ export default function StepPlanes({ data, setData, onValidationChange }: Readon
         <h1 className="text-lg sm:text-xl font-bold text-white mb-2">Selecciona tu plan</h1>
         <p className="text-white text-sm">Elige el plan que mejor se adapte a tus necesidades.</p>
       </div>
-      <form className="flex flex-col gap-4">
+      <div className="grid md:grid-cols-3 gap-4 mb-6">
         {PLANES.map((plan) => (
-          <label key={plan.value} className={`flex items-center gap-4 p-4 rounded-lg border border-white/10 cursor-pointer transition-colors ${data === plan.value ? "bg-primary/10 border-primary" : "hover:bg-white/5"}`}>
+          <label
+            key={plan.value}
+            className={`flex flex-col items-center gap-2 p-6 rounded-xl border-2 cursor-pointer transition-all shadow-md
+              ${data === plan.value ? "border-primary bg-primary/10" : "border-white/20 bg-white/5 hover:border-primary/60"}`}
+          >
             <input
               type="radio"
               name="plan"
               value={plan.value}
               checked={data === plan.value}
               onChange={() => setData(plan.value)}
-              className="radio radio-primary"
+              className="radio radio-primary mb-2"
             />
-            <div>
-              <div className="font-semibold text-white">{plan.label}</div>
-              <div className="text-xs text-white">{plan.descripcion}</div>
-            </div>
+            <div className="text-xl font-bold text-white mb-1">{plan.label}</div>
+            <div className="text-primary text-2xl font-bold mb-1">${plan.precio}/mes</div>
+            <div className="text-white/80 text-sm text-center">{plan.descripcion}</div>
           </label>
         ))}
-        <div className="flex items-center justify-center mt-2">
-          <div className={`w-3 h-3 rounded-full ${isFormValid ? "bg-success" : "bg-base-300"}`}></div>
-          <span className={`text-xs ml-2 ${isFormValid ? "text-success" : "text-white"}`}>
-            {isFormValid ? "Plan seleccionado" : "Selecciona un plan para continuar"}
-          </span>
-        </div>
-      </form>
+      </div>
+      <div className="flex items-center justify-center mt-2">
+        <div className={`w-3 h-3 rounded-full ${isFormValid ? "bg-success" : "bg-base-300"}`}></div>
+        <span className={`text-xs ml-2 ${isFormValid ? "text-success" : "text-white"}`}>
+          {isFormValid ? "Plan seleccionado" : "Selecciona un plan para continuar"}
+        </span>
+      </div>
     </div>
   );
 } 
