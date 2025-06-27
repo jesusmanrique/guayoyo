@@ -55,7 +55,7 @@ export default function Nav() {
 
   return (
     <div className="navbar bg-transparent backdrop-blur-md shadow-sm fixed top-0 left-0 w-full z-50 glow-primary">
-      <div className="flex-1 flex items-center">
+      <div className={`flex-1 flex items-center${menuOpen ? ' hidden' : ''}`}>
         <Link className="btn btn-ghost text-xl hover-scale" href="/">
           <Image
             src="/guayoyoSvgGold.svg"
