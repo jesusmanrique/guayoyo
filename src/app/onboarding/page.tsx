@@ -135,6 +135,10 @@ export default function Onboarding() {
               <StripeProvider clientSecret={clientSecret}>
                 <StepPago
                   precio={PLANES.find(p => p.value === onboardingData.plan)?.precio}
+                  empresaData={{
+                    nombre: onboardingData.empresa.nombre,
+                    direccion: onboardingData.empresa.direccion,
+                  }}
                   onValidationChange={(isValid) => {
                     // Aquí podrías manejar la validación del pago
                     console.log('Pago validation changed:', isValid);

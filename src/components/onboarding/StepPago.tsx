@@ -2,18 +2,24 @@
 
 import { useEffect, useState } from "react";
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { useUser } from "@clerk/nextjs";
 
 interface StepPagoProps {
   onValidationChange?: (isValid: boolean) => void;
   precio?: number;
+  empresaData?: {
+    nombre: string;
+    direccion: string;
+  };
 }
 
-export default function StepPago({ onValidationChange, precio = 29.99 }: Readonly<StepPagoProps>) {
+export default function StepPago({ onValidationChange, precio = 29.99, empresaData }: Readonly<StepPagoProps>) {
   const [isProcessing, setIsProcessing] = useState(false);
   const [clientSecret, setClientSecret] = useState<string>('');
   const [error, setError] = useState<string>('');
   const stripe = useStripe();
   const elements = useElements();
+  const { user } = useUser();
 
   // Crear intención de pago al cargar el componente
   useEffect(() => {
@@ -73,6 +79,21 @@ export default function StepPago({ onValidationChange, precio = 29.99 }: Readonl
         elements,
         confirmParams: {
           return_url: `${window.location.origin}/dashboard`,
+          payment_method_data: {
+            billing_details: {
+              name: user?.fullName || 'Usuario',
+              email: user?.primaryEmailAddress?.emailAddress || 'user@example.com',
+              phone: user?.primaryPhoneNumber?.phoneNumber || '+1234567890',
+              address: {
+                country: 'VE', // Venezuela por defecto
+                line1: empresaData?.direccion || 'Dirección de la empresa',
+                line2: '', // Campo requerido por Stripe
+                city: 'Caracas',
+                state: 'Distrito Capital',
+                postal_code: '1010',
+              },
+            },
+          },
         },
       });
 
@@ -150,7 +171,7 @@ export default function StepPago({ onValidationChange, precio = 29.99 }: Readonl
                 billingDetails: {
                   name: 'auto',
                   email: 'auto',
-                  phone: 'never',
+                  phone: 'auto',
                   address: 'never',
                 },
               },
