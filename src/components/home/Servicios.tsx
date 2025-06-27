@@ -38,7 +38,7 @@ export default function Servicios() {
             </span>
           </h1>
           <p className="text-xl md:text-2xl font-bold mb-2 text-white animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
-            Tecnología Plug & Play, Automatizaciones Personalizadas y
+            Tecnología lista para usar, Automatizaciones Personalizadas y
             Consultoría Experta
           </p>
           <p className="text-base md:text-lg text-white animate-slide-in-up" style={{ animationDelay: '0.4s' }}>

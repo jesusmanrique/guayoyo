@@ -55,10 +55,10 @@ export default function ParticleBackground() {
 
     // Función para establecer conexiones neuronales
     const establishConnections = () => {
-      particles.forEach((particle, index) => {
+      particles.forEach((particle, particleIdx) => {
         particle.connections = [];
         particles.forEach((otherParticle, otherIndex) => {
-          if (index !== otherIndex) {
+          if (particleIdx !== otherIndex) {
             const dx = particle.x - otherParticle.x;
             const dy = particle.y - otherParticle.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
@@ -80,7 +80,7 @@ export default function ParticleBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Dibujar conexiones primero (para que estén detrás de las partículas)
-      particles.forEach((particle, index) => {
+      particles.forEach((particle) => {
         particle.connections.forEach(connectionIndex => {
           const connectedParticle = particles[connectionIndex];
           if (connectedParticle) {
@@ -109,15 +109,15 @@ export default function ParticleBackground() {
         });
       });
 
-      particles.forEach((particle, index) => {
+      particles.forEach((particle) => {
         // Movimiento neuronal más orgánico
         particle.x += particle.vx;
         particle.y += particle.vy;
 
         // Añadir movimiento ondulante sutil (como impulsos neuronales)
         const time = Date.now() * 0.001;
-        particle.x += Math.sin(time + index * 0.5) * 0.5;
-        particle.y += Math.cos(time + index * 0.3) * 0.5;
+        particle.x += Math.sin(time) * 0.5;
+        particle.y += Math.cos(time) * 0.5;
 
         // Rebotar en los bordes con comportamiento neuronal
         if (particle.x <= 0 || particle.x >= canvas.width) {
