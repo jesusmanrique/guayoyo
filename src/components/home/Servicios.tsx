@@ -6,7 +6,7 @@ export default function Servicios() {
   return (
     <section
       id="servicios"
-      className="w-screen max-w-none py-16 px-0 flex flex-col gap-12 relative overflow-hidden bg-base-200"
+      className="w-screen max-w-none py-16 px-0 flex flex-col gap-12 relative overflow-hidden"
       style={{
         position: "relative",
         left: "50%",
@@ -15,28 +15,32 @@ export default function Servicios() {
         marginRight: "-50vw",
       }}
     >
+      {/* Fondo base muy sutil */}
+      <div className="absolute inset-0 bg-base-200/20 pointer-events-none z-0"></div>
+      
+      {/* Gradiente decorativo con animación - más transparente */}
       <div
-        className="absolute inset-0 pointer-events-none z-0"
+        className="absolute inset-0 pointer-events-none z-0 gradient-animated opacity-10"
         style={{
           background:
-            "linear-gradient(to top, oklch(47% 0.145 313 / 0.45) 0%, oklch(47% 0.145 313 / 0.20) 35%, oklch(47% 0.145 313 / 0.07) 60%, transparent 80%)",
+            "linear-gradient(to top, oklch(47% 0.145 313 / 0.25) 0%, oklch(47% 0.145 313 / 0.10) 35%, oklch(47% 0.145 313 / 0.05) 60%, transparent 80%)",
           width: "100%",
           height: "100%",
         }}
       />
-      <div className="max-w-5xl mx-auto py-16 w-full px-4 flex flex-col gap-12 z-10 relative">
+      <div className="max-w-5xl mx-auto py-16 w-full px-4 flex flex-col gap-12 z-20 relative">
         {/* Título y descripción */}
-        <div className="mb-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-info">
+        <div className="mb-8 text-center animate-slide-in-up">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-info glow-text">
             Soluciones Inteligentes en Automatización
           </h1>
-          <p className="text-xl md:text-2xl font-bold mb-2 ">
+          <p className="text-xl md:text-2xl font-bold mb-2 animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
             Tecnología Plug & Play, Automatizaciones Personalizadas y
             Consultoría Experta
           </p>
-          <p className="text-base md:text-lg text-base-content/80">
+          <p className="text-base md:text-lg text-base-content/80 animate-slide-in-up" style={{ animationDelay: '0.4s' }}>
             En Guayoyo.tech,{" "}
-            <span className="text-success">
+            <span className="text-success glow-text">
               llevamos la automatización al siguiente nivel integrando
               inteligencia artificial en cada proceso.
             </span>{" "}
@@ -48,8 +52,8 @@ export default function Servicios() {
           </p>
         </div>
         {/* Plug & Play */}
-        <div id="outOfTheBox" className=" rounded-xl py-32">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-info">
+        <div id="outOfTheBox" className=" rounded-xl py-32 animate-slide-in-up" style={{ animationDelay: '0.6s' }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-info glow-text">
             Soluciones Plug and Play
           </h2>
           <p className="text-lg md:text-xl mb-10 text-base-content">
@@ -58,7 +62,7 @@ export default function Servicios() {
           </p>
 
           <div className="space-y-8">
-            <div className="bg-base-200 rounded-xl p-6 shadow hover:shadow-lg transition">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg hover:shadow-xl transition hover-scale animate-fade-in-scale" style={{ animationDelay: '0.8s' }}>
               <div className="flex flex-col md:flex-row items-center gap-6">
                 <div
                   className="hidden md:block h-100 rounded-xl bg-center bg-cover flex-shrink-0"
@@ -73,10 +77,10 @@ export default function Servicios() {
                 />
                 {/* Texto a la derecha */}
                 <div className="flex-1  ml-4">
-                  <h3 className="text-2xl font-semibold mb-2 text-primary">
+                  <h3 className="text-2xl font-semibold mb-2 text-white">
                     Atención y Categorización Automatizada de Clientes
                   </h3>
-                  <p className="text-base-content">
+                  <p className="text-white/90">
                     <span className="font-semibold text-success">
                       WhatsApp e Instagram:
                     </span>{" "}
@@ -88,14 +92,14 @@ export default function Servicios() {
               </div>
             </div>
 
-            <div className="bg-base-200 rounded-xl p-6 shadow hover:shadow-lg transition">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg hover:shadow-xl transition hover-scale animate-fade-in-scale" style={{ animationDelay: '1s' }}>
               <div className="flex flex-col md:flex-row items-center gap-6">
                 {/* Texto a la izquierda */}
                 <div className="flex-1 md:mr-4">
-                  <h3 className="text-2xl font-semibold mb-2 text-primary">
+                  <h3 className="text-2xl font-semibold mb-2 text-white">
                     Chatbots Inteligentes
                   </h3>
-                  <p className="text-base-content">
+                  <p className="text-white/90">
                     <span className="font-semibold text-success">
                       Telegram y Chat Embebidos:
                     </span>{" "}
@@ -119,7 +123,7 @@ export default function Servicios() {
               </div>
             </div>
 
-            <div className="bg-base-200 rounded-xl p-6 shadow hover:shadow-lg transition">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg hover:shadow-xl transition mb-8 hover-scale animate-fade-in-scale" style={{ animationDelay: '3s' }}>
               <div className="flex flex-col md:flex-row items-center gap-6">
                 {/* Imagen a la izquierda en desktop, ocupa 35% del ancho, toca el borde izquierdo */}
                 <div
@@ -135,10 +139,10 @@ export default function Servicios() {
                 />
                 {/* Texto a la derecha */}
                 <div className="flex-1 ml-4">
-                  <h3 className="text-2xl font-semibold mb-2 text-primary">
+                  <h3 className="text-2xl font-semibold mb-2 text-white">
                     Integraciones de Gestión Empresarial
                   </h3>
-                  <p className="text-base-content">
+                  <p className="text-white/90">
                     <span className="font-semibold text-success">
                       Notion y Jira:
                     </span>{" "}
@@ -152,8 +156,8 @@ export default function Servicios() {
             </div>
           </div>
 
-          <div className="mt-12 flex flex-col items-center">
-            <div className="text-center text-xl font-medium mb-4 text-success">
+          <div className="mt-12 flex flex-col items-center animate-slide-in-up" style={{ animationDelay: '1.4s' }}>
+            <div className="text-center text-xl font-medium mb-4 text-success glow-text">
               ¿Listo para transformar tu negocio?
             </div>
             <p className="text-base-content text-center mb-6">
@@ -164,7 +168,7 @@ export default function Servicios() {
             </p>
             <SignedOut>
               <SignUpButton mode="modal">
-                <button className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition">
+                <button className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition hover-glow animate-pulse-glow">
                   ¡Registrate y comienza hoy!
                 </button>
               </SignUpButton>
@@ -172,7 +176,7 @@ export default function Servicios() {
             <SignedIn>
               <Link
                 href="/dashboard"
-                className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition"
+                className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition hover-glow animate-pulse-glow"
               >
                 ¡Empecemos!
               </Link>
@@ -180,41 +184,41 @@ export default function Servicios() {
           </div>
         </div>
         {/* Métricas destacadas */}
-        <div className="rounded-xl flex flex-col ">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-info">
+        <div className="rounded-xl flex flex-col animate-slide-in-up" style={{ animationDelay: '1.6s' }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-info glow-text">
             Métricas Avanzadas
           </h2>
           <div className="flex flex-col md:flex-row justify-between items-stretch gap-8">
             {/* Tarjetas de métricas (70% en md+) */}
             <div className="flex flex-1 md:basis-7/10 gap-8">
-              <div className="flex-1 text-center bg-base-200 p-5 card flex flex-col justify-center">
+              <div className="flex-1 text-center bg-white/10 backdrop-blur-md border border-white/20 p-5 card flex flex-col justify-center hover-scale animate-fade-in-scale" style={{ animationDelay: '1.8s' }}>
                 <div className="text-4xl md:text-5xl font-extrabold text-success mb-2">
                   +70%
                 </div>
-                <div className="text-base md:text-lg text-base-content/80">
+                <div className="text-white/90">
                   Aumento en eficiencia operativa
                 </div>
               </div>
-              <div className="flex-1 text-center bg-base-200 p-5 card flex flex-col justify-center">
+              <div className="flex-1 text-center bg-white/10 backdrop-blur-md border border-white/20 p-5 card flex flex-col justify-center hover-scale animate-fade-in-scale" style={{ animationDelay: '2s' }}>
                 <div className="text-4xl md:text-5xl font-extrabold text-error mb-2">
                   -45%
                 </div>
-                <div className="text-base md:text-lg text-base-content/80">
+                <div className="text-white/90">
                   Reducción de errores humanos
                 </div>
               </div>
-              <div className="flex-1 text-center bg-base-200 p-8 card flex flex-col justify-center">
+              <div className="flex-1 text-center bg-white/10 backdrop-blur-md border border-white/20 p-8 card flex flex-col justify-center hover-scale animate-fade-in-scale" style={{ animationDelay: '2.2s' }}>
                 <div className="text-4xl md:text-5xl font-extrabold text-success mb-2">
                   24/7
                 </div>
-                <div className="text-base md:text-lg text-base-content/80">
+                <div className="text-white/90">
                   Automatización continua
                 </div>
               </div>
             </div>
             {/* El párrafo ocupa 30% en md+ y a la derecha */}
             <div className="hidden md:flex md:basis-3/10 self-stretch">
-              <p className="text-base-content card bg-base-200 p-5 h-full flex items-center justify-end text-right">
+              <p className="text-white/90 card bg-white/10 backdrop-blur-md border border-white/20 p-5 h-full flex items-center justify-end text-right hover-scale">
                 <span className="font-semibold text-info">
                   Nuestros dashboards
                 </span>{" "}
@@ -228,7 +232,7 @@ export default function Servicios() {
             </div>
           </div>
           {/* El párrafo solo visible en móvil, debajo de las tarjetas */}
-          <p className="text-base-content card bg-base-200 p-5 mt-8 md:hidden">
+          <p className="text-white/90 card bg-white/10 backdrop-blur-md border border-white/20 p-5 mt-8 md:hidden hover-scale">
             <span className="font-semibold text-info">Nuestros dashboards</span>{" "}
             te permiten visualizar y analizar el funcionamiento de tus
             automatizaciones en tiempo real. Podrás seguir el flujo de cada
@@ -238,26 +242,26 @@ export default function Servicios() {
           </p>
         </div>
         {/* Customizadas */}
-        <div id="custom" className=" rounded-xl py-32">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+        <div id="custom" className=" rounded-xl py-32 animate-slide-in-up" style={{ animationDelay: '2.4s' }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary glow-text">
             Servicios de Automatización Personalizada
           </h2>
           <p className="text-lg md:text-xl mb-8 text-base-content">
             ¿Tu empresa tiene procesos únicos o retos específicos? En{" "}
-            <span className="font-semibold text-info">Guayoyo.tech</span>{" "}
+            <span className="font-semibold text-info glow-text">Guayoyo.tech</span>{" "}
             diseñamos e implementamos automatizaciones{" "}
-            <span className="font-bold">a medida</span>, adaptándonos por
+            <span className="font-bold glow-text">a medida</span>, adaptándonos por
             completo a tus flujos, sistemas y objetivos.
           </p>
 
-          <div className="bg-base-200 rounded-xl p-6 shadow hover:shadow-lg transition mb-8">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg hover:shadow-xl transition mb-8 hover-scale animate-fade-in-scale" style={{ animationDelay: '3s' }}>
             <div className="flex flex-col md:flex-row items-center gap-6">
               {/* Texto a la izquierda */}
               <div className="flex-1 md:mr-4">
-                <h3 className="text-2xl font-semibold mb-2 text-primary">
+                <h3 className="text-2xl font-semibold mb-2 text-white">
                   Automatiza lo que imagines
                 </h3>
-                <p className="text-base-content">
+                <p className="text-white/90">
                   Desde integraciones avanzadas con tus plataformas existentes,
                   hasta bots inteligentes, reportes automáticos, manejo de
                   datos, seguimiento de clientes y cualquier otro proceso que
@@ -284,8 +288,8 @@ export default function Servicios() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-col items-center">
-            <div className="text-center text-xl font-medium mb-4 text-success">
+          <div className="mt-8 flex flex-col items-center animate-slide-in-up" style={{ animationDelay: '2.8s' }}>
+            <div className="text-center text-xl font-medium mb-4 text-success glow-text">
               ¿Listo para innovar en tus operaciones?
             </div>
             <p className="text-base-content text-center mb-6 ">
@@ -294,7 +298,7 @@ export default function Servicios() {
             </p>
             <Link
               href="/contacto"
-              className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition"
+              className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition hover-glow animate-pulse-glow"
             >
               Solicita tu automatizacion personalizada
             </Link>
@@ -304,9 +308,9 @@ export default function Servicios() {
       {/* Consultoría fuera del div de customizadas */}
       <div
         id="consultoria"
-        className="max-w-5xl mx-auto w-full px-4 rounded-xl  z-10 relative"
+        className="max-w-5xl mx-auto w-full px-4 rounded-xl z-20 relative"
       >
-        <div className="bg-base-200 rounded-xl p-6 shadow hover:shadow-lg transition mb-8">
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg hover:shadow-xl transition mb-8 hover-scale animate-fade-in-scale" style={{ animationDelay: '3s' }}>
           <div className="flex flex-col md:flex-row items-center gap-6">
             {/* Imagen a la izquierda en desktop, ocupa 35% del ancho, toca el borde izquierdo */}
             <div
@@ -322,10 +326,10 @@ export default function Servicios() {
             />
             {/* Texto a la derecha */}
             <div className="flex-1 ml-4">
-              <h2 className="text-2xl font-semibold mb-2 text-primary">
+              <h2 className="text-2xl font-semibold mb-2 text-white">
                 Consultoría en Inteligencia Artificial
               </h2>
-              <p className="text-base-content mb-4">
+              <p className="text-white/90 mb-4">
                 <span className="text-info font-semibold">
                   Da el salto hacia el futuro con nuestra consultoría experta en
                   IA.
@@ -343,7 +347,7 @@ export default function Servicios() {
               </p>
               <Link
                 href="/contacto"
-                className="inline-block px-6 py-2 bg-primary text-white font-semibold rounded-lg shadow hover:bg-primary/80 transition"
+                className="inline-block px-6 py-2 bg-primary text-white font-semibold rounded-lg shadow hover:bg-primary/80 transition hover-glow animate-pulse-glow"
               >
                 Agenda tu consultoría ahora
               </Link>

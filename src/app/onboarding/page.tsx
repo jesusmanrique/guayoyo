@@ -1,10 +1,10 @@
 "use client";
-import { useState, useEffect } from "react";
-import StepUsuario from "@/components/steps/StepUsuario";
-import StepEmpresa from "@/components/steps/StepEmpresa";
-import StepInstancias from "@/components/steps/StepInstancias";
-import StepCredenciales from "@/components/steps/StepCredenciales";
-import StepPago from "@/components/steps/StepPago";
+import { useState, useEffect, Suspense } from "react";
+import StepUsuario from "@/components/onboarding/StepUsuario";
+import StepEmpresa from "@/components/onboarding/StepEmpresa";
+import StepInstancias from "@/components/onboarding/StepInstancias";
+import StepCredenciales from "@/components/onboarding/StepCredenciales";
+import StepPago from "@/components/onboarding/StepPago";
 import { StepProps } from "@/interfaces/stepProps.interface";
 import { useUser } from "@clerk/nextjs";
 import { UserData } from "@/interfaces/userData.interface";
@@ -18,7 +18,20 @@ const steps = [
   { label: "Pago", component: StepPago },
 ];
 
-export default function OnboardingPage() {
+function OnboardingSkeleton() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen animate-pulse">
+      <div className="flex gap-2 mb-8">
+        {[1,2,3,4,5].map((i) => (
+          <div key={i} className="w-8 h-8 bg-base-200 rounded-full" />
+        ))}
+      </div>
+      <div className="w-full max-w-xl mx-auto bg-base-200 h-96 rounded-xl" />
+    </div>
+  );
+}
+
+function OnboardingContent() {
   const [activeStep, setActiveStep] = useState(0);
   const [userData, setUserData] = useState<UserData>();
   const [clientData, setClientData] = useState<ClientData>();
@@ -79,23 +92,12 @@ export default function OnboardingPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <span className="loading loading-spinner loading-lg"></span>
-      </div>
+      <OnboardingSkeleton />
     );
   }
 
   return (
-    <div className="hero bg-base-200 min-h-screen pt-20 flex items-center justify-center relative overflow-hidden pb-0 mb-0">
-      <div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          background:
-            "linear-gradient(to top, oklch(47% 0.145 313 / 0.45) 0%, oklch(47% 0.145 313 / 0.20) 35%, oklch(47% 0.145 313 / 0.07) 60%, transparent 80%)",
-          height: "100%",
-          width: "100%",
-        }}
-      />
+    <div className="hero bg-base-100/10 min-h-screen pt-20 flex items-center justify-center relative overflow-hidden pb-0 mb-0">
       <div className="hero-content text-center w-full flex flex-col items-center px-4 relative z-10">
         <div className="flex justify-center">
           {steps.map((step, idx) => (
@@ -107,22 +109,27 @@ export default function OnboardingPage() {
                     ? "bg-primary text-white border-primary"
                     : "bg-base-100 border-base-200 text-base-content"
                 }`}
-                onClick={() => setActiveStep(idx)}
-                aria-label={step.label}
-                disabled={idx > activeStep}
               >
                 {idx + 1}
               </button>
               {idx < steps.length - 1 && (
-                <div className="w-8 h-1 bg-base-300 mx-1 rounded" />
+                <div className="w-8 h-0.5 bg-base-200 mx-2" />
               )}
             </div>
           ))}
         </div>
-        <div className="w-full max-w-xl mx-auto">
+        <div className="w-full max-w-xl mx-auto mt-8">
           <StepComponent {...stepProps} />
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Onboarding() {
+  return (
+    <Suspense fallback={<OnboardingSkeleton />}>
+      <OnboardingContent />
+    </Suspense>
   );
 }

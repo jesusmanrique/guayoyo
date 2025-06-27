@@ -40,9 +40,9 @@ export default function Nav() {
   }, [menuOpen]);
 
   return (
-    <div className="navbar bg-transparent backdrop-blur-sm shadow-sm fixed top-0 left-0 w-full z-50">
+    <div className="navbar bg-transparent backdrop-blur-md shadow-sm fixed top-0 left-0 w-full z-50 glow-primary">
       <div className="flex-1">
-        <Link className="btn btn-ghost text-xl" href="/">
+        <Link className="btn btn-ghost text-xl hover-scale" href="/">
           <Image
             src="/guayoyoSvgGold.svg"
             width={100}
@@ -54,7 +54,7 @@ export default function Nav() {
       {/* Hamburger menu for mobile */}
       <div className="lg:hidden flex-none">
         <button
-          className="btn btn-square btn-ghost"
+          className="btn btn-square btn-ghost hover-glow"
           onClick={() => setMenuOpen((open) => !open)}
           aria-label="Abrir menú"
         >
@@ -79,36 +79,36 @@ export default function Nav() {
         <ul className="menu menu-horizontal px-1">
           <SignedIn>
             <li>
-              <Link href="/">Inicio</Link>
+              <Link href="/" className="hover-glow">Inicio</Link>
             </li>
             <li>
-              <Link href="/dashboard">dashboard</Link>
+              <Link href="/dashboard" className="hover-glow">dashboard</Link>
             </li>
             <UserButton />
           </SignedIn>
           {pathname === "/" ? (
             <SignedOut>
               <li>
-                <a href="#beneficios" onClick={handleNavClick}>
+                <a href="#beneficios" onClick={handleNavClick} className="hover-glow">
                   Beneficios
                 </a>
               </li>
               <li>
                 <details>
-                  <summary>Servicios</summary>
-                  <ul className="bg-base-100 rounded-t-none p-2">
+                  <summary className="hover-glow">Servicios</summary>
+                  <ul className="bg-base-100 rounded-t-none p-2 glow-secondary">
                     <li>
-                      <a href="#outOfTheBox" onClick={handleNavClick}>
+                      <a href="#outOfTheBox" onClick={handleNavClick} className="hover-glow">
                         plug & play
                       </a>
                     </li>
                     <li>
-                      <a href="#custom" onClick={handleNavClick}>
+                      <a href="#custom" onClick={handleNavClick} className="hover-glow">
                         Customizadas
                       </a>
                     </li>
                     <li>
-                      <a href="#consultoria" onClick={handleNavClick}>
+                      <a href="#consultoria" onClick={handleNavClick} className="hover-glow">
                         Consultoria
                       </a>
                     </li>
@@ -116,44 +116,44 @@ export default function Nav() {
                 </details>
               </li>
               <li>
-                <a href="#procesos" onClick={handleNavClick}>
+                <a href="#procesos" onClick={handleNavClick} className="hover-glow">
                   Procesos
                 </a>
               </li>
 
               <li>
                 <SignUpButton mode="modal">
-                  <button className="btn btn-secondary ml-5">Registro</button>
+                  <button className="btn btn-secondary ml-5 hover-glow glow-secondary">Registro</button>
                 </SignUpButton>
               </li>
               <li>
                 <SignInButton mode="modal">
-                  <button className="btn btn-neutral ml-2">Login</button>
+                  <button className="btn btn-neutral ml-2 hover-glow">Login</button>
                 </SignInButton>
               </li>
             </SignedOut>
           ) : (
             <SignedOut>
               <li>
-                <Link href="/">Inicio</Link>
+                <Link href="/" className="hover-glow">Inicio</Link>
               </li>
               <li>
-                <Link href="/contacto">Contacto</Link>
+                <Link href="/contacto" className="hover-glow">Contacto</Link>
               </li>
               <li>
-                <Link href="/blog">Blog</Link>
+                <Link href="/blog" className="hover-glow">Blog</Link>
               </li>
               <li>
-                <Link href="/quienes-somos">Quienes somos</Link>
+                <Link href="/quienes-somos" className="hover-glow">Quienes somos</Link>
               </li>
               <li>
                 <SignUpButton mode="modal">
-                  <button className="btn btn-secondary ml-5">Registro</button>
+                  <button className="btn btn-secondary ml-5 hover-glow glow-secondary">Registro</button>
                 </SignUpButton>
               </li>
               <li>
                 <SignInButton mode="modal">
-                  <button className="btn btn-neutral ml-2">Login</button>
+                  <button className="btn btn-neutral ml-2 hover-glow">Login</button>
                 </SignInButton>
               </li>
             </SignedOut>
@@ -164,17 +164,17 @@ export default function Nav() {
       {menuOpen && (
         <div
           ref={menuRef}
-          className="absolute top-full left-0 w-full bg-base-100 shadow-lg z-50 flex flex-col items-center lg:hidden"
+          className="absolute top-full left-0 w-full bg-base-100 shadow-lg z-50 flex flex-col items-center lg:hidden glow-secondary animate-slide-in-up"
         >
           <ul className="menu menu-vertical w-full px-1">
             <SignedIn>
               <li>
-                <Link href="/" onClick={() => setMenuOpen(false)}>
+                <Link href="/" onClick={() => setMenuOpen(false)} className="hover-glow">
                   Inicio
                 </Link>
               </li>
               <li>
-                <Link href="/dashboard" onClick={() => setMenuOpen(false)}>
+                <Link href="/dashboard" onClick={() => setMenuOpen(false)} className="hover-glow">
                   dashboard
                 </Link>
               </li>
@@ -191,14 +191,15 @@ export default function Nav() {
                       handleNavClick(e);
                       setMenuOpen(false);
                     }}
+                    className="hover-glow"
                   >
                     Beneficios
                   </a>
                 </li>
                 <li>
                   <details>
-                    <summary>Servicios</summary>
-                    <ul className="bg-base-100 rounded-t-none p-2">
+                    <summary className="hover-glow">Servicios</summary>
+                    <ul className="bg-base-100 rounded-t-none p-2 glow-secondary">
                       <li>
                         <a
                           href="#outOfTheBox"
@@ -206,6 +207,7 @@ export default function Nav() {
                             handleNavClick(e);
                             setMenuOpen(false);
                           }}
+                          className="hover-glow"
                         >
                           plug & play
                         </a>
@@ -217,6 +219,7 @@ export default function Nav() {
                             handleNavClick(e);
                             setMenuOpen(false);
                           }}
+                          className="hover-glow"
                         >
                           Customizadas
                         </a>
@@ -228,6 +231,7 @@ export default function Nav() {
                             handleNavClick(e);
                             setMenuOpen(false);
                           }}
+                          className="hover-glow"
                         >
                           Consultoria
                         </a>
@@ -242,22 +246,25 @@ export default function Nav() {
                       handleNavClick(e);
                       setMenuOpen(false);
                     }}
+                    className="hover-glow"
                   >
                     Procesos
                   </a>
                 </li>
-                <li className="flex flex-col gap-2 px-4">
+                <li>
                   <SignUpButton mode="modal">
                     <button
-                      className="btn btn-secondary w-full"
+                      className="btn btn-secondary w-full hover-glow glow-secondary"
                       onClick={() => setMenuOpen(false)}
                     >
                       Registro
                     </button>
                   </SignUpButton>
+                </li>
+                <li>
                   <SignInButton mode="modal">
                     <button
-                      className="btn btn-neutral w-full"
+                      className="btn btn-neutral w-full hover-glow"
                       onClick={() => setMenuOpen(false)}
                     >
                       Login
@@ -268,17 +275,17 @@ export default function Nav() {
             ) : (
               <SignedOut>
                 <li>
-                  <Link href="/" onClick={() => setMenuOpen(false)}>
+                  <Link href="/" onClick={() => setMenuOpen(false)} className="hover-glow">
                     Inicio
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contacto" onClick={() => setMenuOpen(false)}>
+                  <Link href="/contacto" onClick={() => setMenuOpen(false)} className="hover-glow">
                     Contacto
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" onClick={() => setMenuOpen(false)}>
+                  <Link href="/blog" onClick={() => setMenuOpen(false)} className="hover-glow">
                     Blog
                   </Link>
                 </li>
@@ -286,22 +293,25 @@ export default function Nav() {
                   <Link
                     href="/quienes-somos"
                     onClick={() => setMenuOpen(false)}
+                    className="hover-glow"
                   >
                     Quienes somos
                   </Link>
                 </li>
-                <li className="flex flex-col gap-2 px-4">
+                <li>
                   <SignUpButton mode="modal">
                     <button
-                      className="btn btn-secondary w-full"
+                      className="btn btn-secondary w-full hover-glow glow-secondary"
                       onClick={() => setMenuOpen(false)}
                     >
                       Registro
                     </button>
                   </SignUpButton>
+                </li>
+                <li>
                   <SignInButton mode="modal">
                     <button
-                      className="btn btn-neutral w-full"
+                      className="btn btn-neutral w-full hover-glow"
                       onClick={() => setMenuOpen(false)}
                     >
                       Login

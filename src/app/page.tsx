@@ -1,16 +1,25 @@
 "use client";
-import ChatbotWidget from "@/components/ChatbotWidget";
-import Hero from "@/components/Hero";
-import Servicios from "@/components/Servicios";
-import Beneficios from "@/components/Beneficios";
-import Proceso from "@/components/Proceso";
+import ChatbotWidget from "@/components/home/ChatbotWidget";
+import Hero from "@/components/home/Hero";
+import Servicios from "@/components/home/Servicios";
+import Beneficios from "@/components/home/Beneficios";
+import Proceso from "@/components/home/Proceso";
 import { FaArrowUp } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 
-export default function Home() {
-  // Mostrar el botón solo si el usuario ha hecho scroll
+function HomeSkeleton() {
+  return (
+    <div className="animate-pulse">
+      <div className="w-full h-64 bg-base-200 mb-8 rounded-xl" />
+      <div className="w-full h-40 bg-base-200 mb-8 rounded-xl" />
+      <div className="w-full h-80 bg-base-200 mb-8 rounded-xl" />
+      <div className="w-full h-64 bg-base-200 mb-8 rounded-xl" />
+    </div>
+  );
+}
+
+function HomeContent() {
   const [showButton, setShowButton] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       setShowButton(window.scrollY > 200);
@@ -18,7 +27,6 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
   return (
     <>
       <Hero />
@@ -49,5 +57,13 @@ export default function Home() {
         `}
       </style>
     </>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<HomeSkeleton />}>
+      <HomeContent />
+    </Suspense>
   );
 }

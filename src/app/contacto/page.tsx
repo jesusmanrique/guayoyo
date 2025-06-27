@@ -1,76 +1,46 @@
-"use client";
-import { animate, createScope, createSpring, createDraggable } from "animejs";
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import React, { Suspense } from "react";
 
-export default function Page() {
-  const root = useRef<HTMLDivElement | null>(null);
-  const scope = useRef<ReturnType<typeof createScope> | null>(null);
-  const [rotations, setRotations] = useState(0);
-
-  useEffect(() => {
-    scope.current = createScope({ root }).add((self) => {
-      animate(".logo", {
-        scale: [
-          { to: 1.25, ease: "inOut(3)", duration: 200 },
-          { to: 1, ease: createSpring({ stiffness: 300 }) },
-        ],
-        loop: true,
-        loopDelay: 250,
-      });
-
-      // Make the logo draggable around its center
-      createDraggable(".logo", {
-        container: [0, 0, 0, 0],
-        releaseEase: createSpring({ stiffness: 200 }),
-      });
-
-      // Register function methods to be used outside the useEffect
-      self.add("rotateLogo", (i) => {
-        animate(".logo", {
-          rotate: i * 360,
-          ease: "out(4)",
-          duration: 1500,
-        });
-      });
-    });
-
-    // Properly cleanup all anime.js instances declared inside the scope
-    return () => {
-      if (scope.current) {
-        scope.current.revert();
-      }
-    };
-  }, []);
-
-  const handleClick = () => {
-    setRotations((prev) => {
-      const newRotations = prev + 1;
-      // Animate logo rotation on click using the method declared inside the scope
-      if (scope.current) {
-        scope.current.methods.rotateLogo(newRotations);
-      }
-      return newRotations;
-    });
-  };
-
+function ContactoForm() {
   return (
-    <div>
-      <div ref={root}>
-        <Image
-          src="/guayoyoSvgGold.svg"
-          className="logo react"
-          alt="React logo"
-          width={200}
-          height={200}
-          priority
-        />
+    <section className="max-w-2xl mx-auto px-4 flex flex-col items-center justify-center min-h-[60vh] mt-24">
+      <h1 className="text-3xl md:text-4xl font-bold mb-4 text-info glow-text text-center">Contáctanos</h1>
+      <p className="text-lg text-center mb-8 text-white/90">
+        ¿Tienes dudas, quieres una demo o necesitas una solución a medida? Completa el formulario y nuestro equipo te responderá lo antes posible.
+      </p>
+      <form className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg flex flex-col gap-4">
+        <label className="text-white font-semibold">Nombre
+          <input type="text" className="input input-bordered w-full mt-1" placeholder="Tu nombre" required />
+        </label>
+        <label className="text-white font-semibold">Email
+          <input type="email" className="input input-bordered w-full mt-1" placeholder="tu@email.com" required />
+        </label>
+        <label className="text-white font-semibold">Mensaje
+          <textarea className="textarea textarea-bordered w-full mt-1" rows={4} placeholder="¿En qué podemos ayudarte?" required />
+        </label>
+        <button type="submit" className="btn btn-primary font-bold mt-4">Enviar mensaje</button>
+      </form>
+      <div className="mt-8 text-center text-white/80">
+        También puedes escribirnos a <a href="mailto:hola@guayoyo.tech" className="text-info underline">hola@guayoyo.tech</a> o por WhatsApp al <a href="https://wa.me/584142074541" className="text-success underline">+58 414 2074541</a>.
       </div>
-      <div className="medium row">
-        <fieldset className="controls">
-          <button onClick={handleClick}>rotations: {rotations}</button>
-        </fieldset>
-      </div>
-    </div>
+    </section>
+  );
+}
+
+function Skeleton() {
+  return (
+    <section className="max-w-2xl mx-auto px-4 flex flex-col items-center justify-center min-h-[60vh] mt-24 animate-pulse">
+      <div className="w-full h-10 bg-base-200 rounded mb-6" />
+      <div className="w-full h-6 bg-base-200 rounded mb-4" />
+      <div className="w-full h-64 bg-base-200 rounded-xl mb-6" />
+      <div className="w-1/2 h-8 bg-base-200 rounded" />
+    </section>
+  );
+}
+
+export default function Contacto() {
+  return (
+    <Suspense fallback={<Skeleton />}>
+      <ContactoForm />
+    </Suspense>
   );
 }

@@ -38,11 +38,159 @@
   --noise: 0;
 }
 
+/* Fondo base muy sutil con gradiente que acompaña al scroll */
+body {
+  background: linear-gradient(
+    135deg,
+    oklch(15% 0.008 285.82) 0%,
+    oklch(18% 0.008 285.82) 25%,
+    oklch(20% 0.008 285.82) 50%,
+    oklch(22% 0.008 285.82) 75%,
+    oklch(24% 0.008 285.82) 100%
+  );
+  min-height: 100vh;
+  background-attachment: fixed;
+}
 
+/* Gradiente dinámico que se mueve con el scroll */
+.scroll-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    oklch(47% 0.145 313 / 0.02) 20%,
+    oklch(47% 0.145 313 / 0.03) 40%,
+    oklch(47% 0.145 313 / 0.02) 60%,
+    oklch(47% 0.145 313 / 0.01) 80%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  animation: scrollGradient 20s ease-in-out infinite;
+}
 
+@keyframes scrollGradient {
+  0% { background-position: 0% 0%; }
+  25% { background-position: 100% 0%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}
 
+/* Efectos Glow Futuristas */
+.glow-primary {
+  box-shadow: 
+    0 0 20px oklch(55% 0.16 265 / 0.3),
+    0 0 40px oklch(55% 0.16 265 / 0.2),
+    0 0 60px oklch(55% 0.16 265 / 0.1);
+}
 
+.glow-secondary {
+  box-shadow: 
+    0 0 20px oklch(47% 0.145 313 / 0.3),
+    0 0 40px oklch(47% 0.145 313 / 0.2),
+    0 0 60px oklch(47% 0.145 313 / 0.1);
+}
 
+.glow-info {
+  box-shadow: 
+    0 0 20px oklch(75% 0.14 254 / 0.3),
+    0 0 40px oklch(75% 0.14 254 / 0.2),
+    0 0 60px oklch(75% 0.14 254 / 0.1);
+}
+
+.glow-success {
+  box-shadow: 
+    0 0 20px oklch(80% 0.17 140 / 0.3),
+    0 0 40px oklch(80% 0.17 140 / 0.2),
+    0 0 60px oklch(80% 0.17 140 / 0.1);
+}
+
+.glow-text {
+  text-shadow: 
+    0 0 3px currentColor,
+    0 0 6px currentColor,
+    0 0 9px currentColor;
+}
+
+/* Animaciones Futuristas */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 
+      0 0 20px oklch(55% 0.16 265 / 0.3),
+      0 0 40px oklch(55% 0.16 265 / 0.2);
+  }
+  50% { 
+    box-shadow: 
+      0 0 30px oklch(55% 0.16 265 / 0.5),
+      0 0 60px oklch(55% 0.16 265 / 0.3),
+      0 0 80px oklch(55% 0.16 265 / 0.1);
+  }
+}
+
+@keyframes slide-in-left {
+  0% { 
+    transform: translateX(-100px); 
+    opacity: 0; 
+  }
+  100% { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slide-in-right {
+  0% { 
+    transform: translateX(100px); 
+    opacity: 0; 
+  }
+  100% { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slide-in-up {
+  0% { 
+    transform: translateY(50px); 
+    opacity: 0; 
+  }
+  100% { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes fade-in-scale {
+  0% { 
+    transform: scale(0.8); 
+    opacity: 0; 
+  }
+  100% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}
+
+@keyframes rotate-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
 
 @keyframes shake {
   0% { transform: translateX(0); }
@@ -51,4 +199,252 @@
   60% { transform: translateX(-2px) rotate(-2deg); }
   80% { transform: translateX(2px) rotate(2deg); }
   100% { transform: translateX(0); }
+}
+
+@keyframes bounce-in {
+  0% { 
+    transform: scale(0.3); 
+    opacity: 0; 
+  }
+  50% { 
+    transform: scale(1.05); 
+  }
+  70% { 
+    transform: scale(0.9); 
+  }
+  100% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor;
+  }
+  50% {
+    box-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 30px currentColor;
+  }
+}
+
+/* Clases de utilidad para animaciones */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.8s ease-out forwards;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.6s ease-out forwards;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(55% 0.16 265 / 0.2),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Efectos hover mejorados */
+.hover-glow:hover {
+  transition: all 0.3s ease;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 10px 25px oklch(55% 0.16 265 / 0.3),
+    0 20px 50px oklch(55% 0.16 265 / 0.2);
+}
+
+.hover-scale:hover {
+  transition: transform 0.3s ease;
+  transform: scale(1.05);
+}
+
+/* Efectos de partículas flotantes */
+.floating-particles {
+  position: relative;
+  overflow: hidden;
+}
+
+.floating-particles::before,
+.floating-particles::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: oklch(55% 0.16 265 / 0.6);
+  border-radius: 50%;
+  animation: float 4s ease-in-out infinite;
+}
+
+.floating-particles::before {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-particles::after {
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+/* Efecto de gradiente animado */
+.gradient-animated {
+  background: linear-gradient(
+    45deg,
+    oklch(55% 0.16 265),
+    oklch(47% 0.145 313),
+    oklch(75% 0.14 254),
+    oklch(55% 0.16 265)
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Efectos de scroll reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efectos de cursor personalizado */
+.custom-cursor {
+  cursor: none;
+}
+
+.custom-cursor::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: oklch(55% 0.16 265 / 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.1s ease;
+}
+
+/* Efectos de texto tipo máquina de escribir */
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid oklch(55% 0.16 265);
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: oklch(55% 0.16 265); }
+}
+
+/* Efectos de neón */
+.neon-text {
+  color: oklch(55% 0.16 265);
+  text-shadow: 
+    0 0 5px oklch(55% 0.16 265),
+    0 0 10px oklch(55% 0.16 265),
+    0 0 15px oklch(55% 0.16 265),
+    0 0 20px oklch(55% 0.16 265);
+}
+
+.neon-border {
+  border: 2px solid oklch(55% 0.16 265);
+  box-shadow: 
+    0 0 5px oklch(55% 0.16 265),
+    0 0 10px oklch(55% 0.16 265),
+    inset 0 0 5px oklch(55% 0.16 265 / 0.3);
+}
+
+/* Efectos de ondas */
+.wave-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.wave-effect::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: oklch(55% 0.16 265 / 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.wave-effect:hover::before {
+  width: 300px;
+  height: 300px;
 }

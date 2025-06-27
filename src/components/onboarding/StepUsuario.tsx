@@ -107,7 +107,7 @@ export default function StepUsuario(stepProps: Readonly<StepProps>) {
       </h1>
       <p>Por favor completa la infromacion asociada a tu usuario.</p>
       <form
-        className=" w-full max-w-md bg-base-200 rounded-xl shadow p-6 flex flex-col gap-6 mx-auto"
+        className="w-full max-w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow flex flex-col gap-6 mx-auto"
         autoComplete="off"
         noValidate
         onSubmit={handleSubmit}

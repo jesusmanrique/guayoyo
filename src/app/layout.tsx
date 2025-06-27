@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
+import GoogleAnalytics from "@/components/ui/GoogleAnalytics";
+import ParticleBackground from "@/components/layout/ParticleBackground";
 import { Suspense } from "react";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
+import Nav from "@/components/layout/Nav";
+import Footer from "@/components/layout/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
 import { esES } from "@clerk/localizations";
 import { dark } from "@clerk/themes";
@@ -83,8 +84,12 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
+          <div className="scroll-gradient"></div>
+          <ParticleBackground />
           <Nav />
-          {children}
+          <main className="relative z-20">
+            {children}
+          </main>
           <Footer />
           <Analytics />
           <Suspense>
