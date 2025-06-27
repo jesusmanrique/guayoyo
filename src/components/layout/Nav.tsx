@@ -146,6 +146,27 @@ export default function Nav() {
           </SignedOut>
         </ul>
       </div>
+      {/* Botón hamburguesa solo en móvil */}
+      <button
+        className="lg:hidden btn btn-square btn-ghost ml-2"
+        aria-label="Abrir menú"
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
       {/* Mobile dropdown menu */}
       {menuOpen && (
         <div
