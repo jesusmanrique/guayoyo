@@ -1,7 +1,5 @@
 'use client';
 
-import type { StepBaseProps } from "@/interfaces/stepProps.interface";
-import type { PagoStepData } from "@/interfaces/stepProps.interface";
 import { useEffect, useState } from "react";
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
