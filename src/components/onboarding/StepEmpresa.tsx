@@ -19,8 +19,8 @@ export default function StepEmpresa({ data, setData, onValidationChange }: Reado
   return (
     <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 md:p-6 shadow-2xl">
       <div className="text-center mb-4">
-        <h1 className="text-lg sm:text-xl font-bold text-info mb-2">Continuamos</h1>
-        <p className="text-white/80 text-sm">Por favor completa la información asociada a tu empresa.</p>
+        <h1 className="text-lg sm:text-xl font-bold text-white mb-2">Continuamos</h1>
+        <p className="text-white text-sm">Por favor completa la información asociada a tu empresa.</p>
       </div>
 
       <form className="flex flex-col gap-3">
@@ -76,7 +76,7 @@ export default function StepEmpresa({ data, setData, onValidationChange }: Reado
             isFormValid ? "bg-success" : "bg-base-300"
           }`}></div>
           <span className={`text-xs ml-2 ${
-            isFormValid ? "text-success" : "text-base-content/60"
+            isFormValid ? "text-success" : "text-white"
           }`}>
             {isFormValid ? "Formulario válido" : "Completa todos los campos"}
           </span>

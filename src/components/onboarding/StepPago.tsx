@@ -19,8 +19,8 @@ export default function StepPago({ data, setData, onValidationChange }: Readonly
   return (
     <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 md:p-6 shadow-2xl">
       <div className="text-center mb-4">
-        <h1 className="text-lg sm:text-xl font-bold text-info mb-2">Datos de Pago</h1>
-        <p className="text-white/80 text-sm">Completa la información de tu método de pago para activar tu cuenta.</p>
+        <h1 className="text-lg sm:text-xl font-bold text-white mb-2">Datos de Pago</h1>
+        <p className="text-white text-sm">Completa la información de tu método de pago para activar tu cuenta.</p>
       </div>
       <form className="flex flex-col gap-3">
         <input
@@ -62,7 +62,7 @@ export default function StepPago({ data, setData, onValidationChange }: Readonly
         </div>
         <div className="flex items-center justify-center mt-2">
           <div className={`w-3 h-3 rounded-full ${isFormValid ? "bg-success" : "bg-base-300"}`}></div>
-          <span className={`text-xs ml-2 ${isFormValid ? "text-success" : "text-base-content/60"}`}>
+          <span className={`text-xs ml-2 ${isFormValid ? "text-success" : "text-white"}`}>
             {isFormValid ? "Datos de pago completos" : "Completa todos los campos"}
           </span>
         </div>

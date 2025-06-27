@@ -4,8 +4,8 @@ function ContactoForm() {
   return (
     <section className="max-w-2xl mx-auto px-4 flex flex-col items-center justify-center min-h-screen pt-20 pb-8">
       <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 md:p-8 shadow-2xl">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-info text-center">Contáctanos</h1>
-        <p className="text-sm sm:text-base md:text-lg text-center mb-6 sm:mb-8 text-white/90">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white text-center">Contáctanos</h1>
+        <p className="text-sm sm:text-base md:text-lg text-center mb-6 sm:mb-8 text-white">
           ¿Tienes dudas, quieres una demo o necesitas una solución a medida? Completa el formulario y nuestro equipo te responderá lo antes posible.
         </p>
         <form className="w-full flex flex-col gap-3 sm:gap-4">
@@ -20,7 +20,7 @@ function ContactoForm() {
           </label>
           <button type="submit" className="btn btn-primary font-bold mt-3 sm:mt-4">Enviar mensaje</button>
         </form>
-        <div className="mt-6 sm:mt-8 text-center text-white/80 text-xs sm:text-sm md:text-base">
+        <div className="mt-6 sm:mt-8 text-center text-white text-xs sm:text-sm md:text-base">
           También puedes escribirnos a <a href="mailto:hola@guayoyo.tech" className="text-info underline">hola@guayoyo.tech</a> o por WhatsApp al <a href="https://wa.me/584142074541" className="text-success underline">+58 414 2074541</a>.
         </div>
       </div>

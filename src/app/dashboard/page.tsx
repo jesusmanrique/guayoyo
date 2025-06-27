@@ -29,29 +29,29 @@ function DashboardSkeleton() {
 function Resumen() {
   return (
     <div className="w-full">
-      <h2 className="text-2xl font-bold mb-4 text-info">Resumen</h2>
-      <p className="text-white/90 mb-6">Bienvenido a tu panel de control. Aquí puedes ver un resumen de tu actividad, automatizaciones activas y métricas clave.</p>
+      <h2 className="text-2xl font-bold mb-4 text-white">Resumen</h2>
+      <p className="text-white mb-6">Bienvenido a tu panel de control. Aquí puedes ver un resumen de tu actividad, automatizaciones activas y métricas clave.</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Tarjeta 1 */}
         <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6 flex flex-col items-center">
-          <h3 className="text-lg font-bold text-info mb-2">Actividad Reciente</h3>
-          <div className="w-full h-32 bg-base-200/40 rounded-xl mb-2 flex items-center justify-center text-base-content/60">
+          <h3 className="text-lg font-bold text-white mb-2">Actividad Reciente</h3>
+          <div className="w-full h-32 bg-base-200/40 rounded-xl mb-2 flex items-center justify-center text-white">
             {/* Aquí irá el gráfico de actividad */}
             <span className="text-sm">[Gráfico de actividad]</span>
           </div>
         </div>
         {/* Tarjeta 2 */}
         <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6 flex flex-col items-center">
-          <h3 className="text-lg font-bold text-info mb-2">Automatizaciones por Canal</h3>
-          <div className="w-full h-32 bg-base-200/40 rounded-xl mb-2 flex items-center justify-center text-base-content/60">
+          <h3 className="text-lg font-bold text-white mb-2">Automatizaciones por Canal</h3>
+          <div className="w-full h-32 bg-base-200/40 rounded-xl mb-2 flex items-center justify-center text-white">
             {/* Aquí irá el gráfico de automatizaciones */}
             <span className="text-sm">[Gráfico de canales]</span>
           </div>
         </div>
         {/* Tarjeta 3 */}
         <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6 flex flex-col items-center">
-          <h3 className="text-lg font-bold text-info mb-2">Usuarios Registrados</h3>
-          <div className="w-full h-32 bg-base-200/40 rounded-xl mb-2 flex items-center justify-center text-base-content/60">
+          <h3 className="text-lg font-bold text-white mb-2">Usuarios Registrados</h3>
+          <div className="w-full h-32 bg-base-200/40 rounded-xl mb-2 flex items-center justify-center text-white">
             {/* Aquí irá el gráfico de usuarios */}
             <span className="text-sm">[Gráfico de usuarios]</span>
           </div>
@@ -64,9 +64,9 @@ function Resumen() {
 function Automatizaciones() {
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4 text-info">Automatizaciones</h2>
-      <p className="text-white/90 mb-2">Gestiona y monitorea tus automatizaciones aquí.</p>
-      <ul className="list-disc list-inside text-white/80">
+      <h2 className="text-2xl font-bold mb-4 text-white">Automatizaciones</h2>
+      <p className="text-white mb-2">Gestiona y monitorea tus automatizaciones aquí.</p>
+      <ul className="list-disc list-inside text-white">
         <li>WhatsApp Bot: Activo</li>
         <li>Integración Notion: En espera</li>
         <li>Chatbot Web: Activo</li>
@@ -78,9 +78,9 @@ function Automatizaciones() {
 function Usuarios() {
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4 text-info">Usuarios</h2>
-      <p className="text-white/90 mb-2">Administra los usuarios de tu empresa y sus permisos.</p>
-      <ul className="list-disc list-inside text-white/80">
+      <h2 className="text-2xl font-bold mb-4 text-white">Usuarios</h2>
+      <p className="text-white mb-2">Administra los usuarios de tu empresa y sus permisos.</p>
+      <ul className="list-disc list-inside text-white">
         <li>Juan Pérez - Admin</li>
         <li>María Gómez - Usuario</li>
         <li>Carlos Ruiz - Usuario</li>
@@ -92,9 +92,9 @@ function Usuarios() {
 function Configuracion() {
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4 text-info">Configuración</h2>
-      <p className="text-white/90 mb-2">Ajusta la configuración de tu cuenta y preferencias del sistema.</p>
-      <ul className="list-disc list-inside text-white/80">
+      <h2 className="text-2xl font-bold mb-4 text-white">Configuración</h2>
+      <p className="text-white mb-2">Ajusta la configuración de tu cuenta y preferencias del sistema.</p>
+      <ul className="list-disc list-inside text-white">
         <li>Notificaciones: Activadas</li>
         <li>Idioma: Español</li>
         <li>Zona horaria: GMT-4</li>
@@ -106,9 +106,9 @@ function Configuracion() {
 function Soporte() {
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4 text-info">Soporte</h2>
-      <p className="text-white/90 mb-2">¿Tienes dudas o problemas? Contáctanos y te ayudaremos.</p>
-      <ul className="list-disc list-inside text-white/80">
+      <h2 className="text-2xl font-bold mb-4 text-white">Soporte</h2>
+      <p className="text-white mb-2">¿Tienes dudas o problemas? Contáctanos y te ayudaremos.</p>
+      <ul className="list-disc list-inside text-white">
         <li>Email: <a href="mailto:soporte@guayoyo.tech" className="text-info underline">soporte@guayoyo.tech</a></li>
         <li>WhatsApp: <a href="https://wa.me/584142074541" className="text-success underline">+58 414 2074541</a></li>
       </ul>
@@ -132,7 +132,7 @@ function DashboardContent() {
     <div className="min-h-screen flex bg-base-100/60">
       {/* Menú lateral */}
       <aside className="w-64 min-h-screen bg-white/10 backdrop-blur-md border-r border-white/20 p-6 flex flex-col gap-4 shadow-lg z-20">
-        <h1 className="text-2xl font-bold text-primary mb-8 text-center">Dashboard</h1>
+        <h1 className="text-2xl font-bold text-white mb-8 text-center">Dashboard</h1>
         {SECCIONES.map((sec) => (
           <button
             key={sec.key}

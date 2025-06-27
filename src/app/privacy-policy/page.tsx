@@ -22,8 +22,8 @@ function PrivacyPolicyContent() {
         <span className="bg-primary/20 p-4 rounded-full mb-4 shadow-lg animate-float">
           <FaShieldAlt className="text-4xl text-primary" />
         </span>
-        <h1 className="text-3xl md:text-4xl font-bold text-info mb-2 text-center">Política de Privacidad</h1>
-        <p className="text-base-content/80 text-center max-w-xl mb-2">Tu privacidad y la seguridad de tus datos son nuestra prioridad. Lee cómo protegemos y gestionamos tu información en Guayoyo.</p>
+        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 text-center">Política de Privacidad</h1>
+        <p className="text-white text-center max-w-xl mb-2">Tu privacidad y la seguridad de tus datos son nuestra prioridad. Lee cómo protegemos y gestionamos tu información en Guayoyo.</p>
       </div>
       <div className="w-full">
         <PrivacyPolicy />

@@ -31,19 +31,19 @@ export default function Servicios() {
       <div className="max-w-5xl mx-auto py-16 w-full px-4 flex flex-col gap-12 z-20 relative">
         {/* Título y descripción */}
         <div className="mb-8 text-center animate-slide-in-up">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-info">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-white">
             Nuestros{" "}
-            <span className="text-success">
+            <span className="text-white">
               Servicios
             </span>
           </h1>
-          <p className="text-xl md:text-2xl font-bold mb-2 animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-xl md:text-2xl font-bold mb-2 text-white animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
             Tecnología Plug & Play, Automatizaciones Personalizadas y
             Consultoría Experta
           </p>
-          <p className="text-base md:text-lg text-base-content/80 animate-slide-in-up" style={{ animationDelay: '0.4s' }}>
+          <p className="text-base md:text-lg text-white animate-slide-in-up" style={{ animationDelay: '0.4s' }}>
             En Guayoyo.tech,{" "}
-            <span className="text-success">
+            <span className="text-white">
               llevamos la automatización al siguiente nivel integrando
               inteligencia artificial en cada proceso.
             </span>{" "}
@@ -56,10 +56,10 @@ export default function Servicios() {
         </div>
         {/* Plug & Play */}
         <div id="outOfTheBox" className=" rounded-xl py-32 animate-slide-in-up" style={{ animationDelay: '0.6s' }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-info">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Listas para Usar
           </h2>
-          <p className="text-lg md:text-xl mb-10 text-base-content">
+          <p className="text-lg md:text-xl mb-10 text-white">
             Automatiza, conecta y crece de inmediato. Descubre nuestras
             soluciones listas para implementar:
           </p>
@@ -83,8 +83,8 @@ export default function Servicios() {
                   <h3 className="text-2xl font-semibold mb-2 text-white">
                     Atención y Categorización Automatizada de Clientes
                   </h3>
-                  <p className="text-white/90">
-                    <span className="font-semibold text-success">
+                  <p className="text-white">
+                    <span className="font-semibold text-white">
                       WhatsApp e Instagram:
                     </span>{" "}
                     Automatiza respuestas, canaliza consultas y segmenta
@@ -102,8 +102,8 @@ export default function Servicios() {
                   <h3 className="text-2xl font-semibold mb-2 text-white">
                     Chatbots Inteligentes
                   </h3>
-                  <p className="text-white/90">
-                    <span className="font-semibold text-success">
+                  <p className="text-white">
+                    <span className="font-semibold text-white">
                       Telegram y Chat Embebidos:
                     </span>{" "}
                     Instala asistentes virtuales en tus canales favoritos para
@@ -145,8 +145,8 @@ export default function Servicios() {
                   <h3 className="text-2xl font-semibold mb-2 text-white">
                     Integraciones de Gestión Empresarial
                   </h3>
-                  <p className="text-white/90">
-                    <span className="font-semibold text-success">
+                  <p className="text-white">
+                    <span className="font-semibold text-white">
                       Notion y Jira:
                     </span>{" "}
                     Sincroniza tareas, proyectos y flujos de trabajo mediante
@@ -160,10 +160,10 @@ export default function Servicios() {
           </div>
 
           <div className="mt-12 flex flex-col items-center animate-slide-in-up" style={{ animationDelay: '1.4s' }}>
-            <div className="text-center text-xl font-medium mb-4 text-success">
+            <div className="text-center text-xl font-medium mb-4 text-white">
               ¡Implementación en 24 horas!
             </div>
-            <p className="text-base-content text-center mb-6">
+            <p className="text-white text-center mb-6">
               Conecta cualquiera de estas soluciones listas para usar, empieza a
               disfrutar de la automatización desde el primer día y deja en manos
               de la inteligencia artificial lo que antes requería horas de
@@ -188,7 +188,7 @@ export default function Servicios() {
         </div>
         {/* Métricas destacadas */}
         <div className="rounded-xl flex flex-col animate-slide-in-up" style={{ animationDelay: '1.6s' }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-info">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Métricas Avanzadas
           </h2>
           <div className="flex flex-col md:flex-row justify-between items-stretch gap-8">
@@ -198,7 +198,7 @@ export default function Servicios() {
                 <div className="text-4xl md:text-5xl font-extrabold text-success mb-2">
                   +70%
                 </div>
-                <div className="text-white/90">
+                <div className="text-white">
                   Aumento en eficiencia operativa
                 </div>
               </div>
@@ -206,7 +206,7 @@ export default function Servicios() {
                 <div className="text-4xl md:text-5xl font-extrabold text-error mb-2">
                   -45%
                 </div>
-                <div className="text-white/90">
+                <div className="text-white">
                   Reducción de errores humanos
                 </div>
               </div>
@@ -214,15 +214,15 @@ export default function Servicios() {
                 <div className="text-4xl md:text-5xl font-extrabold text-success mb-2">
                   24/7
                 </div>
-                <div className="text-white/90">
+                <div className="text-white">
                   Automatización continua
                 </div>
               </div>
             </div>
             {/* El párrafo ocupa 30% en md+ y a la derecha */}
             <div className="hidden md:flex md:basis-3/10 self-stretch">
-              <p className="text-white/90 card bg-white/10 backdrop-blur-md border border-white/20 p-5 h-full flex items-center justify-end text-right hover-scale">
-                <span className="font-semibold text-info">
+              <p className="text-white card bg-white/10 backdrop-blur-md border border-white/20 p-5 h-full flex items-center justify-end text-right hover-scale">
+                <span className="font-semibold text-white">
                   Nuestros dashboards
                 </span>{" "}
                 te permiten visualizar y analizar el funcionamiento de tus
@@ -235,8 +235,8 @@ export default function Servicios() {
             </div>
           </div>
           {/* El párrafo solo visible en móvil, debajo de las tarjetas */}
-          <p className="text-white/90 card bg-white/10 backdrop-blur-md border border-white/20 p-5 mt-8 md:hidden hover-scale">
-            <span className="font-semibold text-info">Nuestros dashboards</span>{" "}
+          <p className="text-white card bg-white/10 backdrop-blur-md border border-white/20 p-5 mt-8 md:hidden hover-scale">
+            <span className="font-semibold text-white">Nuestros dashboards</span>{" "}
             te permiten visualizar y analizar el funcionamiento de tus
             automatizaciones en tiempo real. Podrás seguir el flujo de cada
             proceso, consultar métricas clave, recibir alertas sobre incidencias
@@ -246,14 +246,14 @@ export default function Servicios() {
         </div>
         {/* Customizadas */}
         <div id="custom" className=" rounded-xl py-32 animate-slide-in-up" style={{ animationDelay: '2.4s' }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Servicios de Automatización Personalizada
           </h2>
-          <p className="text-lg md:text-xl mb-8 text-base-content">
+          <p className="text-lg md:text-xl mb-8 text-white">
             ¿Tu empresa tiene procesos únicos o retos específicos? En{" "}
-            <span className="font-semibold text-info">Guayoyo.tech</span>{" "}
+            <span className="font-semibold text-white">Guayoyo.tech</span>{" "}
             diseñamos e implementamos automatizaciones{" "}
-            <span className="font-bold">a medida</span>, adaptándonos por
+            <span className="font-bold text-white">a medida</span>, adaptándonos por
             completo a tus flujos, sistemas y objetivos.
           </p>
 
@@ -264,12 +264,12 @@ export default function Servicios() {
                 <h3 className="text-2xl font-semibold mb-2 text-white">
                   Automatiza lo que imagines
                 </h3>
-                <p className="text-white/90">
+                <p className="text-white">
                   Desde integraciones avanzadas con tus plataformas existentes,
                   hasta bots inteligentes, reportes automáticos, manejo de
                   datos, seguimiento de clientes y cualquier otro proceso que
                   desees optimizar:{" "}
-                  <span className="font-semibold text-success">
+                  <span className="font-semibold text-white">
                     podemos implementar prácticamente cualquier automatización
                     para los flujos de tu empresa
                   </span>
@@ -292,10 +292,10 @@ export default function Servicios() {
           </div>
 
           <div className="mt-8 flex flex-col items-center animate-slide-in-up" style={{ animationDelay: '2.8s' }}>
-            <div className="text-center text-xl font-medium mb-4 text-success">
+            <div className="text-center text-xl font-medium mb-4 text-white">
               ¡Transforma tu negocio con expertos!
             </div>
-            <p className="text-base-content text-center mb-6 ">
+            <p className="text-white text-center mb-6 ">
               Cuéntanos tu reto o tu idea: desarrollamos la solución perfecta a
               tus necesidades.
             </p>
@@ -332,8 +332,8 @@ export default function Servicios() {
               <h2 className="text-2xl font-semibold mb-2 text-white">
                 Consultoría en Inteligencia Artificial
               </h2>
-              <p className="text-white/90 mb-4">
-                <span className="text-info font-semibold">
+              <p className="text-white mb-4">
+                <span className="text-white font-semibold">
                   Da el salto hacia el futuro con nuestra consultoría experta en
                   IA.
                 </span>{" "}
@@ -342,7 +342,7 @@ export default function Servicios() {
                 realmente impacta tus resultados. Identificamos oportunidades
                 reales, implementamos soluciones a medida y te acompañamos en
                 cada etapa del cambio.
-                <span className="block mt-2 font-semibold text-success">
+                <span className="block mt-2 font-semibold text-white">
                   Asegura la competitividad y la innovación de tu empresa desde
                   hoy. Permítenos ser tus aliados estratégicos y juntos
                   llevaremos tu negocio al siguiente nivel.

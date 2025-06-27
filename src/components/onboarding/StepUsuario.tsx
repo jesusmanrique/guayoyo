@@ -36,11 +36,11 @@ export default function StepUsuario({ data, setData, onValidationChange, clerkFu
   return (
     <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 md:p-6 shadow-2xl">
       <div className="text-center mb-4">
-        <h1 className="text-lg sm:text-xl font-bold text-info mb-2">
+        <h1 className="text-lg sm:text-xl font-bold text-white mb-2">
           Bienvenido{" "}
-          <span className="text-primary">{clerkFullName || "Usuario"}</span>
+          <span className="text-white">{clerkFullName || "Usuario"}</span>
         </h1>
-        <p className="text-white/80 text-sm">Por favor completa la información asociada a tu usuario.</p>
+        <p className="text-white text-sm">Por favor completa la información asociada a tu usuario.</p>
       </div>
       <form className="flex flex-col gap-4" autoComplete="off" noValidate>
         <div className="flex flex-col items-start">
@@ -77,7 +77,7 @@ export default function StepUsuario({ data, setData, onValidationChange, clerkFu
         </div>
         <div className="flex items-center justify-center mt-2">
           <div className={`w-3 h-3 rounded-full ${isFormValid ? "bg-success" : "bg-base-300"}`}></div>
-          <span className={`text-xs ml-2 ${isFormValid ? "text-success" : "text-base-content/60"}`}>
+          <span className={`text-xs ml-2 ${isFormValid ? "text-success" : "text-white"}`}>
             {isFormValid ? "Formulario válido" : "Completa todos los campos"}
           </span>
         </div>

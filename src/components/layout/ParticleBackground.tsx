@@ -8,9 +8,9 @@ interface Particle {
   vy: number;
   size: number;
   opacity: number;
-  color: string;
   life: number;
   maxLife: number;
+  connections: number[];
 }
 
 export default function ParticleBackground() {
@@ -32,54 +32,99 @@ export default function ParticleBackground() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Configuración de partículas mejorada
+    // Configuración de partículas neuronales
     const particles: Particle[] = [];
-    const particleCount = 150; // Aumentado de 50 a 150
-    const colors = [
-      "rgba(59, 130, 246, 0.8)",   // Azul más brillante
-      "rgba(16, 185, 129, 0.8)",   // Verde más brillante
-      "rgba(245, 158, 11, 0.8)",   // Amarillo más brillante
-      "rgba(239, 68, 68, 0.8)",    // Rojo más brillante
-      "rgba(139, 92, 246, 0.8)",   // Púrpura más brillante
-      "rgba(236, 72, 153, 0.8)",   // Rosa más brillante
-      "rgba(34, 197, 94, 0.8)",    // Verde esmeralda
-      "rgba(14, 165, 233, 0.8)",   // Azul cielo
-    ];
+    const particleCount = 80; // Menos partículas para mejor rendimiento
+    const neuronColor = "rgba(0, 255, 255, 0.9)"; // Cian eléctrico unicolor
+    const connectionColor = "rgba(0, 255, 255, 0.3)"; // Color para conexiones
 
     // Crear partículas iniciales
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 2, // Velocidad más alta
-        vy: (Math.random() - 0.5) * 2, // Velocidad más alta
-        size: Math.random() * 4 + 2, // Tamaño más grande (2-6px)
-        opacity: Math.random() * 0.8 + 0.4, // Opacidad más alta (0.4-1.2)
-        color: colors[Math.floor(Math.random() * colors.length)],
+        vx: (Math.random() - 0.5) * 1.5, // Movimiento más suave
+        vy: (Math.random() - 0.5) * 1.5,
+        size: Math.random() * 3 + 1.5, // Tamaño más pequeño para aspecto neuronal
+        opacity: Math.random() * 0.6 + 0.4,
         life: Math.random() * 100,
-        maxLife: 100 + Math.random() * 200,
+        maxLife: 150 + Math.random() * 100,
+        connections: [], // Array para almacenar índices de partículas conectadas
       });
     }
 
-    // Función de animación mejorada
+    // Función para establecer conexiones neuronales
+    const establishConnections = () => {
+      particles.forEach((particle, index) => {
+        particle.connections = [];
+        particles.forEach((otherParticle, otherIndex) => {
+          if (index !== otherIndex) {
+            const dx = particle.x - otherParticle.x;
+            const dy = particle.y - otherParticle.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            // Conectar partículas cercanas (como neuronas)
+            if (distance < 120 && particle.connections.length < 3) {
+              particle.connections.push(otherIndex);
+            }
+          }
+        });
+      });
+    };
+
+    // Establecer conexiones iniciales
+    establishConnections();
+
+    // Función de animación neuronal
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      // Dibujar conexiones primero (para que estén detrás de las partículas)
       particles.forEach((particle, index) => {
-        // Actualizar posición con movimiento más dinámico
+        particle.connections.forEach(connectionIndex => {
+          const connectedParticle = particles[connectionIndex];
+          if (connectedParticle) {
+            const dx = particle.x - connectedParticle.x;
+            const dy = particle.y - connectedParticle.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 120) {
+              // Crear gradiente para las conexiones
+              const gradient = ctx.createLinearGradient(
+                particle.x, particle.y, 
+                connectedParticle.x, connectedParticle.y
+              );
+              gradient.addColorStop(0, connectionColor);
+              gradient.addColorStop(0.5, "rgba(0, 255, 255, 0.6)");
+              gradient.addColorStop(1, connectionColor);
+              
+              ctx.strokeStyle = gradient;
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(particle.x, particle.y);
+              ctx.lineTo(connectedParticle.x, connectedParticle.y);
+              ctx.stroke();
+            }
+          }
+        });
+      });
+
+      particles.forEach((particle, index) => {
+        // Movimiento neuronal más orgánico
         particle.x += particle.vx;
         particle.y += particle.vy;
 
-        // Añadir movimiento ondulante sutil
-        particle.x += Math.sin(Date.now() * 0.001 + index) * 0.3;
-        particle.y += Math.cos(Date.now() * 0.001 + index) * 0.3;
+        // Añadir movimiento ondulante sutil (como impulsos neuronales)
+        const time = Date.now() * 0.001;
+        particle.x += Math.sin(time + index * 0.5) * 0.5;
+        particle.y += Math.cos(time + index * 0.3) * 0.5;
 
-        // Rebotar en los bordes con más energía
+        // Rebotar en los bordes con comportamiento neuronal
         if (particle.x <= 0 || particle.x >= canvas.width) {
-          particle.vx = -particle.vx * 1.1; // Aumentar velocidad al rebotar
+          particle.vx = -particle.vx * 0.8;
         }
         if (particle.y <= 0 || particle.y >= canvas.height) {
-          particle.vy = -particle.vy * 1.1; // Aumentar velocidad al rebotar
+          particle.vy = -particle.vy * 0.8;
         }
 
         // Mantener partículas dentro del canvas
@@ -89,67 +134,60 @@ export default function ParticleBackground() {
         // Actualizar vida
         particle.life++;
         if (particle.life > particle.maxLife) {
-          // Renovar partícula en lugar de eliminarla
+          // Renovar partícula
           particle.x = Math.random() * canvas.width;
           particle.y = Math.random() * canvas.height;
-          particle.vx = (Math.random() - 0.5) * 2;
-          particle.vy = (Math.random() - 0.5) * 2;
-          particle.size = Math.random() * 4 + 2;
-          particle.opacity = Math.random() * 0.8 + 0.4;
-          particle.color = colors[Math.floor(Math.random() * colors.length)];
+          particle.vx = (Math.random() - 0.5) * 1.5;
+          particle.vy = (Math.random() - 0.5) * 1.5;
+          particle.size = Math.random() * 3 + 1.5;
+          particle.opacity = Math.random() * 0.6 + 0.4;
           particle.life = 0;
-          particle.maxLife = 100 + Math.random() * 200;
+          particle.maxLife = 150 + Math.random() * 100;
+          particle.connections = [];
         }
 
         // Calcular opacidad basada en la vida
         const lifeRatio = particle.life / particle.maxLife;
-        const currentOpacity = particle.opacity * (1 - lifeRatio * 0.3);
+        const currentOpacity = particle.opacity * (1 - lifeRatio * 0.2);
 
-        // Dibujar partícula con glow
+        // Dibujar partícula neuronal con glow
         ctx.save();
         ctx.globalAlpha = currentOpacity;
         
-        // Glow exterior
+        // Glow exterior neuronal
         const gradient = ctx.createRadialGradient(
           particle.x, particle.y, 0,
-          particle.x, particle.y, particle.size * 3
+          particle.x, particle.y, particle.size * 4
         );
-        gradient.addColorStop(0, particle.color);
-        gradient.addColorStop(0.5, particle.color.replace('0.8', '0.3'));
+        gradient.addColorStop(0, neuronColor);
+        gradient.addColorStop(0.3, "rgba(0, 255, 255, 0.4)");
+        gradient.addColorStop(0.7, "rgba(0, 255, 255, 0.1)");
         gradient.addColorStop(1, 'transparent');
         
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2);
+        ctx.arc(particle.x, particle.y, particle.size * 4, 0, Math.PI * 2);
         ctx.fill();
 
-        // Núcleo brillante
-        ctx.fillStyle = particle.color.replace('0.8', '1');
+        // Núcleo brillante de la neurona
+        ctx.fillStyle = "rgba(0, 255, 255, 1)";
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fill();
 
+        // Punto central más brillante (como sinapsis)
+        ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size * 0.3, 0, Math.PI * 2);
+        ctx.fill();
+
         ctx.restore();
-
-        // Conectar partículas cercanas con líneas sutiles
-        particles.forEach((otherParticle, otherIndex) => {
-          if (index !== otherIndex) {
-            const dx = particle.x - otherParticle.x;
-            const dy = particle.y - otherParticle.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 100) { // Distancia de conexión aumentada
-              const opacity = (100 - distance) / 100 * 0.1; // Opacidad sutil
-              ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
-              ctx.lineWidth = 0.5;
-              ctx.beginPath();
-              ctx.moveTo(particle.x, particle.y);
-              ctx.lineTo(otherParticle.x, otherParticle.y);
-              ctx.stroke();
-            }
-          }
-        });
       });
+
+      // Reestablecer conexiones periódicamente
+      if (Math.random() < 0.01) { // 1% de probabilidad por frame
+        establishConnections();
+      }
 
       requestAnimationFrame(animate);
     };

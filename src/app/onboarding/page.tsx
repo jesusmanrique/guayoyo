@@ -38,7 +38,7 @@ export default function Onboarding() {
   return (
     <div className="min-h-screen bg-base-100/10 pt-20 pb-4 flex flex-col items-center">
       <div className="w-full max-w-3xl mx-auto px-4">
-        <h1 className="text-2xl sm:text-3xl font-bold text-center text-info mb-8">Onboarding Guayoyo</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-center text-white mb-8">Onboarding Guayoyo</h1>
         <div className="space-y-4">
           {/* Panel 1: Usuario */}
           <AccordionPanel
@@ -122,7 +122,7 @@ function AccordionPanel({ open, onClick, label, valid, children }: AccordionPane
         className={`w-full flex items-center justify-between px-4 py-3 text-left font-semibold text-lg transition-colors ${open ? "bg-primary/10" : ""}`}
         onClick={onClick}
       >
-        <span>{label}</span>
+        <span className="text-white">{label}</span>
         <span className={`ml-2 w-3 h-3 rounded-full ${valid ? "bg-success" : "bg-base-300"}`}></span>
       </button>
       {open && <div className="p-4 pt-2">{children}</div>}

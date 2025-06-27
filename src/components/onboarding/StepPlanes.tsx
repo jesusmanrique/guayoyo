@@ -18,8 +18,8 @@ export default function StepPlanes({ data, setData, onValidationChange }: Readon
   return (
     <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 md:p-6 shadow-2xl">
       <div className="text-center mb-4">
-        <h1 className="text-lg sm:text-xl font-bold text-info mb-2">Selecciona tu plan</h1>
-        <p className="text-white/80 text-sm">Elige el plan que mejor se adapte a tus necesidades.</p>
+        <h1 className="text-lg sm:text-xl font-bold text-white mb-2">Selecciona tu plan</h1>
+        <p className="text-white text-sm">Elige el plan que mejor se adapte a tus necesidades.</p>
       </div>
       <form className="flex flex-col gap-4">
         {PLANES.map((plan) => (
@@ -34,13 +34,13 @@ export default function StepPlanes({ data, setData, onValidationChange }: Readon
             />
             <div>
               <div className="font-semibold text-white">{plan.label}</div>
-              <div className="text-xs text-white/70">{plan.descripcion}</div>
+              <div className="text-xs text-white">{plan.descripcion}</div>
             </div>
           </label>
         ))}
         <div className="flex items-center justify-center mt-2">
           <div className={`w-3 h-3 rounded-full ${isFormValid ? "bg-success" : "bg-base-300"}`}></div>
-          <span className={`text-xs ml-2 ${isFormValid ? "text-success" : "text-base-content/60"}`}>
+          <span className={`text-xs ml-2 ${isFormValid ? "text-success" : "text-white"}`}>
             {isFormValid ? "Plan seleccionado" : "Selecciona un plan para continuar"}
           </span>
         </div>

@@ -4,9 +4,9 @@ function QuienesSomosContent() {
   return (
     <section className="max-w-4xl mx-auto py-8 px-4 min-h-screen flex flex-col items-center pt-20">
       <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 md:p-8 shadow-2xl mb-8">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-info text-center">¿Quiénes Somos?</h1>
-        <p className="text-sm sm:text-base md:text-lg text-center mb-6 text-white/90">
-          Somos <span className="text-primary font-semibold">Guayoyo.tech</span>, una empresa apasionada por la innovación y la tecnología, dedicada a impulsar la transformación digital de negocios en Latinoamérica.
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white text-center">¿Quiénes Somos?</h1>
+        <p className="text-sm sm:text-base md:text-lg text-center mb-6 text-white">
+          Somos <span className="text-white font-semibold">Guayoyo.tech</span>, una empresa apasionada por la innovación y la tecnología, dedicada a impulsar la transformación digital de negocios en Latinoamérica.
         </p>
       </div>
 
@@ -21,7 +21,7 @@ function QuienesSomosContent() {
             </div>
             <h2 className="text-xl font-semibold text-white">Nuestra Misión</h2>
           </div>
-          <p className="text-white/80 text-sm sm:text-base">
+          <p className="text-white text-sm sm:text-base">
             Facilitar el crecimiento de empresas y emprendedores a través de soluciones tecnológicas inteligentes, accesibles y personalizadas.
           </p>
         </div>
@@ -37,14 +37,14 @@ function QuienesSomosContent() {
             </div>
             <h2 className="text-xl font-semibold text-white">Nuestra Visión</h2>
           </div>
-          <p className="text-white/80 text-sm sm:text-base">
+          <p className="text-white text-sm sm:text-base">
             Ser referentes en automatización y tecnología aplicada, ayudando a miles de empresas a modernizarse y ser más competitivas.
           </p>
         </div>
       </div>
 
       {/* Valores */}
-      <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg mb-8">
+      <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 md:p-8 shadow-2xl mb-8">
         <div className="flex items-center gap-3 mb-6">
           <div className="w-10 h-10 bg-success/20 rounded-full flex items-center justify-center">
             <svg className="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@ function QuienesSomosContent() {
       </div>
 
       {/* Historia */}
-      <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg">
+      <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 md:p-8 shadow-2xl">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center">
             <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,8 +80,8 @@ function QuienesSomosContent() {
           </div>
           <h2 className="text-xl font-semibold text-white">Nuestra Historia</h2>
         </div>
-        <p className="text-white/80 text-sm sm:text-base leading-relaxed">
-          <span className="text-primary font-semibold">Guayoyo.tech</span> nació en 2023 con el objetivo de acercar la tecnología de punta a empresas de todos los tamaños. Desde entonces, hemos ayudado a decenas de negocios a automatizar procesos, ahorrar tiempo y crecer de manera sostenible. 
+        <p className="text-white text-sm sm:text-base leading-relaxed">
+          <span className="text-white font-semibold">Guayoyo.tech</span> nació en 2023 con el objetivo de acercar la tecnología de punta a empresas de todos los tamaños. Desde entonces, hemos ayudado a decenas de negocios a automatizar procesos, ahorrar tiempo y crecer de manera sostenible. 
           <br /><br />
           Nuestro equipo está formado por expertos en desarrollo, automatización e inteligencia artificial, comprometidos con el éxito de nuestros clientes y con la misión de democratizar el acceso a tecnologías avanzadas.
         </p>

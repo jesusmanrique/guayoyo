@@ -8,14 +8,14 @@ export default function Hero() {
     >
       <div className="hero-content text-center w-full flex flex-col items-center px-4 relative z-20">
         <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl">
-          <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-8 text-info animate-slide-in-up">
+          <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-8 text-white animate-slide-in-up">
             Automatiza tu Negocio con{" "}
-            <span className="text-primary">Inteligencia Artificial</span>
+            <span className="text-white">Inteligencia Artificial</span>
           </h1>
           
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-base-content/90 animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
 
-            <span className="text-success font-semibold">
+            <span className="text-white font-semibold">
               Lleva tu empresa al siguiente nivel desde el primer día con inteligencia artificial.
             </span>
           </p>
