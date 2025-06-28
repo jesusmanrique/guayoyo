@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
+import GoogleAnalytics from "@/components/ui/GoogleAnalytics";
+import ParticleBackground from "@/components/layout/ParticleBackground";
 import { Suspense } from "react";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
+import Nav from "@/components/layout/Nav";
+import Footer from "@/components/layout/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
+import { esES } from "@clerk/localizations";
 import { dark } from "@clerk/themes";
 
 const geistSans = Geist({
@@ -75,14 +77,41 @@ export default function RootLayout({
     <ClerkProvider
       appearance={{
         baseTheme: dark,
+        elements: {
+          card: "bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl p-4",
+          formButtonPrimary: "bg-gradient-to-r from-[#5caaff] to-[#3ee6ff] text-white font-bold rounded-full shadow hover:scale-105 glassmorph-btn",
+          headerTitle: "text-info font-bold text-2xl mb-2",
+          headerSubtitle: "text-base-content/80 mb-4",
+          socialButtonsBlockButton: "bg-gradient-to-r from-[#5caaff] to-[#3ee6ff] text-white border border-white/40 rounded-full hover:scale-105 glassmorph-btn",
+          footerAction: "text-base-content/60 mt-4",
+          formFieldInput: "input input-bordered bg-base-200/40 text-white w-full",
+          formFieldLabel: "text-info font-semibold mb-1",
+          formFieldErrorText: "text-error text-sm mt-1",
+          dividerText: "text-base-content/60 text-xs",
+          identityPreview: "bg-base-200/40 border border-white/20 rounded-lg p-2",
+          userButtonPopoverCard: "bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl p-4",
+          userButtonPopoverFooter: "mt-10",
+        },
+        variables: {
+          colorPrimary: "#6c63ff",
+          colorBackground: "rgba(30,30,40,0.7)",
+          colorText: "#fff",
+          borderRadius: "1rem",
+          fontSize: "1rem",
+        },
       }}
+      localization={esES}
     >
       <html lang="es" className={roboto.className} data-theme="dark">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
+          <div className="scroll-gradient"></div>
+          <ParticleBackground />
           <Nav />
-          {children}
+          <main className="relative z-20">
+            {children}
+          </main>
           <Footer />
           <Analytics />
           <Suspense>

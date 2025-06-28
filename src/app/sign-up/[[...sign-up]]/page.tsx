@@ -1,4 +1,5 @@
 import { SignUp } from "@clerk/nextjs";
+import { clerkAppearance } from "@/lib/clerkAppearance";
 
 export default function SignUpPage() {
   return (
@@ -12,7 +13,7 @@ export default function SignUpPage() {
           con IA y descubre cómo podemos transformar tu negocio.
         </p>
         <div className="w-full card-actions justify-center mb-8">
-          <SignUp />
+          <SignUp appearance={clerkAppearance} />
         </div>
       </div>
     </div>
