@@ -69,10 +69,11 @@ export default function Nav() {
       <div className="flex-1 flex items-center hidden lg:flex">
         <Link className="btn btn-ghost text-xl hover-scale" href="/">
           <Image
-            src="/guayoyoSvgGold.svg"
-            width={100}
-            height={100}
-            alt="Menu Icon"
+            src="/guayoyo-logo.svg"
+            width={140}
+            height={40}
+            alt="Guayoyo Logo"
+            className="object-contain"
           />
         </Link>
         {pathname === "/" ? (

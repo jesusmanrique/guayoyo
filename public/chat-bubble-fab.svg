@@ -1,0 +1,21 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bubble-glass-bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3ee6ff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#22223b" stop-opacity="0.85"/>
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="30" cy="30" r="28" fill="url(#bubble-glass-bg)" filter="url(#glow)" stroke="#3ee6ff" stroke-width="2"/>
+  <path d="M18 36V24C18 21.7909 19.7909 20 22 20H38C40.2091 20 42 21.7909 42 24V32C42 34.2091 40.2091 36 38 36H26L18 44V36Z"
+    fill="#3ee6ff" fill-opacity="0.85" stroke="#fff" stroke-width="2"/>
+  <circle cx="25" cy="28" r="2" fill="#fff"/>
+  <circle cx="30" cy="28" r="2" fill="#fff"/>
+  <circle cx="35" cy="28" r="2" fill="#fff"/>
+</svg> 

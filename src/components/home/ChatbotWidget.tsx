@@ -13,62 +13,64 @@ const ChatbotWidget = () => {
         "metadata": {},
         "theme": {
           "button": {
-            "backgroundColor": "oklch(75% 0.14 254)",
-            "right": 20,
-            "bottom": 20,
-            "size": 50,
-            "iconColor": "oklch(16% 0 0)",
-            "customIconSrc": "https://www.svgrepo.com/show/339963/chat-bot.svg",
-            "customIconSize": 66,
-            "customIconBorderRadius": 4,
+            "backgroundColor": "rgba(30,40,60,0.7)",
+            "right": 24,
+            "bottom": 24,
+            "size": 54,
+            "iconColor": "#3ee6ff",
+            "customIconSrc": "/chat-bubble-fab.svg",
+            "customIconSize": 60,
+            "customIconBorderRadius": 16,
             "autoWindowOpen": {
               "autoOpen": false,
               "openDelay": 1
             },
-            "borderRadius": "circle"
+            "borderRadius": 24,
+            "boxShadow": "0 4px 32px 0 rgba(62,230,255,0.18), 0 1.5px 8px 0 rgba(30,40,60,0.18)"
           },
           "tooltip": {
             "showTooltip": false,
             "tooltipMessage": "",
-            "tooltipBackgroundColor": "oklch(75% 0.14 254)",
-            "tooltipTextColor": "oklch(16% 0 0)",
+            "tooltipBackgroundColor": "rgba(30,40,60,0.7)",
+            "tooltipTextColor": "#fff",
             "tooltipFontSize": 15
           },
           "chatWindow": {
             "borderRadiusStyle": "rounded",
             "avatarBorderRadius": 21,
-            "messageBorderRadius": 6,
+            "messageBorderRadius": 16,
             "showTitle": true,
             "title": "Habla con Sofia",
-            "titleAvatarSrc": "https://www.svgrepo.com/show/339963/chat-bot.svg",
+            "titleAvatarSrc": "/chat-bubble.svg",
             "welcomeMessage": "Hola! 👋 Soy Sofia, tu asistente de IA en GUAYOYO.TECH",
-            "backgroundColor": "oklch(24.1% 0.008 285.82)",
-            "height": 350,
-            "width": 400,
+            "backgroundColor": "rgba(30,40,60,0.92)",
+            "height": 370,
+            "width": 410,
             "fontSize": 16,
             "renderHTML": false,
             "clearChatOnReload": false,
+            "boxShadow": "0 4px 32px 0 rgba(62,230,255,0.18), 0 1.5px 8px 0 rgba(30,40,60,0.18)",
             "botMessage": {
-              "backgroundColor": "oklch(85% 0.01 285.82)",
-              "textColor": "oklch(17% 0.019 260)",
+              "backgroundColor": "rgba(62,230,255,0.25)",
+              "textColor": "#fff",
               "showAvatar": true,
-              "avatarSrc": "https://www.svgrepo.com/show/339963/chat-bot.svg"
+              "avatarSrc": "/chat-bubble.svg"
             },
             "userMessage": {
-              "backgroundColor": "oklch(75% 0.14 254)",
-              "textColor": "oklch(16% 0 0)",
+              "backgroundColor": "rgba(92,170,255,0.25)",
+              "textColor": "#fff",
               "showAvatar": true,
-              "avatarSrc": "https://www.svgrepo.com/show/526700/user-circle.svg"
+              "avatarSrc": "/user.svg"
             },
             "textInput": {
               "placeholder": "Escribe un mensaje...",
-              "backgroundColor": "oklch(85% 0.01 285.82)",
-              "textColor": "oklch(16% 0 0)",
-              "sendButtonColor": "oklch(72% 0.19 50)",
+              "backgroundColor": "rgba(62,230,255,0.10)",
+              "textColor": "#fff",
+              "sendButtonColor": "#3ee6ff",
               "maxChars": 255,
               "maxCharsWarningMessage": ".",
               "autoFocus": true,
-              "borderRadius": 6,
+              "borderRadius": 16,
               "sendButtonBorderRadius": 50
             },
             "voiceInputConfig": {

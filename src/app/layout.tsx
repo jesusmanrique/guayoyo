@@ -35,6 +35,11 @@ export const metadata: Metadata = {
   description:
     "Soluciones de automatización con IA para transformar tu negocio. +70% eficiencia, -45% errores.",
   keywords: ["automatización IA", "desarrollo software", "Venezuela"],
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     title: "Guayoyo Agencia Digital",
     description: "Expertos en automatizaciones con IA",
@@ -42,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "Guayoyo Agencia Digital",
     images: [
       {
-        url: "/guayoyoSvgGold.svg",
+        url: "/guayoyo-logo.svg",
         alt: "Guayoyo Agencia Digital",
         width: 1200,
         height: 630,
