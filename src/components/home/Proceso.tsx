@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { SignedOut, SignUpButton } from "@clerk/nextjs";
 
 import { FaUserPlus, FaBuilding, FaFileInvoiceDollar, FaCheckCircle } from "react-icons/fa";
