@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useUser } from "@clerk/nextjs";
+import FuturisticButton from "@/components/ui/FuturisticButton";
 
 interface StepPagoProps {
   onValidationChange?: (isValid: boolean) => void;
@@ -187,7 +188,7 @@ export default function StepPago({ onValidationChange, precio = 29.99, empresaDa
         )}
 
         {/* Botón de pago */}
-        <button
+        <FuturisticButton
           type="submit"
           disabled={!stripe || isProcessing}
           className="w-full btn btn-primary"
@@ -200,7 +201,7 @@ export default function StepPago({ onValidationChange, precio = 29.99, empresaDa
           ) : (
             `Pagar $${precio}`
           )}
-        </button>
+        </FuturisticButton>
       </form>
 
       {/* Indicador de validación */}

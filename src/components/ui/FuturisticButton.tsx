@@ -9,6 +9,7 @@ interface FuturisticButtonProps {
   size?: "sm" | "md" | "lg";
   className?: string;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 export default function FuturisticButton({
@@ -19,36 +20,35 @@ export default function FuturisticButton({
   size = "md",
   className = "",
   disabled = false,
+  type = "button",
 }: FuturisticButtonProps) {
-  const baseClasses = "relative overflow-hidden rounded-lg font-bold transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed";
+  // Gradiente azul-cian pill
+  const gradientBg = "bg-gradient-to-r from-[#5caaff] to-[#3ee6ff]";
+  const baseClasses = `glassmorph-btn ${gradientBg} relative overflow-hidden rounded-full font-bold transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed shadow-2xl z-10`;
   
   const variantClasses = {
-    primary: "bg-primary text-primary-content glow-primary hover:glow-primary",
-    secondary: "bg-secondary text-secondary-content glow-secondary hover:glow-secondary",
-    info: "bg-info text-info-content glow-info hover:glow-info",
-    success: "bg-success text-success-content glow-success hover:glow-success",
+    primary: "text-white",
+    secondary: "text-white/90",
+    info: "text-white",
+    success: "text-white",
   };
 
   const sizeClasses = {
     sm: "px-4 py-2 text-sm",
     md: "px-6 py-3 text-base",
-    lg: "px-8 py-4 text-lg",
+    lg: "px-10 py-5 text-2xl",
   };
 
   const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
   const ButtonContent = () => (
     <>
-      {/* Efecto de brillo de fondo */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-      
       {/* Contenido del botón */}
       <span className="relative z-10 flex items-center justify-center gap-2">
         {children}
       </span>
-      
-      {/* Efecto de borde brillante */}
-      <div className="absolute inset-0 rounded-lg border border-current opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      {/* Borde brillante sutil */}
+      <div className="absolute inset-0 rounded-full border border-white/20 pointer-events-none z-10" style={{boxShadow:'0 0 16px 2px rgba(255,255,255,0.08)'}} />
     </>
   );
 
@@ -69,6 +69,7 @@ export default function FuturisticButton({
       className={`${buttonClasses} group`}
       onClick={onClick}
       disabled={disabled}
+      type={type}
     >
       <ButtonContent />
     </button>

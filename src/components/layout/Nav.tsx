@@ -10,6 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
+import FuturisticButton from "@/components/ui/FuturisticButton";
 
 const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, closeMenus?: () => void) => {
   const href = e.currentTarget.getAttribute("href");
@@ -108,22 +109,30 @@ export default function Nav() {
             <Link href="/quienes-somos" className="hover-glow">Quienes Somos</Link>
           </li>
           <SignedIn>
-            <li>
-              <Link href="/dashboard" className="btn btn-primary font-bold hover-glow ml-2">Dashboard</Link>
+            <li className="m-0 p-0 bg-transparent shadow-none border-none">
+              <Link href="/dashboard" className="hidden md:inline-block m-0 p-0 bg-transparent shadow-none border-none">
+                <FuturisticButton variant="primary" size="md">
+                  Dashboard
+                </FuturisticButton>
+              </Link>
             </li>
             <li>
-              <UserButton />
+              <UserButton appearance={{ elements: { userButtonPopoverCard: "bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-2xl p-4" } }} />
             </li>
           </SignedIn>
           <SignedOut>
             <li>
               <SignUpButton mode="modal">
-                <button className="btn btn-secondary ml-5 hover-glow glow-secondary">Registro</button>
+                <FuturisticButton variant="primary" size="md" className="ml-5 w-full md:w-auto">
+                  Registro
+                </FuturisticButton>
               </SignUpButton>
             </li>
             <li>
               <SignInButton mode="modal">
-                <button className="btn btn-neutral ml-2 hover-glow">Login</button>
+                <FuturisticButton variant="info" size="md" className="ml-2 w-full md:w-auto">
+                  Login
+                </FuturisticButton>
               </SignInButton>
             </li>
           </SignedOut>
@@ -192,19 +201,23 @@ export default function Nav() {
               </li>
               <li>
                 <div className="flex justify-center mt-2">
-                  <UserButton showName appearance={{ elements: { userButtonPopoverCard: "bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl p-4" } }} />
+                  <UserButton showName appearance={{ elements: { userButtonPopoverCard: "bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-2xl p-4" } }} />
                 </div>
               </li>
             </SignedIn>
             <SignedOut>
               <li>
                 <SignUpButton mode="modal">
-                  <button className="btn btn-secondary font-bold hover-glow rounded-xl px-4 py-3 mt-2 w-full">Registro</button>
+                  <FuturisticButton variant="primary" size="md" className="ml-5 w-full md:w-auto">
+                    Registro
+                  </FuturisticButton>
                 </SignUpButton>
               </li>
               <li>
                 <SignInButton mode="modal">
-                  <button className="btn btn-neutral font-bold hover-glow rounded-xl px-4 py-3 mt-2 w-full">Login</button>
+                  <FuturisticButton variant="info" size="md" className="ml-2 w-full md:w-auto">
+                    Login
+                  </FuturisticButton>
                 </SignInButton>
               </li>
             </SignedOut>

@@ -25,16 +25,16 @@ export default function Hero() {
               href="#servicios"
               variant="primary"
               size="lg"
-              className="w-full sm:w-auto"
+              className="w-full sm:w-auto shadow-2xl"
             >
               Descubre Nuestras Soluciones
             </FuturisticButton>
             
             <FuturisticButton
               href="/contacto"
-              variant="secondary"
+              variant="primary"
               size="lg"
-              className="w-full sm:w-auto"
+              className="w-full sm:w-auto shadow-2xl"
             >
               Habla con un Experto
             </FuturisticButton>

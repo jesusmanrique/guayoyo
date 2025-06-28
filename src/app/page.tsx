@@ -5,6 +5,7 @@ import Servicios from "@/components/home/Servicios";
 import Proceso from "@/components/home/Proceso";
 import { FaArrowUp } from "react-icons/fa";
 import { useEffect, useState, Suspense } from "react";
+import FuturisticButton from "@/components/ui/FuturisticButton";
 
 function HomeSkeleton() {
   return (
@@ -27,13 +28,13 @@ function HomeContent() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <>
+    <div className="pt-0">
       <Hero />
       <section className="max-w-6xl mx-auto px-4 py-14 animate-fade-in-up">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-10">Resultados Comprobados</h2>
         <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 mb-8">
           {/* Gráfica 1: Barra de progreso animada */}
-          <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-2xl shadow-lg p-6 w-full max-w-xs animate-fade-in-scale">
+          <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-2xl shadow-lg p-6 w-full max-w-xs h-64 justify-center gap-y-6 animate-fade-in-scale">
             <svg width="120" height="60" viewBox="0 0 120 60">
               <rect x="10" y="30" width="100" height="16" rx="8" fill="#22223b" />
               <rect x="10" y="30" width="100" height="16" rx="8" fill="#6c63ff" style={{
@@ -48,7 +49,7 @@ function HomeContent() {
             <div className="text-white font-bold text-lg mt-2 text-center">Retorno de Inversión</div>
           </div>
           {/* Gráfica 2: Línea de crecimiento animada */}
-          <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-2xl shadow-lg p-6 w-full max-w-xs animate-fade-in-scale">
+          <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-2xl shadow-lg p-6 w-full max-w-xs h-64 justify-center gap-y-6 animate-fade-in-scale">
             <svg width="120" height="60" viewBox="0 0 120 60">
               <polyline
                 points="10,50 40,40 70,30 100,10"
@@ -68,7 +69,7 @@ function HomeContent() {
             <div className="text-white font-bold text-lg mt-2 text-center">Productividad</div>
           </div>
           {/* Gráfica 3: Círculo de progreso animado */}
-          <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-2xl shadow-lg p-6 w-full max-w-xs animate-fade-in-scale">
+          <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-2xl shadow-lg p-6 w-full max-w-xs h-64 justify-center gap-y-6 animate-fade-in-scale">
             <svg width="80" height="80" viewBox="0 0 80 80">
               <circle cx="40" cy="40" r="32" stroke="#22223b" strokeWidth="10" fill="none" />
               <circle
@@ -91,9 +92,9 @@ function HomeContent() {
           </div>
         </div>
         <div className="flex flex-col items-center mt-6">
-          <a href="/onboarding" className="px-10 py-5 bg-gradient-to-r from-primary to-info text-white text-2xl font-extrabold rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all glow-primary animate-pulse-glow">
+          <FuturisticButton href="/onboarding" size="lg" className="mt-2">
             ¡Quiero estos resultados!
-          </a>
+          </FuturisticButton>
         </div>
         <style jsx>{`
           .progress-bar {
@@ -144,7 +145,7 @@ function HomeContent() {
           }
         `}
       </style>
-    </>
+    </div>
   );
 }
 

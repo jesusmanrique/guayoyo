@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 
 function BlogContent() {
   return (
-    <section className="max-w-4xl py-6 mx-auto px-4 min-h-[60vh] mt-16">
+    <section className="max-w-4xl py-6 mx-auto px-4 min-h-[60vh] pt-28">
       <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white text-center">Blog Guayoyo.tech</h1>
       <p className="text-lg text-center mb-8 text-white">
         Descubre las últimas tendencias en automatización, inteligencia artificial y tecnología para empresas. Consejos, casos de éxito y novedades del mundo digital.
@@ -35,7 +35,7 @@ function BlogContent() {
 
 function Skeleton() {
   return (
-    <section className="max-w-4xl mx-auto px-4 min-h-[60vh] mt-24 animate-pulse">
+    <section className="max-w-4xl mx-auto px-4 min-h-[60vh] animate-pulse pt-28">
       <div className="w-1/2 h-10 bg-base-200 rounded mb-6" />
       <div className="w-full h-6 bg-base-200 rounded mb-4" />
       <div className="grid md:grid-cols-2 gap-8">

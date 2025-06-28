@@ -1,12 +1,14 @@
 'use client'
 import React, { useState, Suspense } from "react";
+import FuturisticButton from "@/components/ui/FuturisticButton";
+import { MdDashboard, MdBuild, MdPeople, MdSettings, MdHelp } from "react-icons/md";
 
 const SECCIONES = [
-  { key: "resumen", label: "Resumen" },
-  { key: "automatizaciones", label: "Automatizaciones" },
-  { key: "usuarios", label: "Usuarios" },
-  { key: "configuracion", label: "Configuración" },
-  { key: "soporte", label: "Soporte" },
+  { key: "resumen", label: "Resumen", icon: <MdDashboard size={22} /> },
+  { key: "automatizaciones", label: "Automatizaciones", icon: <MdBuild size={22} /> },
+  { key: "usuarios", label: "Usuarios", icon: <MdPeople size={22} /> },
+  { key: "configuracion", label: "Configuración", icon: <MdSettings size={22} /> },
+  { key: "soporte", label: "Soporte", icon: <MdHelp size={22} /> },
 ];
 
 function DashboardSkeleton() {
@@ -126,31 +128,43 @@ const COMPONENTES: Record<string, React.FC> = {
 
 function DashboardContent() {
   const [seccion, setSeccion] = useState("resumen");
+  const [collapsed, setCollapsed] = useState(false);
   const Componente = COMPONENTES[seccion] || Resumen;
 
   return (
     <div className="min-h-screen flex bg-base-100/60">
       {/* Menú lateral */}
-      <aside className="w-64 min-h-screen bg-white/10 backdrop-blur-md border-r border-white/20 p-6 flex flex-col gap-4 shadow-lg z-20">
-        <h1 className="text-2xl font-bold text-white mb-8 text-center">Dashboard</h1>
-        {SECCIONES.map((sec) => (
-          <button
-            key={sec.key}
-            className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition mb-2 ${
-              seccion === sec.key
-                ? "bg-primary text-white shadow-lg"
-                : "hover:bg-primary/20 text-white"
-            }`}
-            onClick={() => setSeccion(sec.key)}
-          >
-            {sec.label}
-          </button>
-        ))}
+      <aside className={`fixed top-20 left-0 transition-all duration-300 min-h-[calc(100vh-5rem)] bg-white/10 backdrop-blur-md border-r border-white/20 flex flex-col gap-4 shadow-lg z-20 overflow-hidden ${collapsed ? 'w-16' : 'w-64'}`}>
+        {/* Botón colapsar/expandir siempre dentro del padding superior */}
+        <button
+          className={`mt-0 absolute top-5 ${collapsed ? 'left-1/2 -translate-x-1/2' : 'right-2'} w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center border border-white/20 transition z-30 opacity-70`}
+          onClick={() => setCollapsed((c) => !c)}
+          aria-label={collapsed ? 'Expandir menú' : 'Colapsar menú'}
+        >
+          {/* Icono chevron, cambia dirección según estado */}
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{transform: !collapsed ? 'rotate(180deg)' : 'rotate(0deg)'}}>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+        {/* Opciones del menú */}
+        <div className="flex flex-col gap-2 mt-20 w-full">
+          {SECCIONES.map((sec) => (
+            <FuturisticButton
+              key={sec.key}
+              className={`w-[90%] mx-auto font-semibold text-white transition-all duration-300 overflow-hidden ${collapsed ? 'text-xs px-0 py-0 min-w-0 flex items-center justify-center' : 'px-0 py-0'} mb-2`}
+              onClick={() => setSeccion(sec.key)}
+            >
+              {!collapsed ? sec.label : sec.icon}
+            </FuturisticButton>
+          ))}
+        </div>
       </aside>
       {/* Área de contenido */}
-      <main className="flex-1 p-8 mt-20 flex flex-col items-start justify-start bg-white/10 backdrop-blur-md border border-white/20 rounded-xl m-8 shadow-lg min-h-[80vh]">
-        <Componente />
-      </main>
+      <div className={`flex-1 pt-20 transition-all duration-300 ${collapsed ? 'ml-16' : 'ml-64'}`}>
+        <main className="p-8 flex flex-col items-start justify-start bg-white/10 backdrop-blur-md border border-white/20 rounded-xl m-8 shadow-lg min-h-[80vh]">
+          <Componente />
+        </main>
+      </div>
     </div>
   );
 }

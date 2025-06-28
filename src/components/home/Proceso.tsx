@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SignedOut, SignUpButton } from "@clerk/nextjs";
 
 import { FaUserPlus, FaBuilding, FaFileInvoiceDollar, FaCheckCircle } from "react-icons/fa";
+import FuturisticButton from "@/components/ui/FuturisticButton";
 
 export default function Proceso() {
   return (
@@ -60,17 +61,14 @@ export default function Proceso() {
         <div className="mt-12 flex flex-col md:flex-row gap-6 w-full justify-center items-center animate-fade-in-up">
           <SignedOut>
             <SignUpButton mode="modal">
-              <button className="px-10 py-4 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition hover-glow text-xl animate-pulse-glow w-full md:w-auto">
-                Regístrate gratis
-              </button>
+              <FuturisticButton variant="primary" size="lg" className="w-full md:w-auto mt-2 shadow-2xl">
+                Comienza gratis
+              </FuturisticButton>
             </SignUpButton>
           </SignedOut>
-          <Link
-            href="#contacto"
-            className="px-10 py-4 bg-info text-white font-bold rounded-lg shadow hover:bg-info/80 transition hover-glow text-xl w-full md:w-auto animate-pulse-glow"
-          >
+          <FuturisticButton href="#contacto" size="lg" className="w-full md:w-auto shadow-2xl">
             ¿Prefieres que te contactemos?
-          </Link>
+          </FuturisticButton>
         </div>
       </div>
       <style>

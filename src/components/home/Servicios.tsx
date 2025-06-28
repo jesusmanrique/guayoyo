@@ -1,4 +1,5 @@
 import { SignedOut, SignUpButton, SignInButton } from "@clerk/nextjs";
+import FuturisticButton from "@/components/ui/FuturisticButton";
 
 export default function Servicios() {
   return (
@@ -166,14 +167,14 @@ export default function Servicios() {
           <div className="mt-10 w-full flex flex-col md:flex-row gap-4 justify-center items-center">
             <SignedOut>
               <SignUpButton mode="modal">
-                <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition hover-glow animate-pulse-glow text-lg w-full md:w-auto">
-                  ¡Regístrate y automatiza ahora!
-                </button>
+                <FuturisticButton variant="primary" size="lg" className="w-full md:w-auto mt-2 shadow-2xl">
+                  ¡Quiero automatizar mi negocio!
+                </FuturisticButton>
               </SignUpButton>
               <SignInButton mode="modal">
-                <button className="px-8 py-3 bg-info text-white font-bold rounded-lg shadow hover:bg-info/80 transition hover-glow animate-pulse-glow text-lg w-full md:w-auto">
-                  ¿Ya tienes cuenta? Inicia sesión
-                </button>
+                <FuturisticButton variant="info" size="lg" className="w-full md:w-auto mt-2 shadow-2xl">
+                  ¡Accede a tu cuenta!
+                </FuturisticButton>
               </SignInButton>
             </SignedOut>
           </div>
@@ -214,15 +215,15 @@ export default function Servicios() {
             {/* El párrafo explicativo: debajo en móvil, a la derecha en desktop */}
             <p className="text-white card bg-white/10 backdrop-blur-md border border-white/20 p-5 h-full flex items-center justify-end text-right hover-scale hidden md:flex md:w-1/3">
               <span className="font-semibold text-white">
-                Nuestros dashboards
-              </span>{" "}
-              te permiten visualizar y analizar el funcionamiento de tus
-              automatizaciones en tiempo real. Podrás seguir el flujo de cada
-              proceso, consultar métricas clave, recibir alertas sobre
-              incidencias y tomar decisiones informadas para optimizar el
-              rendimiento de tu empresa, todo desde una interfaz intuitiva y
-              centralizada.
-            </p>
+                  Nuestros dashboards
+                </span>{" "}
+                te permiten visualizar y analizar el funcionamiento de tus
+                automatizaciones en tiempo real. Podrás seguir el flujo de cada
+                proceso, consultar métricas clave, recibir alertas sobre
+                incidencias y tomar decisiones informadas para optimizar el
+                rendimiento de tu empresa, todo desde una interfaz intuitiva y
+                centralizada.
+              </p>
           </div>
           {/* El párrafo solo visible en móvil, debajo de las tarjetas */}
           <p className="text-white card bg-white/10 backdrop-blur-md border border-white/20 p-5 mt-8 md:hidden hover-scale">
@@ -243,9 +244,9 @@ export default function Servicios() {
                 <svg className="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-              </span>
+                  </span>
               <span className="text-white font-bold text-lg text-center">Automatización a tu medida</span>
-            </div>
+              </div>
             <div className="flex flex-col items-center">
               <span className="bg-info/20 p-4 rounded-full mb-2 shadow-lg">
                 <svg className="w-12 h-12 text-info" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -262,8 +263,9 @@ export default function Servicios() {
               <span className="text-lg text-white/80 text-center">Soluciones personalizadas y asesoría de alto nivel</span>
             </div>
             <div className="flex flex-col md:flex-row gap-4 w-full justify-center mt-2">
-              <a href="/contacto" className="px-8 py-4 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary/80 transition hover-glow text-lg text-center w-full md:w-auto animate-pulse-glow">Solicita tu automatización</a>
-              <a href="/contacto" className="px-8 py-4 bg-info text-white font-bold rounded-lg shadow hover:bg-info/80 transition hover-glow text-lg text-center w-full md:w-auto animate-pulse-glow">Agenda consultoría</a>
+              <FuturisticButton href="/contacto" size="lg" className="w-full md:w-auto shadow-2xl">
+                ¡Quiero que me contacten para transformar mi empresa!
+              </FuturisticButton>
             </div>
           </div>
         </div>

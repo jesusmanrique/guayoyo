@@ -79,10 +79,10 @@ export default function RootLayout({
         baseTheme: dark,
         elements: {
           card: "bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl p-4",
-          formButtonPrimary: "btn btn-primary font-bold hover-glow w-full mt-4",
+          formButtonPrimary: "bg-gradient-to-r from-[#5caaff] to-[#3ee6ff] text-white font-bold rounded-full shadow hover:scale-105 glassmorph-btn",
           headerTitle: "text-info font-bold text-2xl mb-2",
           headerSubtitle: "text-base-content/80 mb-4",
-          socialButtonsBlockButton: "btn btn-secondary font-bold w-full mb-2",
+          socialButtonsBlockButton: "bg-gradient-to-r from-[#5caaff] to-[#3ee6ff] text-white border border-white/40 rounded-full hover:scale-105 glassmorph-btn",
           footerAction: "text-base-content/60 mt-4",
           formFieldInput: "input input-bordered bg-base-200/40 text-white w-full",
           formFieldLabel: "text-info font-semibold mb-1",

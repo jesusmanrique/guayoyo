@@ -6,6 +6,7 @@ import StepPago from "@/components/onboarding/StepPago";
 import StepPlanes from "@/components/onboarding/StepPlanes";
 import StripeProvider from "@/components/providers/StripeProvider";
 import { useUser } from "@clerk/nextjs";
+import FuturisticButton from "@/components/ui/FuturisticButton";
 
 // Definir los tipos de datos para cada parte del estado
 interface UsuarioData { documento: string; cargo: string; }
@@ -77,7 +78,7 @@ export default function Onboarding() {
   }, [openPanel, onboardingData.plan, user]);
 
   return (
-    <div className="min-h-screen bg-base-100/10 pt-20 pb-4 flex flex-col items-center">
+    <div className="min-h-screen bg-base-100/10 pt-28 pb-4 flex flex-col items-center">
       <div className="w-full max-w-3xl mx-auto px-4">
         <h1 className="text-2xl sm:text-3xl font-bold text-center text-white mb-8">Onboarding Guayoyo</h1>
         <div className="space-y-4">
@@ -149,13 +150,13 @@ export default function Onboarding() {
           </AccordionPanel>
         </div>
         <div className="flex justify-end mt-8">
-          <button
+          <FuturisticButton
             className="btn btn-primary btn-lg font-bold"
             disabled={!allValid}
             onClick={() => alert("¡Onboarding completado!\n" + JSON.stringify(onboardingData, null, 2))}
           >
             Finalizar Onboarding
-          </button>
+          </FuturisticButton>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 
 function QuienesSomosContent() {
   return (
-    <section className="max-w-4xl mx-auto py-8 px-4 min-h-screen flex flex-col items-center pt-20">
+    <section className="max-w-4xl mx-auto px-4 py-12 pt-28">
       <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 md:p-8 shadow-2xl mb-8">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white text-center">¿Quiénes Somos?</h1>
         <p className="text-sm sm:text-base md:text-lg text-center mb-6 text-white">

@@ -8,26 +8,26 @@
   default: false;
   prefersdark: false;
   color-scheme: "dark";
-  --color-base-100: oklch(24.1% 0.008 285.82);
-  --color-base-200: oklch(19.58% 0.008 285.82);
-  --color-base-300: oklch(15.43% 0.008 285.82);
-  --color-base-content: oklch(97.807% 0.029 256.847);
-  --color-primary: oklch(55% 0.16 265);
-  --color-primary-content: oklch(97% 0 0);
-  --color-secondary: oklch(47% 0.145 313);
-  --color-secondary-content: oklch(98% 0 0);
-  --color-accent: oklch(72% 0.19 50);
-  --color-accent-content: oklch(17% 0.019 260);
-  --color-neutral: oklch(85% 0.01 285.82);
-  --color-neutral-content: oklch(15% 0.011 285.82);
-  --color-info: oklch(75% 0.14 254);
-  --color-info-content: oklch(16% 0 0);
-  --color-success: oklch(80% 0.17 140);
-  --color-success-content: oklch(17% 0.011 285.82);
-  --color-warning: oklch(93% 0.2 100);
-  --color-warning-content: oklch(15% 0.011 285.82);
-  --color-error: oklch(66% 0.2 22);
-  --color-error-content: oklch(98% 0 0);
+  --color-base-100: oklch(22% 0.01 260 / 0.85); /* Fondo translúcido azul oscuro */
+  --color-base-200: oklch(18% 0.01 260 / 0.75);
+  --color-base-300: oklch(14% 0.01 260 / 0.65);
+  --color-base-content: oklch(98% 0.02 260 / 0.95);
+  --color-primary: oklch(65% 0.18 260 / 0.85); /* Azul-cian vibrante */
+  --color-primary-content: oklch(98% 0 0 / 0.98);
+  --color-secondary: oklch(55% 0.15 320 / 0.80); /* Lila translúcido */
+  --color-secondary-content: oklch(98% 0 0 / 0.98);
+  --color-accent: oklch(80% 0.19 50 / 0.85); /* Amarillo-cian translúcido */
+  --color-accent-content: oklch(17% 0.019 260 / 0.98);
+  --color-neutral: oklch(90% 0.01 260 / 0.7);
+  --color-neutral-content: oklch(15% 0.011 260 / 0.98);
+  --color-info: oklch(80% 0.15 250 / 0.85); /* Cian claro */
+  --color-info-content: oklch(16% 0 0 / 0.98);
+  --color-success: oklch(85% 0.17 140 / 0.85);
+  --color-success-content: oklch(17% 0.011 260 / 0.98);
+  --color-warning: oklch(95% 0.2 100 / 0.85);
+  --color-warning-content: oklch(15% 0.011 260 / 0.98);
+  --color-error: oklch(70% 0.2 22 / 0.85);
+  --color-error-content: oklch(98% 0 0 / 0.98);
   --radius-selector: 2rem;
   --radius-field: 0.5rem;
   --radius-box: 2rem;
@@ -35,7 +35,7 @@
   --size-field: 0.25rem;
   --border: 1px;
   --depth: 0;
-  --noise: 0;
+  --noise: 0.08;
 }
 
 /* Fondo base muy sutil con gradiente que acompaña al scroll */
@@ -447,4 +447,35 @@ body {
 .wave-effect:hover::before {
   width: 300px;
   height: 300px;
+}
+
+/* --- Glassmorfismo y Liquid Glass Buttons --- */
+.glassmorph-btn {
+  background: linear-gradient(135deg, oklch(22% 0.01 260 / 0.7) 0%, oklch(65% 0.18 260 / 0.25) 100%);
+  backdrop-filter: blur(18px) saturate(160%);
+  border: 1.5px solid oklch(80% 0.15 250 / 0.18);
+  box-shadow: 0 4px 32px 0 oklch(65% 0.18 260 / 0.18), 0 1.5px 8px 0 oklch(22% 0.01 260 / 0.18);
+  color: oklch(98% 0.02 260 / 0.98);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(.4,2,.6,1);
+}
+.glassmorph-btn:hover {
+  background: linear-gradient(135deg, oklch(65% 0.18 260 / 0.25) 0%, oklch(22% 0.01 260 / 0.7) 100%);
+  box-shadow: 0 8px 40px 0 oklch(65% 0.18 260 / 0.25), 0 2px 12px 0 oklch(22% 0.01 260 / 0.22);
+}
+.liquid-glass {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle at 60% 40%, oklch(98% 0.02 260 / 0.18) 0%, transparent 70%),
+              radial-gradient(circle at 30% 70%, oklch(80% 0.15 250 / 0.12) 0%, transparent 80%);
+  opacity: 0.85;
+  filter: blur(8px) saturate(180%);
+  animation: liquidMove 6s ease-in-out infinite alternate;
+}
+@keyframes liquidMove {
+  0% { background-position: 60% 40%, 30% 70%; }
+  100% { background-position: 40% 60%, 70% 30%; }
 }
