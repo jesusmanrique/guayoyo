@@ -1,11 +1,19 @@
 import { notFound } from "next/navigation";
+import { createSupabaseConecction } from "@/lib/supabaseServer";
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-  const res = await fetch(`${baseUrl}/api/blog/${slug}`, { cache: 'no-store' });
-  if (!res.ok) return notFound();
-  const post = await res.json();
+  
+  // Usar directamente Supabase en lugar de fetch
+  const supabase = await createSupabaseConecction();
+  const { data: post, error } = await supabase
+    .schema('guayoyo_tech')
+    .from('blog_entry')
+    .select("id, created_at, title, author, slug, content")
+    .eq("slug", slug)
+    .single();
+
+  if (error || !post) return notFound();
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-4 pt-24">
