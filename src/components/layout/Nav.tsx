@@ -122,20 +122,28 @@ export default function Nav() {
               </Link>
             </li>
             <li>
-              <UserButton appearance={{ elements: { userButtonPopoverCard: "bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-2xl p-4" } }} />
+              <UserButton appearance={{ 
+                elements: { 
+                  userButtonPopoverCard: "backdrop-blur-lg bg-gradient-to-br from-white/15 via-[#1a2a3a]/30 to-[#3ee6ff]/10 border border-white/20 rounded-3xl shadow-2xl",
+                  userButtonPopoverActionButton: "text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all",
+                  userButtonPopoverActionButtonText: "text-white/90 hover:text-white transition-colors",
+                  userButtonPopoverFooter: "border-white/20",
+                  userButtonPopoverFooterAction: "text-white/70 hover:text-white transition-colors"
+                } 
+              }} />
             </li>
           </SignedIn>
           <SignedOut>
             <li className="flex flex-col gap-2 w-full lg:flex-row lg:gap-2 lg:w-auto">
               <SignUpButton mode="modal">
-                <FuturisticButton variant="primary" size="md" className="w-full text-center lg:w-auto">
+                <button className="glassmorph-btn bg-gradient-to-r from-[#5caaff] to-[#3ee6ff] text-white font-bold rounded-full px-6 py-3 shadow-lg hover:scale-105 hover:shadow-cyan-400/40 transition-all duration-300 w-full text-center lg:w-auto">
                   Registro
-                </FuturisticButton>
+                </button>
               </SignUpButton>
               <SignInButton mode="modal">
-                <FuturisticButton variant="info" size="md" className="w-full text-center lg:w-auto">
+                <button className="glassmorph-btn bg-gradient-to-r from-white/10 to-white/5 text-white border border-white/20 rounded-full px-6 py-3 hover:scale-105 transition-all duration-300 w-full text-center lg:w-auto">
                   Login
-                </FuturisticButton>
+                </button>
               </SignInButton>
             </li>
           </SignedOut>
@@ -204,21 +212,29 @@ export default function Nav() {
               </li>
               <li>
                 <div className="flex justify-center mt-2" onClick={e => e.stopPropagation()}>
-                  <UserButton showName appearance={{ elements: { userButtonPopoverCard: "bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-2xl p-4" } }} />
+                  <UserButton showName appearance={{ 
+                    elements: { 
+                      userButtonPopoverCard: "backdrop-blur-lg bg-gradient-to-br from-white/15 via-[#1a2a3a]/30 to-[#3ee6ff]/10 border border-white/20 rounded-3xl shadow-2xl",
+                      userButtonPopoverActionButton: "text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all",
+                      userButtonPopoverActionButtonText: "text-white/90 hover:text-white transition-colors",
+                      userButtonPopoverFooter: "border-white/20",
+                      userButtonPopoverFooterAction: "text-white/70 hover:text-white transition-colors"
+                    } 
+                  }} />
                 </div>
               </li>
             </SignedIn>
             <SignedOut>
               <li className="flex flex-col gap-2 w-full lg:flex-row lg:gap-2 lg:w-auto">
                 <SignUpButton mode="modal">
-                  <FuturisticButton variant="primary" size="md" className="w-full text-center lg:w-auto">
+                  <button className="glassmorph-btn bg-gradient-to-r from-[#5caaff] to-[#3ee6ff] text-white font-bold rounded-full px-6 py-3 shadow-lg hover:scale-105 hover:shadow-cyan-400/40 transition-all duration-300 w-full text-center">
                     Registro
-                  </FuturisticButton>
+                  </button>
                 </SignUpButton>
                 <SignInButton mode="modal">
-                  <FuturisticButton variant="info" size="md" className="w-full text-center lg:w-auto">
+                  <button className="glassmorph-btn bg-gradient-to-r from-white/10 to-white/5 text-white border border-white/20 rounded-full px-6 py-3 hover:scale-105 transition-all duration-300 w-full text-center">
                     Login
-                  </FuturisticButton>
+                  </button>
                 </SignInButton>
               </li>
             </SignedOut>
