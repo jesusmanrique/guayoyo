@@ -2,6 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
+    // Verificar que la API key esté configurada
+    if (!process.env.WEBHOOK_N8N_API_KEY) {
+      console.error("WEBHOOK_N8N_API_KEY no está configurada");
+      return NextResponse.json(
+        { error: "Error de configuración del servidor" },
+        { status: 500 }
+      );
+    }
+
     const body = await req.json();
     const { nombre, email, mensaje } = body;
 
@@ -27,6 +36,7 @@ export async function POST(req: NextRequest) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "X-API-Key": process.env.WEBHOOK_N8N_API_KEY!,
       },
       body: JSON.stringify({
         nombre,
