@@ -8,11 +8,12 @@ export default async function BlogPage({
   searchParams,
 }: {
   params: Promise<{ [key: string]: string | string[] }>;
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 }) {
-  const page = parseInt(searchParams.page || "1", 10);
+  const { page } = await searchParams;
+  const pageNumber = parseInt(page || "1", 10);
   const pageSize = 10;
-  const from = (page - 1) * pageSize;
+  const from = (pageNumber - 1) * pageSize;
   const to = from + pageSize - 1;
 
   const supabase = await createSupabaseConecction();
@@ -60,7 +61,7 @@ export default async function BlogPage({
           <div className="text-center text-white/60 py-8">No hay entradas de blog disponibles.</div>
         )}
       </ul>
-      <BlogClient currentPage={page} totalPages={totalPages} />
+      <BlogClient currentPage={pageNumber} totalPages={totalPages} />
     </div>
   );
 }
