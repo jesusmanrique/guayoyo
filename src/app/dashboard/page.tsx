@@ -160,7 +160,7 @@ function DashboardContent() {
         </div>
       </aside>
       {/* Área de contenido */}
-      <div className={`flex-1 pt-20 transition-all duration-300 `}>
+      <div className={`flex-1 pt-20 transition-all duration-300  `}>
         <main className="p-8 flex flex-col items-start justify-start bg-white/10 backdrop-blur-md border border-white/20 rounded-xl mx-4 my-4 shadow-lg min-h-[80vh]">
           <Componente />
         </main>
