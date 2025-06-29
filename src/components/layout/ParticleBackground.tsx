@@ -25,8 +25,14 @@ export default function ParticleBackground() {
 
     // Configurar canvas
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      if (canvas.parentElement) {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+      } else {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
     };
 
     resizeCanvas();
@@ -202,8 +208,8 @@ export default function ParticleBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-10"
-      style={{ zIndex: 10 }}
+      className="absolute inset-0 w-full h-full pointer-events-none z-0"
+      style={{ zIndex: 0 }}
     />
   );
 } 
