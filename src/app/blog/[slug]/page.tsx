@@ -4,7 +4,6 @@ import { createSupabaseConecction } from "@/lib/supabaseServer";
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   
-  // Usar directamente Supabase en lugar de fetch
   const supabase = await createSupabaseConecction();
   const { data: post, error } = await supabase
     .schema('guayoyo_tech')
