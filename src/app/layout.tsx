@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import GoogleAnalytics from "@/components/ui/GoogleAnalytics";
-import ParticleBackground from "@/components/layout/ParticleBackground";
 import { Suspense } from "react";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
@@ -111,8 +110,14 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <div className="scroll-gradient"></div>
-          <ParticleBackground />
+          {/* Fondo gradiente oscuro lateral */}
+          <div aria-hidden="true" className="fixed inset-0 w-full h-full z-0 pointer-events-none">
+            <div className="absolute inset-0 w-full h-full"
+              style={{
+                background: 'linear-gradient(90deg, rgba(10,15,30,0.85) 0%, rgba(10,15,30,0.25) 25%, rgba(10,15,30,0) 50%, rgba(10,15,30,0.25) 75%, rgba(10,15,30,0.85) 100%)'
+              }}
+            />
+          </div>
           <Nav />
           <main className="relative z-20">
             {children}

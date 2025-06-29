@@ -44,6 +44,10 @@ export default function Nav() {
   useEffect(() => {
     if (!menuOpen) return;
     function handleClickOutside(event: MouseEvent) {
+      // No cerrar el menú si el click fue dentro del popover de Clerk
+      if ((event.target as HTMLElement).closest('.cl-userButtonPopoverCard')) {
+        return;
+      }
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setMenuOpen(false);
       }
@@ -122,16 +126,14 @@ export default function Nav() {
             </li>
           </SignedIn>
           <SignedOut>
-            <li>
+            <li className="flex flex-col gap-2 w-full lg:flex-row lg:gap-2 lg:w-auto">
               <SignUpButton mode="modal">
-                <FuturisticButton variant="primary" size="md" className="ml-5 w-full md:w-auto">
+                <FuturisticButton variant="primary" size="md" className="w-full text-center lg:w-auto">
                   Registro
                 </FuturisticButton>
               </SignUpButton>
-            </li>
-            <li>
               <SignInButton mode="modal">
-                <FuturisticButton variant="info" size="md" className="ml-2 w-full md:w-auto">
+                <FuturisticButton variant="info" size="md" className="w-full text-center lg:w-auto">
                   Login
                 </FuturisticButton>
               </SignInButton>
@@ -201,22 +203,20 @@ export default function Nav() {
                 </Link>
               </li>
               <li>
-                <div className="flex justify-center mt-2">
+                <div className="flex justify-center mt-2" onClick={e => e.stopPropagation()}>
                   <UserButton showName appearance={{ elements: { userButtonPopoverCard: "bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-2xl p-4" } }} />
                 </div>
               </li>
             </SignedIn>
             <SignedOut>
-              <li>
+              <li className="flex flex-col gap-2 w-full lg:flex-row lg:gap-2 lg:w-auto">
                 <SignUpButton mode="modal">
-                  <FuturisticButton variant="primary" size="md" className="ml-5 w-full md:w-auto">
+                  <FuturisticButton variant="primary" size="md" className="w-full text-center lg:w-auto">
                     Registro
                   </FuturisticButton>
                 </SignUpButton>
-              </li>
-              <li>
                 <SignInButton mode="modal">
-                  <FuturisticButton variant="info" size="md" className="ml-2 w-full md:w-auto">
+                  <FuturisticButton variant="info" size="md" className="w-full text-center lg:w-auto">
                     Login
                   </FuturisticButton>
                 </SignInButton>

@@ -134,7 +134,7 @@ function DashboardContent() {
   return (
     <div className="min-h-screen flex bg-base-100/60">
       {/* Menú lateral */}
-      <aside className={`fixed top-20 left-0 transition-all duration-300 min-h-[calc(100vh-5rem)] bg-white/10 backdrop-blur-md border-r border-white/20 flex flex-col gap-4 shadow-lg z-20 overflow-hidden ${collapsed ? 'w-16' : 'w-64'}`}>
+      <aside className={`sticky top-20 left-0 transition-all duration-300 h-[calc(100vh-5rem)] bg-white/10 backdrop-blur-md border-r border-white/20 flex flex-col gap-4 shadow-lg z-30 overflow-hidden ${collapsed ? 'w-16' : 'w-64'}`}>
         {/* Botón colapsar/expandir siempre dentro del padding superior */}
         <button
           className={`mt-0 absolute top-5 ${collapsed ? 'left-1/2 -translate-x-1/2' : 'right-2'} w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center border border-white/20 transition z-30 opacity-70`}
@@ -160,8 +160,8 @@ function DashboardContent() {
         </div>
       </aside>
       {/* Área de contenido */}
-      <div className={`flex-1 pt-20 transition-all duration-300 ${collapsed ? 'ml-16' : 'ml-64'}`}>
-        <main className="p-8 flex flex-col items-start justify-start bg-white/10 backdrop-blur-md border border-white/20 rounded-xl m-8 shadow-lg min-h-[80vh]">
+      <div className={`flex-1 pt-20 transition-all duration-300  `}>
+        <main className="p-8 flex flex-col items-start justify-start bg-white/10 backdrop-blur-md border border-white/20 rounded-xl mx-4 my-4 shadow-lg min-h-[80vh]">
           <Componente />
         </main>
       </div>

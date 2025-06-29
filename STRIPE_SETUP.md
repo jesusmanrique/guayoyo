@@ -14,6 +14,26 @@ NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 CLERK_SECRET_KEY=your_clerk_secret_key
 ```
 
+## Variables de Entorno Necesarias
+
+### Stripe
+- `STRIPE_SECRET_KEY`: Tu clave secreta de Stripe
+- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`: Tu clave pública de Stripe
+
+### Supabase
+- `NEXT_PUBLIC_SUPABASE_URL`: URL de tu proyecto Supabase
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Clave anónima de tu proyecto Supabase
+
+### Clerk
+- `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`: Clave pública de Clerk
+- `CLERK_SECRET_KEY`: Clave secreta de Clerk
+
+### Google Analytics
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID`: ID de medición de Google Analytics
+
+### Encriptación
+- `ENCRYPTION_KEY_AES_255_CBC`: Clave de encriptación AES-256-CBC
+
 ## Pasos para Configurar Stripe
 
 1. **Crear cuenta en Stripe**: Ve a [stripe.com](https://stripe.com) y crea una cuenta
@@ -51,4 +71,19 @@ CLERK_SECRET_KEY=your_clerk_secret_key
 
 - `StripeProvider`: Proveedor de contexto para Stripe
 - `StepPago`: Componente de pago con Stripe Elements
-- `create-payment-intent/route.ts`: Endpoint para crear intenciones de pago 
+- `create-payment-intent/route.ts`: Endpoint para crear intenciones de pago
+
+## Configuración en Vercel
+
+1. Ve a tu proyecto en Vercel
+2. Navega a Settings > Environment Variables
+3. Agrega todas las variables de entorno listadas arriba
+4. Asegúrate de que estén configuradas para todos los entornos (Production, Preview, Development)
+
+## Verificación
+
+Para verificar que las variables están configuradas correctamente:
+
+1. En Vercel, ve a Functions > View Function Logs
+2. Busca errores relacionados con variables de entorno no definidas
+3. Verifica que las URLs de Supabase sean correctas y accesibles 
