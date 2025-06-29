@@ -7,7 +7,7 @@ export default async function BlogPage({
   params,
   searchParams,
 }: {
-  params: { [key: string]: string | string[] };
+  params: Promise<{ [key: string]: string | string[] }>;
   searchParams: { page?: string };
 }) {
   const page = parseInt(searchParams.page || "1", 10);
