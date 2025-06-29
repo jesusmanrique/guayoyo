@@ -3,8 +3,11 @@ import Link from "next/link";
 import BlogClient from "./BlogClient";
 
 export default async function BlogPage({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  params, // necesario por convención Next.js aunque no se use
   searchParams,
 }: {
+  params: object;
   searchParams: { page?: string };
 }) {
   const page = parseInt(searchParams.page || "1", 10);
